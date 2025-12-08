@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSRS - Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/contact.css">
+</head>
+<body>
+    <!-- Header avec navbar verte -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../img/FSRS.png" alt="Logo FSRS">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="federation.html">La Fédération</a></li>
+                    <li><a href="disciplines.html">Nos Disciplines</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="ressources.html">Ressources</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Contact -->
+    <section class="contact-section">
+        <div class="section-container">
+            <!-- En-tête -->
+            <div class="page-header">
+                <h1>Contact & Accès</h1>
+                <p>Nous sommes à votre disposition pour toute question, partenariat ou demande d'information.</p>
+            </div>
+
+            <!-- Grid -->
+            <div class="contact-grid">
+                <!-- Colonne gauche: Formulaire -->
+                <div class="form-container">
+                    <h2 class="form-title">Envoyez-nous un message</h2>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nom / Organisation</label>
+                            <input type="text" id="name" name="name" placeholder="Nom / Organisation" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Adresse E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="Adresse E-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Objet de votre message</label>
+                            <input type="text" id="subject" name="subject" placeholder="Objet de votre message" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Votre Message</label>
+                            <textarea id="message" name="message" placeholder="Votre Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enveyer le Message</button>
+                    </form>
+                </div>
+
+                <!-- Colonne droite: Informations + Carte -->
+                <div class="info-container">
+                    <!-- Info Contact -->
+                    <div class="info-card">
+                        <h2>Informations de contact</h2>
+                        
+                        <div class="info-section">
+                            <h3>Siège Fédéral</h3>
+                            <p>
+                                Stade Léopold Sédar Senghor<br>
+                                Bureau 123, Plateau<br>
+                                Dakar, Sénégal
+                            </p>
+                        </div>
+
+                        <div class="info-section">
+                            <h3>Nous joindre</h3>
+                            <p>
+                                <strong>Téléphone:</strong> +221 33 XXX XX XX<br>
+                                <strong>Email:</strong> contact@fsrs.sn
+                            </p>
+                        </div>
+
+                        <div class="info-section">
+                            <h3>Horaires de Bureau</h3>
+                            <p>
+                                Du Lundi au Vendredi<br>
+                                De 9h00 à 17h00 (GMT)
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Carte -->
+                    <div class="map-card">
+                        <h2>Localcation (Siège)</h2>
+                        <div class="map-placeholder"></div>
+                        <a href="https://maps.google.com" target="_blank" class="map-btn">Afficher cur une carte détaillée</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-icon">WApp</a>
+                <a href="#" class="social-icon">Insta</a>
+            </div>
+            <p>&copy; 2024 FSRS. Tous droits réservés. | Mentions Légales</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,12 @@
+fsrs-site/
+│── index.html                # Page d'accueil
+│── federation.html            # Page "La Fédération"
+│── disciplines.html          # Page "Nos Disciplines"
+│── actualites.html           # Page "Actualités & Événements"
+│── ressources.html           # Page "Ressources"
+│── contact.html              # Page "Contact & Accès"
+│── css/
+│   └── style.css             # Fichier CSS principal
+│── js/
+│   └── script.js             # Fichier JavaScript principal
+│── images/                    # Dossier pour les images (bannières, logos, etc.)
