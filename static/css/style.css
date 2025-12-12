@@ -11,6 +11,11 @@
     --tertiary-color: #FFD700;  /* Jaune Or */
     --action-color: #FF0000;   /* Rouge */
     --font-primary: 'Montserrat', sans-serif;
+    --black: #000000;     /* Noir */
+    --white: #fff;     /* Blanc */
+    --yellow: #FCD20E;    /* Jaune */
+
+    --border-radius: 8px;
 }
 
 body {
@@ -433,4 +438,107 @@ footer {
     .page-banner .banner-content h1 {
         font-size: 1.8rem;
     }
+}
+
+/* ====== FOOTER ====== */
+.footer {
+    background: linear-gradient(135deg, rgba(35,37,38,0.95) 0%, rgba(65,67,69,0.95) 100%);
+    color: var(--white);
+    padding: 4rem 0 2rem;
+    backdrop-filter: blur(4px);
+    border-top: 2px solid rgba(252,210,14,0.12);
+    box-shadow: 0 -2px 24px 0 rgba(0,0,0,0.12);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.footer-col h3 {
+    color: var(--yellow);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: var(--yellow);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.social-links a:hover {
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.newsletter-form input {
+  
+}
+.newsletter-form input::placeholder {
+    color: #e0e0e0;
+    opacity: 1;
+}
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.newsletter-form button {
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.legal-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.legal-links a {
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.legal-links a:hover {
+  color: var(--yellow);
 }

@@ -1,0 +1,153 @@
+/* ====== FOOTER ====== */
+.footer {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-col h3 {
+  color: var(--yellow);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: var(--yellow);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.social-links a:hover {
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.newsletter-form button {
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.legal-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.legal-links a {
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.legal-links a:hover {
+  color: var(--yellow);
+}
+
+
+
+
+
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>FSRS</h3>
+                <p>Fédération Sénégalaise de Roller & Skateboard</p>
+                <p>Promouvant les sports de glisse depuis 2010</p>
+                    
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                 </div>
+            </div>
+                
+            <div class="footer-col">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="federation.html">Fédération</a></li>
+                    <li><a href="disciplines.html">Disciplines</a></li>
+                    <li><a href="evenements.html">événements</a></li>
+                    <li><a href="licences.html">Adhésion</a></li>
+                </ul>
+            </div>
+                
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Stade Iba Mar Diop, Dakar</li>
+                    <li><i class="fas fa-phone"></i> +221 33 123 45 67</li>
+                    <li><i class="fas fa-envelope"></i> contact@fsrs.sn</li>
+                </ul>
+            </div>
+                
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Abonnez-vous pour recevoir nos actualités</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email" required>
+                    <button type="submit" class="btn btn-primary">S'abonner</button>
+                </form>
+            </div>
+        </div>
+            
+        <div class="footer-bottom">
+            <p>&copy; 2023 Fédération Sénégalaise de Roller & Skateboard. Tous droits réservés.</p>
+            <div class="legal-links">
+                <a href="mentions-legales.html">Mentions légales</a>
+                <a href="politique-confidentialite.html">Politique de confidentialité</a>
+            </div>
+        </div>
+    </div>
+ </footer>
