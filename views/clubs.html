@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clubs | FSRS</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/clubs.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="../img/FSRS.png" alt="Logo FSRS" width="60" height="60">
+                <div class="logo-text">
+                    <span class="fsrs-title">FSRS</span>
+                    <span>FÃ©dÃ©ration SÃ©nÃ©galaise de Roller & Skateboard</span>
+                </div>
+            </a>
+            
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link active">Accueil</a></li>
+                    <li class="nav-item"><a href="/federation.html" class="nav-link">FÃ©dÃ©ration</a></li>
+                    <li class="nav-item"><a href="/disciplines.html" class="nav-link">Disciplines</a></li>
+                    <li class="nav-item"><a href="/evenements.html" class="nav-link">évÃ©nements</a></li>
+                    <li class="nav-item"><a href="/licences.html" class="nav-link">Licences</a></li>
+                    <li class="nav-item"><a href="/clubs.html" class="nav-link">Clubs</a></li>
+                    <li class="nav-item"><a href="/medias.html" class="nav-link">MÃ©dias</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="adhesion.html" class="btn btn-primary">AdhÃ©rer</a>
+                <a href="contact.html" class="btn btn-secondary">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="page-banner" style="background-image: url('img/clubs-banner.jpg');">
+        <div class="container">
+            <h1>Clubs AffiliÃ©s</h1>
+            <p>Trouvez un club prÃ¨s de chez vous</p>
+        </div>
+    </section>
+
+    <!-- Clubs Map -->
+    <section class="clubs-map">
+        <div class="container">
+            <div class="map-container">
+                <div id="map"></div>
+                <div class="map-controls">
+                    <div class="search-box">
+                        <input type="text" id="map-search" placeholder="Rechercher par rÃ©gion...">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="map-legend">
+                        <div><span class="icon skate"></span> Skateboard</div>
+                        <div><span class="icon roller"></span> Roller</div>
+                        <div><span class="icon mixed"></span> Mixte</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clubs List -->
+    <section class="clubs-list">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tous nos clubs affiliÃ©s</h2>
+                <p>Liste complÃ¨te des clubs membres de la FSRS</p>
+            </div>
+            
+            <div class="clubs-filters">
+                <div class="filter-group">
+                    <label for="region-filter">RÃ©gion :</label>
+                    <select id="region-filter">
+                        <option value="">Toutes les rÃ©gions</option>
+                        <option value="dakar">Dakar</option>
+                        <option value="thies">ThiÃ¨s</option>
+                        <option value="saint-louis">Saint-Louis</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="discipline-filter">Discipline :</label>
+                    <select id="discipline-filter">
+                        <option value="">Toutes disciplines</option>
+                        <option value="inline_freestyle">Inline Freestyle</option>
+                        <option value="skateboard">Skateboard</option>
+                        <option value="roll_ball">Roll Ball</option>
+                        <option value="football_skating">Football Skating</option>
+                        <option value="skate_cross">Skate Cross</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="clubs-grid">
+                <div class="club-card" data-region="dakar" data-discipline="mixed">
+                    <div class="club-image">
+                        <img src="img/club-dakar.jpg" alt="Roller Club Dakar">
+                        <div class="club-badges">
+                            <span class="badge skate">Skate</span>
+                            <span class="badge roller">Roller</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>Roller Club Dakar</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i> Corniche Ouest, Dakar</p>
+                            <p><i class="fas fa-phone"></i> +221 77 123 45 67</p>
+                            <p><i class="fas fa-envelope"></i> contact@rcdakar.sn</p>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir dÃ©tails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">ItinÃ©raire</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ajouter d'autres clubs -->
+            </div>
+            
+            <div class="become-club">
+                <h3>Vous souhaitez affilier votre club ?</h3>
+                <p>Rejoignez le rÃ©seau de la FSRS et bÃ©nÃ©ficiez de nombreux avantages</p>
+                <a href="affiliation.html" class="btn btn-secondary">Demande d'affiliation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (identique) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>FSRS</h3>
+                    <p>FÃ©dÃ©ration SÃ©nÃ©galaise de Roller & Skateboard</p>
+                    <p>Promouvant les sports de glisse depuis 2010</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="federation.html">FÃ©dÃ©ration</a></li>
+                        <li><a href="disciplines.html">Disciplines</a></li>
+                        <li><a href="evenements.html">évÃ©nements</a></li>
+                        <li><a href="licences.html">Adhésion</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Stade Iba Mar Diop, Dakar</li>
+                        <li><i class="fas fa-phone"></i> +221 33 123 45 67</li>
+                        <li><i class="fas fa-envelope"></i> contact@fsrs.sn</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Abonnez-vous pour recevoir nos actualitÃ©s</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre email" required>
+                        <button type="submit" class="btn btn-primary">S'abonner</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 FÃ©dÃ©ration SÃ©nÃ©galaise de Roller & Skateboard. Tous droits rÃ©servÃ©s.</p>
+                <div class="legal-links">
+                    <a href="mentions-legales.html">Mentions lÃ©gales</a>
+                    <a href="politique-confidentialite.html">Politique de confidentialitÃ©</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="js/clubs.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
+
+
