@@ -21,7 +21,7 @@ body {
 header {
     background-color: var(--primary-green);
     padding: 1rem 2rem;
-    position: fixed;
+    position: relative;
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -358,6 +358,7 @@ footer {
         margin-top: 100px;
         height: 40vh;
         min-height: 300px;
+        height: auto;
     }
 
     .hero-disciplines::before {
