@@ -6,15 +6,14 @@
 }
 
 :root {
-    --primary-color: #2E8B57;  /* Vert Émeraude */
-    --secondary-color: #FFFFFF; /* Blanc */
-    --tertiary-color: #FFD700;  /* Jaune Or */
-    --action-color: #FF0000;   /* Rouge */
+    --primary-color: #2E8B57;
+    --secondary-color: #FFFFFF;
+    --tertiary-color: #FFD700;
+    --action-color: #FF0000;
     --font-primary: 'Montserrat', sans-serif;
-    --black: #000000;     /* Noir */
-    --white: #fff;     /* Blanc */
-    --yellow: #FCD20E;    /* Jaune */
-
+    --black: #000000;
+    --white: #fff;
+    --yellow: #FCD20E;
     --border-radius: 8px;
 }
 
@@ -22,6 +21,7 @@ body {
     font-family: var(--font-primary);
     line-height: 1.6;
     color: #333;
+    overflow-x: hidden;
 }
 
 /* En-tête */
@@ -46,11 +46,13 @@ header .container {
 
 header .logo img {
     height: 60px;
+    max-width: 100%;
 }
 
 header nav ul {
     display: flex;
     list-style: none;
+    flex-wrap: wrap;
 }
 
 header nav ul li {
@@ -69,7 +71,8 @@ header nav ul li a.active {
 
 /* Bannière d'accueil */
 .hero {
-    height: 150vh;
+    height: auto;
+    min-height: 60vh;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -79,6 +82,7 @@ header nav ul li a.active {
     color: var(--secondary-color);
     position: relative;
     margin-top: 10px;
+    padding: 2rem;
 }
 
 .hero img {
@@ -97,36 +101,37 @@ header nav ul li a.active {
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 1rem;
     color: var(--tertiary-color);
 }
 
 .hero-content p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
 /* Actualités */
 .actualites {
-    padding: 4rem 0;
+    padding: 4rem 2rem;
     background-color: #f9f9f9;
 }
 
 .actualites .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .actualites h2 {
     text-align: center;
     margin-bottom: 2rem;
     color: var(--primary-color);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .actualites-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -146,6 +151,7 @@ header nav ul li a.active {
 .actualites-grid article h3 {
     padding: 1rem;
     color: var(--primary-color);
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
 }
 
 .actualites-grid article p {
@@ -154,19 +160,20 @@ header nav ul li a.active {
 
 /* Présentation */
 .presentation {
-    padding: 4rem 0;
+    padding: 4rem 2rem;
     text-align: center;
 }
 
 .presentation .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .presentation h2 {
     margin-bottom: 1rem;
     color: var(--primary-color);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .presentation p {
@@ -190,25 +197,26 @@ header nav ul li a.active {
 
 /* Disciplines */
 .disciplines {
-    padding: 4rem 0;
+    padding: 4rem 2rem;
     background-color: var(--secondary-color);
 }
 
 .disciplines .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .disciplines h2 {
     text-align: center;
     margin-bottom: 2rem;
     color: var(--primary-color);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .disciplines-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -231,216 +239,7 @@ header nav ul li a.active {
     text-align: center;
 }
 
-/* Pied de page */
-footer {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 2rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        padding: 1rem;
-    }
-
-    header nav ul {
-        margin-top: 1rem;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header nav ul li {
-        margin: 0.5rem 0;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-}
-
-/* Bannière spécifique aux pages internes */
-.page-banner {
-    height: 60vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--secondary-color);
-    position: relative;
-    margin-top: 80px;
-}
-
-.page-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-.page-banner .banner-content {
-    max-width: 800px;
-    padding: 0 2rem;
-}
-
-.page-banner .banner-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--tertiary-color);
-}
-
-/* Section Historique */
-.historique {
-    padding: 4rem 0;
-    background-color: var(--secondary-color);
-}
-
-.historique .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.historique h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--primary-color);
-}
-
-.historique-content {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.historique-text {
-    flex: 1;
-}
-
-.historique-text p {
-    margin-bottom: 1rem;
-    text-align: justify;
-}
-
-.historique-image {
-    flex: 1;
-}
-
-.historique-image img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Section Organisation */
-.organisation {
-    padding: 4rem 0;
-    background-color: #f9f9f9;
-}
-
-.organisation .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.organisation h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--primary-color);
-}
-
-.organisation-content {
-    display: flex;
-    gap: 2rem;
-}
-
-.organigramme, .statuts {
-    flex: 1;
-    background-color: var(--secondary-color);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.organigramme h3, .statuts h3 {
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.organigramme img {
-    width: 100%;
-    margin-top: 1rem;
-    border-radius: 5px;
-}
-
-/* Section Partenaires */
-.partenaires {
-    padding: 4rem 0;
-    background-color: var(--secondary-color);
-}
-
-.partenaires .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.partenaires h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.partenaires .intro {
-    text-align: center;
-    margin-bottom: 2rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.partenaires-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    align-items: center;
-}
-
-.partenaire {
-    background-color: var(--secondary-color);
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.partenaire img {
-    width: 100%;
-    max-width: 150px;
-    height: auto;
-}
-
-/* Responsive pour la page "La Fédération" */
-@media (max-width: 768px) {
-    .historique-content, .organisation-content {
-        flex-direction: column;
-    }
-
-    .page-banner .banner-content h1 {
-        font-size: 1.8rem;
-    }
-}
-
-/* ====== FOOTER PROFESSIONNEL ====== */
+/* Footer professionnel */
 .footer {
     background: linear-gradient(135deg, #1a3a2f 0%, #2E8B57 100%);
     color: var(--white);
@@ -459,20 +258,19 @@ footer {
 }
 
 .footer-main {
-    padding: 4rem 0 3rem;
+    padding: 4rem 2rem 3rem;
     position: relative;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.3fr;
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
     margin-bottom: 2rem;
 }
 
-/* Logo et description */
 .footer-about {
-    padding-right: 2rem;
+    padding-right: 0;
 }
 
 .footer-logo {
@@ -510,7 +308,6 @@ footer {
     font-size: 0.95rem;
 }
 
-/* Badges de certification */
 .footer-certifications {
     display: flex;
     gap: 0.8rem;
@@ -536,7 +333,6 @@ footer {
     transform: translateY(-2px);
 }
 
-/* Liens du footer */
 .footer-links {
     list-style: none;
     padding: 0;
@@ -576,7 +372,6 @@ footer {
     left: 0;
 }
 
-/* Contact */
 .footer-contact {
     list-style: none;
     padding: 0;
@@ -598,7 +393,6 @@ footer {
     color: var(--tertiary-color);
 }
 
-/* Newsletter */
 .footer-newsletter p {
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 1rem;
@@ -654,11 +448,11 @@ footer {
     box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
 }
 
-/* Réseaux sociaux */
 .social-links {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
 .social-icon {
@@ -687,10 +481,9 @@ footer {
     transform: translateY(-3px);
 }
 
-/* Barre du bas */
 .footer-bottom {
     background: rgba(0, 0, 0, 0.2);
-    padding: 1.8rem 0;
+    padding: 1.8rem 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -731,105 +524,188 @@ footer {
     font-size: 0.8rem;
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
-    .footer-grid {
-        grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
-        gap: 2.5rem;
-    }
-    
-    .footer-col:nth-child(3) {
-        grid-column: 1 / 2;
-    }
-    
-    .footer-newsletter {
-        grid-column: 2 / 5;
-    }
-}
+/* ===== RESPONSIVE BREAKPOINTS ===== */
 
+/* Tablets et petits écrans (max-width: 968px) */
 @media (max-width: 968px) {
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
-    
-    .footer-about {
-        grid-column: 1 / 3;
-        padding-right: 0;
-        text-align: center;
-    }
-    
-    .footer-about .footer-logo {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .footer-about h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .footer-certifications {
-        justify-content: center;
-    }
-    
-    .footer-newsletter {
-        grid-column: 1 / 3;
-    }
-    
-    .footer-bottom-content {
+    header .container {
         flex-direction: column;
-        text-align: center;
+        padding: 1rem;
+        gap: 1rem;
     }
-    
-    .legal-links {
-        justify-content: center;
-    }
-}
 
-@media (max-width: 576px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    header nav ul li {
+        margin: 0.5rem 0;
+        margin-left: 0;
+    }
+
+    .hero {
+        min-height: 50vh;
+        height: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .actualites-grid,
+    .disciplines-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
-    .footer-about,
-    .footer-newsletter {
-        grid-column: 1;
-    }
-    
-    .footer-main {
-        padding: 3rem 0 2rem;
-    }
-    
-    .footer-col h3 {
+
+    .footer-about {
         text-align: center;
     }
-    
+
+    .footer-about .footer-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .footer-col h3::after {
         left: 50%;
         transform: translateX(-50%);
     }
-    
+
+    .footer-certifications {
+        justify-content: center;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .legal-links {
+        justify-content: center;
+    }
+}
+
+/* Smartphones (max-width: 576px) */
+@media (max-width: 576px) {
+    header .logo img {
+        height: 50px;
+    }
+
+    .hero {
+        padding: 1rem;
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .actualites,
+    .presentation,
+    .disciplines {
+        padding: 2rem 1rem;
+    }
+
+    .actualites h2,
+    .presentation h2,
+    .disciplines h2 {
+        font-size: 1.5rem;
+    }
+
+    .actualites-grid,
+    .disciplines-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .footer-main {
+        padding: 2rem 1rem;
+    }
+
+    .footer-grid {
+        gap: 1.5rem;
+    }
+
+    .footer-col h3 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
     .footer-links,
     .footer-contact {
         text-align: center;
     }
-    
+
     .footer-contact li {
         justify-content: center;
     }
-    
+
     .social-links {
         justify-content: center;
     }
-    
+
+    .newsletter-form input,
+    .btn-newsletter {
+        font-size: 0.85rem;
+    }
+
     .legal-links {
         flex-direction: column;
         gap: 0.5rem;
     }
-    
+
     .legal-links .separator {
         display: none;
+    }
+
+    .footer-bottom {
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Très petits écrans (max-width: 360px) */
+@media (max-width: 360px) {
+    header .logo img {
+        height: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.3rem;
+    }
+
+    .actualites h2,
+    .presentation h2,
+    .disciplines h2 {
+        font-size: 1.3rem;
+    }
+
+    .social-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .social-icon svg {
+        width: 16px;
+        height: 16px;
     }
 }
