@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FSRS - Fédération Sénégalaise de Roller Skateboard</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/animations.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/animations.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,16 +13,22 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="../img/FSRS.png" alt="Logo FSRS">
+                <img src="img/Banière FSRS.jpg" alt="Logo FSRS">
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">Accueil</a></li>
-                    <li><a href="federation.html">La Fédération</a></li>
-                    <li><a href="disciplines.html">Nos Disciplines</a></li>
-                    <li><a href="actualites.html">Actualités</a></li>
-                    <li><a href="ressources.html">Ressources</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <a href="../index.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li><a href="views/federation.html">La Fédération</a></li>
+                    <li><a href="views/disciplines.html">Nos Disciplines</a></li>
+                    <li><a href="views/actualites.html">Actualités</a></li>
+                    <li><a href="views/ressources.html">Ressources</a></li>
+                    <li><a href="views/contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,7 +36,7 @@
 
     <!-- Bannière d'accueil -->
     <section class="hero">
-        <img src="../img/banner-acceuil.jpg" alt="Bannière FSRS - Roller Skateboard : L'Élan du Sénégal">
+        <img src="img/banner-acceuil.jpg" alt="Bannière FSRS - Roller Skateboard : L'Élan du Sénégal">
         <div class="hero-content">
             <h1>Roller Skateboard : L'Élan du Sénégal</h1>
             <p>Découvrez les disciplines, les athlètes et les événements de la FSRS.</p>
@@ -43,17 +49,17 @@
             <h2>Actualités Récentes</h2>
             <div class="actualites-grid">
                 <article>
-                    <img src="../img/compe.jpg" alt="Actualité 1">
+                    <img src="img/compe.jpg" alt="Actualité 1">
                     <h3>7th Roll Ball World Skate</h3>
                     <p>Découvrez la 7th compétition international de Roll Ball.</p>
                 </article>
                 <article>
-                    <img src="../img/dame.jpeg" alt="Actualité 2">
+                    <img src="img/dame.jpeg" alt="Actualité 2">
                     <h3>Réussite</h3>
                     <p>Dame FALL une cinquième couronne mondiale</p>
                 </article>
                 <article>
-                    <img src="../img/forma.jpg" alt="Actualité 3">
+                    <img src="img/forma.jpg" alt="Actualité 3">
                     <h3>Formation des Entraîneurs</h3>
                     <p>Une session de formation pour les entraîneurs aura lieu en décembre.</p>
                 </article>
@@ -76,15 +82,15 @@
             <h2>Nos Disciplines</h2>
             <div class="disciplines-grid">
                 <div class="discipline">
-                    <img src="../img/roolfree.png" alt="Roller Freestyle">
+                    <img src="img/roolfree.png" alt="Roller Freestyle">
                     <h3>Roller Freestyle</h3>
                 </div>
                 <div class="discipline">
-                    <img src="../img/skateb.jpg" alt="Skateboard Street">
+                    <img src="img/skateb.jpg" alt="Skateboard Street">
                     <h3>Skateboard Street</h3>
                 </div>
                 <div class="discipline">
-                    <img src="../img/foot.png" alt="Roller Derby">
+                    <img src="img/foot.png" alt="Roller Derby">
                     <h3>FootBall Skating</h3>
                 </div>
             </div>
@@ -98,7 +104,7 @@
                 <div class="footer-grid">
                     <!-- Colonne 1: À propos -->
                     <div class="footer-col footer-about">
-                        <img src="../img/FSRS.png" alt="Logo FSRS" class="footer-logo">
+                        <img src="img/FSRS.png" alt="Logo FSRS" class="footer-logo">
                         <h3>FSRS</h3>
                         <p class="footer-description">
                             Fédération Sénégalaise de Roller & Skateboard - 
@@ -114,7 +120,13 @@
                     <div class="footer-col">
                         <h3>Navigation</h3>
                         <ul class="footer-links">
-                            <li><a href="index.html">Accueil</a></li>
+                            <li>
+                                <a href="../index.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                                    </svg>
+                                </a>
+                            </li>
                             <li><a href="federation.html">La Fédération</a></li>
                             <li><a href="disciplines.html">Nos Disciplines</a></li>
                             <li><a href="actualites.html">Actualités</a></li>
@@ -213,6 +225,6 @@
         </div>
     </footer>
 
-    <script src="../static/js/animations.js"></script>
+    <script src="static/js/animations.js"></script>
 </body>
 </html>

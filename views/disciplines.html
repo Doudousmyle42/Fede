@@ -8,17 +8,24 @@
     <link rel="stylesheet" href="../static/css/discipline.css">
     <link rel="stylesheet" href="../static/css/animations.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <!-- Header avec navbar verte -->
     <header>
         <div class="nav-container">
             <div class="logo">
-                <img src="../img/FSRS.png" alt="Logo FSRS">
+                <img src="../img/Banière FSRS.jpg" alt="Logo FSRS">
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Accueil</a></li>
+                    <li>
+                        <a href="../index.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </a>
+                    </li>
                     <li><a href="federation.html">La Fédération</a></li>
                     <li><a href="disciplines.html" class="active">Nos Disciplines</a></li>
                     <li><a href="actualites.html">Actualités</a></li>
@@ -31,7 +38,7 @@
 
     <!-- Hero Section avec image de fond -->
     <section class="hero-disciplines">
-        <img src="../img/disci.jpg" alt="Logo FSRS">
+        <img src="../img/disci.jpg" alt="Disciplines FSRS">
     </section>
 
     <!-- Section des disciplines avec fond vert foncé -->
@@ -39,54 +46,100 @@
         <div class="section-container">
             <!-- En-tête de section -->
             <div class="section-header">
-                <h1>ROLLENTRS DE SECTION.</h1>
-                <p>Lour reliers le à lercerelre de cecleresion</p>
+                <h1>NOS DISCIPLINES SPORTIVES</h1>
+                <p>Découvrez les différentes pratiques de roller et skateboard reconnues par la FSRS</p>
             </div>
 
-            <!-- Grid des disciplines (4 images) -->
+            <!-- Grid des disciplines avec images et descriptions -->
             <div class="disciplines-grid">
+                <!-- Discipline 1: Inline Freestyle -->
                 <div class="discipline-card">
-                    <img src="../img/doudou.jpg" alt="Skateboard Wave">
-                </div>
-                <div class="discipline-card">
-                    <img src="../img/doudou.jpg" alt="Skateboard Street">
-                </div>
-                <div class="discipline-card">
-                    <img src="../img/doudou.jpg" alt="Skateboard Action">
-                </div>
-                <div class="discipline-card">
-                    <img src="../img/doudou.jpg" alt="Skateboard Air">
-                </div>
-            </div>
-
-            <!-- Informations des disciplines -->
-            <div class="disciplines-info">
-                <div class="discipline-info-card">
-                    <div class="price">$573</div>
-                    <h3>Skateboard Street</h3>
-                    <p class="subtitle">Location class facus</p>
-                    <p>Est termeates les essuest Les desserts desserts discipline. Dispositivurs does dans encuettes de à tres takes l'identité Sedan Nors. Est Ecola totus leur cet tessus leur testament.</p>
+                    <div class="discipline-image">
+                        <img src="../img/roolfree.png" alt="Inline Freestyle">
+                        <span class="discipline-badge">ARTISTIQUE</span>
+                        <div class="discipline-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="discipline-content">
+                        <h3>Inline Freestyle</h3>
+                        <span class="subtitle">Discipline artistique et technique</span>
+                        <p>Le roller freestyle combine figures techniques, chorégraphies et créativité. Cette discipline met l'accent sur la maîtrise des mouvements, l'équilibre et l'expression artistique. Les compétiteurs réalisent des enchaînements de figures sur musique, alliant style et technicité.</p>
+                    </div>
                 </div>
 
-                <div class="discipline-info-card">
-                    <div class="price">$775</div>
-                    <h3>Conmertaculus</h3>
-                    <p class="subtitle">Location class facus</p>
-                    <p>Les interea les class nous essuets desserts Lorem ipsum spontans. Fret elamensens leur dessins Libera poer tessert schismatis et ter k lasuetes / Glorissons Et Libella Libra encoche no manure leur multiple</p>
+                <!-- Discipline 2: Skateboard -->
+                <div class="discipline-card">
+                    <div class="discipline-image">
+                        <img src="../img/skateb.jpg" alt="Skateboard">
+                        <span class="discipline-badge">URBAIN</span>
+                        <div class="discipline-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="discipline-content">
+                        <h3>Skateboard</h3>
+                        <span class="subtitle">Pratique urbaine et créative</span>
+                        <p>Le skateboard utilise les éléments urbains comme terrain de jeu : marches, rampes, rails. Cette discipline valorise la créativité, le style personnel et l'adaptation à l'environnement. Les riders enchaînent tricks et figures en utilisant l'architecture de la ville.</p>
+                    </div>
                 </div>
 
-                <div class="discipline-info-card">
-                    <div class="price">$F700</div>
-                    <h3>Lux eduates</h3>
-                    <p class="subtitle">Location class facus</p>
-                    <p>Les does esse est Locus dessertus leur la deux etresse l'andrise. Eine tessarsent ders Sans-bleges Schema esse un ls no esser itemmets. Glorisetans, Ecola terme Locus accers un no remones Dort vielles.</p>
+                <!-- Discipline 3: Roll Ball -->
+                <div class="discipline-card">
+                    <div class="discipline-image">
+                        <img src="../img/LOGO ROLL BALL 2.png" alt="Roll Ball">
+                        <span class="discipline-badge">COLLECTIF</span>
+                        <div class="discipline-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="discipline-content">
+                        <h3>Roll Ball</h3>
+                        <span class="subtitle">Sport d'équipe dynamique</span>
+                        <p>Le roll ball est un sport collectif pratiqué en roller qui combine vitesse, stratégie et esprit d'équipe. Les équipes s'affrontent sur un terrain spécifique avec pour objectif de marquer des buts. Cette discipline développe la cohésion et les réflexes rapides.</p>
+                    </div>
                 </div>
                 
-                <div class="discipline-info-card">
-                    <div class="price">$F700</div>
-                    <h3>Lux eduates</h3>
-                    <p class="subtitle">Location class facus</p>
-                    <p>Les does esse est Locus dessertus leur la deux etresse l'andrise. Eine tessarsent ders Sans-bleges Schema esse un ls no esser itemmets. Glorisetans, Ecola terme Locus accers un no remones Dort vielles.</p>
+                <!-- Discipline 4: Football Skating -->
+                <div class="discipline-card">
+                    <div class="discipline-image">
+                        <img src="../img/foot.png" alt="Football Skating">
+                        <span class="discipline-badge">HYBRIDE</span>
+                        <div class="discipline-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="discipline-content">
+                        <h3>Football Skating</h3>
+                        <span class="subtitle">Fusion football et patins</span>
+                        <p>Le football skating allie les règles du football à la glisse en roller. Les joueurs évoluent sur patins et doivent contrôler un ballon tout en maintenant leur équilibre. Cette discipline unique demande coordination, maîtrise technique et sens du jeu collectif.</p>
+                    </div>
+                </div>
+
+                <!-- Discipline 5: Skate Cross -->
+                <div class="discipline-card">
+                    <div class="discipline-image">
+                        <img src="../img/doudou.jpg" alt="Skate Cross">
+                        <span class="discipline-badge">VITESSE</span>
+                        <div class="discipline-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="discipline-content">
+                        <h3>Skate Cross</h3>
+                        <span class="subtitle">Course de vitesse et obstacles</span>
+                        <p>Le skate cross est une discipline de course spectaculaire où plusieurs riders s'affrontent simultanément sur un parcours avec virages relevés et obstacles. Cette discipline combine vitesse pure, stratégie de course et gestion des dépassements dans un format dynamique et intense.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,7 +152,7 @@
                 <div class="footer-grid">
                     <!-- Colonne 1: À propos -->
                     <div class="footer-col footer-about">
-                        <img src="../img/FSRS.png" alt="Logo FSRS" class="footer-logo">
+                        <img src="../img/Banière FSRS.jpg" alt="Logo FSRS" class="footer-logo">
                         <h3>FSRS</h3>
                         <p class="footer-description">
                             Fédération Sénégalaise de Roller & Skateboard - 
