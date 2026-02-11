@@ -710,3 +710,35 @@ header nav ul li a.active {
         height: 16px;
     }
 }
+
+/* Slider des Partenaires */
+.partners-slider {
+    padding: 2rem 0;
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.partners-slider h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide {
+    min-width: 200px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide img {
+    width: 200px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
