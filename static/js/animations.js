@@ -1,4 +1,4 @@
-// Script professionnel pour animations et interactions
+// Script professionnel pour animations et interactions - VERSION CORRIGÉE
 document.addEventListener("DOMContentLoaded", function() {
     
     // ===== HEADER SCROLL EFFECT =====
@@ -223,21 +223,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
     
-    // ===== COMPTEUR ANIMÉ (si présent) =====
-    const animateCounter = (element, target, duration = 2000) => {
-        let start = 0;
-        const increment = target / (duration / 16);
-        const timer = setInterval(() => {
-            start += increment;
-            if (start >= target) {
-                element.textContent = target;
-                clearInterval(timer);
-            } else {
-                element.textContent = Math.floor(start);
-            }
-        }, 16);
-    };
-    
     // ===== LAZY LOADING POUR LES IMAGES =====
     const lazyImages = document.querySelectorAll("img[data-src]");
     const imageObserver = new IntersectionObserver((entries) => {
@@ -252,46 +237,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     lazyImages.forEach(img => imageObserver.observe(img));
-    
-    // ===== EFFET CURSOR CUSTOM (optionnel, professionnel) =====
-    const createCustomCursor = () => {
-        const cursor = document.createElement("div");
-        cursor.style.cssText = `
-            width: 20px;
-            height: 20px;
-            border: 2px solid #FFD700;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.15s ease;
-            display: none;
-        `;
-        document.body.appendChild(cursor);
-        
-        document.addEventListener("mousemove", (e) => {
-            cursor.style.display = "block";
-            cursor.style.left = e.clientX - 10 + "px";
-            cursor.style.top = e.clientY - 10 + "px";
-        });
-        
-        document.querySelectorAll("a, button, .btn, .btn-hero, .btn-lire").forEach(el => {
-            el.addEventListener("mouseenter", () => {
-                cursor.style.transform = "scale(1.5)";
-                cursor.style.backgroundColor = "rgba(255, 215, 0, 0.2)";
-            });
-            
-            el.addEventListener("mouseleave", () => {
-                cursor.style.transform = "scale(1)";
-                cursor.style.backgroundColor = "transparent";
-            });
-        });
-    };
-    
-    // Activer le curseur custom uniquement sur desktop
-    if (window.innerWidth > 968) {
-        // createCustomCursor(); // Décommenter si souhaité
-    }
     
     // ===== PRÉCHARGEMENT DES IMAGES =====
     const preloadImages = () => {
@@ -317,24 +262,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 250);
     });
     
-    console.log("✓ Animations FSRS chargées avec succès - Prêt pour présentation gouvernementale");
+    console.log("✓ Animations FSRS chargées avec succès - Version corrigée");
 });
-
-
-        // Script pour le slider
-        const slides = document.querySelectorAll('.slide');
-        let currentIndex = 0;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.style.display = i === index ? 'block' : 'none';
-            });
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
-        }
-
-        setInterval(nextSlide, 3000); // Change slide every 3 seconds
-        showSlide(currentIndex);
