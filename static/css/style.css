@@ -277,7 +277,8 @@ header nav ul li a.active {
     height: 60px;
     width: auto;
     margin-bottom: 1rem;
-    filter: brightness(0) invert(1);
+    /*filter: brightness(0) invert(1);µ
+    background-image: url('../img/Banière FSRS.jpg');*/
 }
 
 .footer-col h3 {
