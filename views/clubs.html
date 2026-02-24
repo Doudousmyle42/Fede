@@ -3,59 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clubs | FSRS</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/clubs.css">
+    <title>Clubs Affiliés | FSRS</title>
+    <!-- CSS Paths Adjusted -->
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/clubs.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <!-- En-tête -->
+    <header>
         <div class="container">
-            <a href="index.html" class="logo">
-                <img src="../img/Banière FSRS.jpg" alt="Logo FSRS" width="60" height="60">
+            <a href="../index.html" class="logo">
+                <img src="../img/Banière FSRS.jpg" alt="Logo FSRS">
                 <div class="logo-text">
                     <span class="fsrs-title">FSRS</span>
                     <span>Fédération Sénégalaise de Roller & Skateboard</span>
                 </div>
             </a>
             
-            <nav class="navbar">
-                <ul class="nav-menu">
-                            <li>
-                                <a href="../index.html">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                                    </svg>
-                                </a>
-                            </li>
-                    <li class="nav-item"><a href="federation.html" class="nav-link">Fédération</a></li>
-                    <li class="nav-item"><a href="disciplines.html" class="nav-link">Disciplines</a></li>
-                    <li class="nav-item"><a href="evenements.html" class="nav-link">événements</a></li>
-                    <li class="nav-item"><a href="licences.html" class="nav-link">Licences</a></li>
-                    <li class="nav-item"><a href="clubs.html" class="nav-link">Clubs</a></li>
-                    <li class="nav-item"><a href="medias.html" class="nav-link">Médias</a></li>
+            <nav>
+                <ul>
+                    <li><a href="../index.html"><i class="fas fa-home"></i></a></li>
+                    <li><a href="federation.html">Fédération</a></li>
+                    <li><a href="disciplines.html">Disciplines</a></li>
+                    <li><a href="actualites.html">Compétitions</a></li>
+                    <li><a href="ressources.html">Ressources</a></li>
+                    <li><a href="clubs.html" class="active">Clubs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
-                
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
             </nav>
             
-            <div class="header-actions">
-                <a href="adhesion.html" class="btn btn-primary">Adhérer</a>
-                <a href="contact.html" class="btn btn-secondary">Contact</a>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
     </header>
 
     <!-- Banner -->
-    <section class="page-banner" style="background-image: url('img/clubs-banner.jpg');">
+    <section class="page-banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../img/banner-acceuil.jpg');">
         <div class="container">
             <h1>Clubs Affiliés</h1>
-            <p>Trouvez un club prÃ¨s de chez vous</p>
+            <p>Trouvez un club ou une association près de chez vous au Sénégal</p>
         </div>
     </section>
 
@@ -66,13 +61,14 @@
                 <div id="map"></div>
                 <div class="map-controls">
                     <div class="search-box">
-                        <input type="text" id="map-search" placeholder="Rechercher par région...">
+                        <input type="text" id="map-search" placeholder="Rechercher une ville, une région...">
                         <button id="search-btn"><i class="fas fa-search"></i></button>
                     </div>
                     <div class="map-legend">
+                        <h4>Disponibilité</h4>
                         <div><span class="icon skate"></span> Skateboard</div>
                         <div><span class="icon roller"></span> Roller</div>
-                        <div><span class="icon mixed"></span> Mixte</div>
+                        <div><span class="icon mixed"></span> Mixte (Both)</div>
                     </div>
                 </div>
             </div>
@@ -84,22 +80,23 @@
         <div class="container">
             <div class="section-title">
                 <h2>Tous nos clubs affiliés</h2>
-                <p>Liste complÃ¨te des clubs membres de la FSRS</p>
+                <p>Rejoignez la communauté grandissante du roller et du skate au Sénégal.</p>
             </div>
             
             <div class="clubs-filters">
                 <div class="filter-group">
-                    <label for="region-filter">Région :</label>
+                    <label for="region-filter"><i class="fas fa-map"></i> Région</label>
                     <select id="region-filter">
                         <option value="">Toutes les régions</option>
                         <option value="dakar">Dakar</option>
-                        <option value="thies">ThiÃ¨s</option>
+                        <option value="thies">Thiès</option>
                         <option value="saint-louis">Saint-Louis</option>
+                        <option value="mbour">Mbour</option>
                     </select>
                 </div>
                 
                 <div class="filter-group">
-                    <label for="discipline-filter">Discipline :</label>
+                    <label for="discipline-filter"><i class="fas fa-skating"></i> Discipline</label>
                     <select id="discipline-filter">
                         <option value="">Toutes disciplines</option>
                         <option value="inline_freestyle">Inline Freestyle</option>
@@ -107,25 +104,28 @@
                         <option value="roll_ball">Roll Ball</option>
                         <option value="football_skating">Football Skating</option>
                         <option value="skate_cross">Skate Cross</option>
+                        <option value="roller_futons">Roller Futons</option>
+                        <option value="roller_futins">Roller FUTINS</option>
+                        <option value="roller_course">Roller Course</option>
                     </select>
                 </div>
             </div>
             
             <div class="clubs-grid">
-                <div class="club-card" data-region="dakar" data-discipline="mixed">
+                <!--maestro roller -->
+                <div class="club-card" data-region="dakar" data-discipline="roller">
                     <div class="club-image">
-                        <img src="img/club-dakar.jpg" alt="Roller Club Dakar">
+                        <img src="../img/clublogo/masro.png" alt="Sénégal Roller Freestyle">
                         <div class="club-badges">
-                            <span class="badge skate">Skate</span>
                             <span class="badge roller">Roller</span>
                         </div>
                     </div>
                     <div class="club-info">
-                        <h3>Roller Club Dakar</h3>
+                        <h3>Sénégal Roller Freestyle</h3>
                         <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i> Corniche Ouest, Dakar</p>
-                            <p><i class="fas fa-phone"></i> +221 77 123 45 67</p>
-                            <p><i class="fas fa-envelope"></i> contact@rcdakar.sn</p>
+                            <p><i class="fas fa-map-marker-alt"></i> zone B, Dakar</p>
+                            <p><i class="fas fa-phone"></i> +221 76 543 21 09</p>
+                            <p><i class="fas fa-envelope"></i> freestyle@fsrs.sn</p>
                         </div>
                         <div class="club-actions">
                             <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
@@ -133,85 +133,330 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Ajouter d'autres clubs -->
+                <!--afro afro dance roller -->
+                <div>       
+                    <div class="club-card" data-region="dakar" data-discipline="roller">
+                    <div class="club-image">
+                        <img src="../img/afrodance.jpeg" alt="Sénégal Roller Freestyle">
+                        <div class="club-badges">
+                            <span class="badge roller">Roller</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>afro dance roller</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i>gueule taper rue 66 en 65</p>
+                            <p><i class="fas fa-phone"></i> +221 76 543 21 09</p>
+                            <p><i class="fas fa-envelope"></i>afrodanceroller@gmail.com</p>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!--Hard Riders-->
+                <div>
+                    <div class="club-card" data-region="dakar" data-discipline="roller">
+                    <div class="club-image">
+                        <img src="../img/hardraide.jpeg" alt="Sénégal Roller Freestyle">
+                        <div class="club-badges">
+                            <span class="badge roller">hard riders</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>Hard Riders</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i>Mbour</p>
+                            <p><i class="fas fa-phone"></i>+221 776997197</p>
+                            <p><i class="fas fa-envelope"></i>:Papy10.loup@gmail.com</p>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!--NEWSTYLE ROLLER-->
+                <div>
+                    <div class="club-card" data-region="dakar" data-discipline="roller">
+                    <div class="club-image">
+                        <img src="../img/newstyle.jpeg" alt="Sénégal Roller Freestyle">
+                        <div class="club-badges">
+                            <span class="badge roller">newstyle roller</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>newstyle roller</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i>Medina Fall, Thies</p>
+                            <p><i class="fas fa-phone"></i>+221 76 814 09 15</p>
+                            <p><i class="fas fa-envelope"></i>:rollernewstyle@gmail.com</p>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!--MINDISS ROLLER-->
+                <div>
+                    <div class="club-card" data-region="dakar" data-discipline="roller">
+                    <div class="club-image">
+                        <img src="../img/roller dakar.jpeg" alt="Sénégal Roller Freestyle">
+                        <div class="club-badges">
+                            <span class="badge roller">MINDISS ROLLER</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>MINDISS ROLLER</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i>Peulgha Nord</p>
+                            <p><i class="fas fa-phone"></i>+221 77 340 24 03</p>
+                            <p><i class="fas fa-envelope"></i>diattaryder@gmail.com</p>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!--génération skate-->
+                <div>
+                    <div class="club-card" data-region="dakar" data-discipline="roller">
+                    <div class="club-image">
+                        <img src="../img/generation skate.jpeg" alt="Sénégal Roller Freestyle">
+                        <div class="club-badges">
+                            <span class="badge roller">génération skate</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>génération skate</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i>medina,dakar</p>
+                            <p><i class="fas fa-phone"></i>78 460 14 14</p>
+                            <p><i class="fas fa-envelope"></i>Syllaablaye58@gmail.com</p>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!--rollball-->
+                <div>
+                    <div class="club-card" data-region="dakar" data-discipline="roller">
+                    <div class="club-image">
+                        <img src="../img/roller dakar.jpeg" alt="Sénégal Roller Freestyle">
+                        <div class="club-badges">
+                            <span class="badge roller">rollball</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>rollball</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i>amitié 2,dakar</p>
+                            <p><i class="fas fa-phone"></i>777639495</p>
+                            <p><i class="fas fa-envelope"></i>rollball@gmail.com</p>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!--Dak’s’street roller -->
+                <div>
+                    <div class="club-card" data-region="dakar" data-discipline="roller">
+                    <div class="club-image">
+                        <img src="../img/dakstreet.png" alt="Sénégal Roller Freestyle">
+                        <div class="club-badges">
+                            <span class="badge roller">Dak’s’street roller </span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>Dak’s’street roller</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i>fass delorme,dakar</p>
+                            <p><i class="fas fa-phone"></i>775516187</p>
+                            <p><i class="fas fa-envelope"></i>yorosadio@gmail.com</p>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!--Maestro roller-->
+                    <div>
+                        <div class="club-card" data-region="dakar" data-discipline="roller">
+                    <div class="club-image">
+                        <img src="../img/maestro.jpeg" alt="Sénégal Roller Freestyle">
+                        <div class="club-badges">
+                            <span class="badge roller">Maestro roller</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>Maestro roller</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i>zone b,dakar</p>
+                            <p><i class="fas fa-phone"></i>776483435</p>
+                            <p><i class="fas fa-envelope"></i>hawanarfall@gmail.com</p>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!--King Roller -->
+                <div>
+                    <div class="club-card" data-region="dakar" data-discipline="roller">
+                    <div class="club-image">
+                        <img src="../img/king roller.jpeg" alt="Sénégal Roller Freestyle">
+                        <div class="club-badges">
+                            <span class="badge roller">King Roller</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>King Roller</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i>Diourbel,dakar</p>
+                            <p><i class="fas fa-phone"></i>77 686 75 69</p>
+                            <p><i class="fas fa-envelope"></i>Diopbamba139@gmail</p>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!--Oriental Roller-->
+                <div>
+                    <div class="club-card" data-region="dakar" data-discipline="roller">
+                    <div class="club-image">
+                        <img src="../img/oriental .jpeg" alt="Sénégal Roller Freestyle">
+                        <div class="club-badges">
+                            <span class="badge roller">Oriental Roller</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>Oriental Roller</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i>Tambacounda,dakar</p>
+                            <p><i class="fas fa-phone"></i>+221 778817575</p>
+                            <p><i class="fas fa-envelope"></i>mouhadanf@gmail.com</p>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!--Sokone Roller-->
+                <div>
+                    <div class="club-card" data-region="dakar" data-discipline="roller">
+                    <div class="club-image">
+                        <img src="../img/roller dakar.jpeg" alt="Sénégal Roller Freestyle">
+                        <div class="club-badges">
+                            <span class="badge roller">Sokone Roller</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>Sokone Roller</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i>sokone,dakar</p>
+                            <p><i class="fas fa-phone"></i>778701770</p>
+                            <p><i class="fas fa-envelope"></i>[EMAIL_ADDRESS]</p>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
             
             <div class="become-club">
                 <h3>Vous souhaitez affilier votre club ?</h3>
-                <p>Rejoignez le réseau de la FSRS et bénéficiez de nombreux avantages</p>
-                <a href="affiliation.html" class="btn btn-secondary">Demande d'affiliation</a>
+                <p>Bénéficiez du soutien de la Fédération, participez aux compétitions nationales et accédez aux formations certifiées pour vos entraîneurs.</p>
+                <a href="affiliation.html" class="btn btn-secondary">Demander une affiliation</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer (identique) -->
+    <!-- Pied de page -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>FSRS</h3>
-                    <p>Fédération Sénégalaise de Roller & Skateboard</p>
-                    <p>Promouvant les sports de glisse depuis 2010</p>
-                    
+                    <p class="footer-description">Fédération Sénégalaise de Roller & Skateboard. Promouvant l'excellence et les sports de glisse au Sénégal depuis 2010.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-col">
                     <h3>Navigation</h3>
-                    <ul>
-                         <li>
-                            <a href="../index.html">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                                </svg>
-                            </a>
-                        </li>
-                        <li><a href="federation.html">Fédération</a></li>
-                        <li><a href="disciplines.html">Disciplines</a></li>
-                        <li><a href="evenements.html">Événements</a></li>
-                        <li><a href="licences.html">Adhésion</a></li>
+                    <ul class="footer-links">
+                        <li><a href="../index.html"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                        <li><a href="federation.html"><i class="fas fa-chevron-right"></i> La Fédération</a></li>
+                        <li><a href="disciplines.html"><i class="fas fa-chevron-right"></i> Disciplines</a></li>
+                        <li><a href="actualites.html"><i class="fas fa-chevron-right"></i> Événements</a></li>
+                        <li><a href="ressources.html"><i class="fas fa-chevron-right"></i> Ressources</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
                     <h3>Contact</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> immeuble dispensaire georges Lahoud zone de Dakar, Dakar</li>
-                        <li><i class="fas fa-phone"></i> +221 33 812 64 24</li>
-                        <li><i class="fas fa-envelope"></i> secrétariat@fsrs.com</li>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt contact-icon"></i> <span>immeuble dispensaire georges Lahoud zone de Dakar, Dakar</span></li>
+                        <li><i class="fas fa-phone contact-icon"></i> <span>+221 33 812 64 24</span></li>
+                        <li><i class="fas fa-envelope contact-icon"></i> <span>secrétariat@fsrs.com</span></li>
                     </ul>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-col footer-newsletter">
                     <h3>Newsletter</h3>
-                    <p>Abonnez-vous pour recevoir nos actualités</p>
+                    <p>Recevez nos dernières actualités et événements sportifs.</p>
                     <form class="newsletter-form">
                         <input type="email" placeholder="Votre email" required>
-                        <button type="submit" class="btn btn-primary">S'abonner</button>
+                        <button type="submit" class="btn btn-primary">S'inscrire</button>
                     </form>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Fédération Sénégalaise de Roller & Skateboard. Tous droits réservés.</p>
-                <div class="legal-links">
-                    <a href="mentions-legales.html">Mentions légales</a>
-                    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                <div class="container">
+                    <div class="footer-bottom-content">
+                        <p class="copyright">&copy; 2025 Fédération Sénégalaise de Roller & Skateboard. Tous droits réservés.</p>
+                        <div class="legal-links">
+                            <a href="mentions-legales.html">Mentions légales</a>
+                            <a href="politique-confidentialite.html">Confidentialité</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-    <script src="js/clubs.js"></script>
-    <script src="js/menu.js"></script>
+    <script src="../static/js/animations.js"></script>
+    <script src="../static/js/clubs.js"></script>
 </body>
 </html>
-
-
