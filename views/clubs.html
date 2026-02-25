@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clubs Affiliés | FSRS</title>
-    <!-- CSS Paths Adjusted -->
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/clubs.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -36,7 +33,6 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-            
             
             <div class="hamburger">
                 <span class="bar"></span>
@@ -90,8 +86,10 @@
                         <option value="">Toutes les régions</option>
                         <option value="dakar">Dakar</option>
                         <option value="thies">Thiès</option>
-                        <option value="saint-louis">Saint-Louis</option>
                         <option value="mbour">Mbour</option>
+                        <option value="ziguinchor">Ziguinchor</option>
+                        <option value="diourbel">Diourbel</option>
+                        <option value="pikine">Pikine</option>
                     </select>
                 </div>
                 
@@ -103,29 +101,32 @@
                         <option value="skateboard">Skateboard</option>
                         <option value="roll_ball">Roll Ball</option>
                         <option value="football_skating">Football Skating</option>
-                        <option value="skate_cross">Skate Cross</option>
-                        <option value="roller_futons">Roller Futons</option>
-                        <option value="roller_futins">Roller FUTINS</option>
                         <option value="roller_course">Roller Course</option>
+                        <option value="roller_futins">Roller FUTINS</option>
                     </select>
                 </div>
             </div>
             
             <div class="clubs-grid">
-                <!--maestro roller -->
+                <!-- Club 1: Afro Dance Roller -->
                 <div class="club-card" data-region="dakar" data-discipline="roller">
                     <div class="club-image">
-                        <img src="../img/clublogo/masro.png" alt="Sénégal Roller Freestyle">
+                        <img src="../img/clublogo/afro.jpeg" alt="Afro Dance Roller">
                         <div class="club-badges">
                             <span class="badge roller">Roller</span>
                         </div>
                     </div>
                     <div class="club-info">
-                        <h3>Sénégal Roller Freestyle</h3>
+                        <h3>Afro Dance Roller</h3>
                         <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i> zone B, Dakar</p>
-                            <p><i class="fas fa-phone"></i> +221 76 543 21 09</p>
-                            <p><i class="fas fa-envelope"></i> freestyle@fsrs.sn</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Gueule Taper rue 66 en 65, Dakar</p>
+                            <p><i class="fas fa-users"></i> 40 membres</p>
+                            <p><i class="fas fa-phone"></i> +221 78 736 78 05 / +221 77 051 51 98</p>
+                            <p><i class="fas fa-envelope"></i> afrodanceroller@gmail.com</p>
+                        </div>
+                        <div class="club-disciplines">
+                            <span class="discipline-tag">Roller Artistique Africain</span>
+                            <span class="discipline-tag">Afro Dance Roller</span>
                         </div>
                         <div class="club-actions">
                             <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
@@ -133,44 +134,29 @@
                         </div>
                     </div>
                 </div>
-                <!--afro afro dance roller -->
-                <div>       
-                    <div class="club-card" data-region="dakar" data-discipline="roller">
+
+                <!-- Club 2: Hard Riders -->
+                <div class="club-card" data-region="mbour" data-discipline="roller">
                     <div class="club-image">
-                        <img src="../img/afrodance.jpeg" alt="Sénégal Roller Freestyle">
+                        <img src="../img/clublogo/hardraiders.jpeg" alt="Hard Riders">
                         <div class="club-badges">
                             <span class="badge roller">Roller</span>
-                        </div>
-                    </div>
-                    <div class="club-info">
-                        <h3>afro dance roller</h3>
-                        <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i>gueule taper rue 66 en 65</p>
-                            <p><i class="fas fa-phone"></i> +221 76 543 21 09</p>
-                            <p><i class="fas fa-envelope"></i>afrodanceroller@gmail.com</p>
-                        </div>
-                        <div class="club-actions">
-                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
-                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <!--Hard Riders-->
-                <div>
-                    <div class="club-card" data-region="dakar" data-discipline="roller">
-                    <div class="club-image">
-                        <img src="../img/hardraide.jpeg" alt="Sénégal Roller Freestyle">
-                        <div class="club-badges">
-                            <span class="badge roller">hard riders</span>
                         </div>
                     </div>
                     <div class="club-info">
                         <h3>Hard Riders</h3>
                         <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i>Mbour</p>
-                            <p><i class="fas fa-phone"></i>+221 776997197</p>
-                            <p><i class="fas fa-envelope"></i>:Papy10.loup@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Mbour</p>
+                            <p><i class="fas fa-users"></i> 50 membres</p>
+                            <p><i class="fas fa-phone"></i> +221 77 699 71 97</p>
+                            <p><i class="fas fa-envelope"></i> Papy10.loup@gmail.com</p>
+                        </div>
+                        <div class="club-disciplines">
+                            <span class="discipline-tag">Inline Freestyle</span>
+                            <span class="discipline-tag">Skateboard</span>
+                            <span class="discipline-tag">Roller Course</span>
+                            <span class="discipline-tag">Roll Ball</span>
+                            <span class="discipline-tag">Roller FUTINS</span>
                         </div>
                         <div class="club-actions">
                             <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
@@ -178,22 +164,27 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <!--NEWSTYLE ROLLER-->
-                <div>
-                    <div class="club-card" data-region="dakar" data-discipline="roller">
+
+                <!-- Club 3: Casa Roller -->
+                <div class="club-card" data-region="ziguinchor" data-discipline="roller">
                     <div class="club-image">
-                        <img src="../img/newstyle.jpeg" alt="Sénégal Roller Freestyle">
+                        <img src="../img/clublogo/casa.jpeg" alt="Casa Roller">
                         <div class="club-badges">
-                            <span class="badge roller">newstyle roller</span>
+                            <span class="badge roller">Roller</span>
                         </div>
                     </div>
                     <div class="club-info">
-                        <h3>newstyle roller</h3>
+                        <h3>Casa Roller</h3>
                         <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i>Medina Fall, Thies</p>
-                            <p><i class="fas fa-phone"></i>+221 76 814 09 15</p>
-                            <p><i class="fas fa-envelope"></i>:rollernewstyle@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Colobane, Ziguinchor</p>
+                            <p><i class="fas fa-users"></i> 50 membres</p>
+                            <p><i class="fas fa-phone"></i> +221 77 050 50 92</p>
+                            <p><i class="fas fa-envelope"></i> CASAROLLER234@GMAIL.com</p>
+                        </div>
+                        <div class="club-disciplines">
+                            <span class="discipline-tag">Inline Freestyle</span>
+                            <span class="discipline-tag">Roller Course</span>
+                            <span class="discipline-tag">Football Skating</span>
                         </div>
                         <div class="club-actions">
                             <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
@@ -201,22 +192,27 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <!--MINDISS ROLLER-->
-                <div>
-                    <div class="club-card" data-region="dakar" data-discipline="roller">
+
+                <!-- Club 4: Génération Skate -->
+                <div class="club-card" data-region="dakar" data-discipline="skate">
                     <div class="club-image">
-                        <img src="../img/roller dakar.jpeg" alt="Sénégal Roller Freestyle">
+                        <img src="../img/clublogo/generation.jpeg" alt="Génération Skate">
                         <div class="club-badges">
-                            <span class="badge roller">MINDISS ROLLER</span>
+                            <span class="badge skate">Skate</span>
                         </div>
                     </div>
                     <div class="club-info">
-                        <h3>MINDISS ROLLER</h3>
+                        <h3>Génération Skate</h3>
                         <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i>Peulgha Nord</p>
-                            <p><i class="fas fa-phone"></i>+221 77 340 24 03</p>
-                            <p><i class="fas fa-envelope"></i>diattaryder@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Médina, Dakar</p>
+                            <p><i class="fas fa-users"></i> 50 membres</p>
+                            <p><i class="fas fa-phone"></i> +221 78 460 14 14</p>
+                            <p><i class="fas fa-envelope"></i> Syllaablaye58@gmail.com</p>
+                        </div>
+                        <div class="club-disciplines">
+                            <span class="discipline-tag">Inline Freestyle</span>
+                            <span class="discipline-tag">Roller Course</span>
+                            <span class="discipline-tag">Football Skating</span>
                         </div>
                         <div class="club-actions">
                             <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
@@ -224,22 +220,29 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <!--génération skate-->
-                <div>
-                    <div class="club-card" data-region="dakar" data-discipline="roller">
+
+                <!-- Club 5: Newstyle Roller -->
+                <div class="club-card" data-region="thies" data-discipline="roller">
                     <div class="club-image">
-                        <img src="../img/generation skate.jpeg" alt="Sénégal Roller Freestyle">
+                        <img src="../img/clublogo/newstyle.jpeg" alt="Newstyle Roller">
                         <div class="club-badges">
-                            <span class="badge roller">génération skate</span>
+                            <span class="badge roller">Roller</span>
                         </div>
                     </div>
                     <div class="club-info">
-                        <h3>génération skate</h3>
+                        <h3>Newstyle Roller</h3>
                         <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i>medina,dakar</p>
-                            <p><i class="fas fa-phone"></i>78 460 14 14</p>
-                            <p><i class="fas fa-envelope"></i>Syllaablaye58@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Medina Fall, Thiès</p>
+                            <p><i class="fas fa-users"></i> 46 membres</p>
+                            <p><i class="fas fa-phone"></i> +221 76 814 09 15</p>
+                            <p><i class="fas fa-envelope"></i> rollernewstyle@gmail.com</p>
+                        </div>
+                        <div class="club-disciplines">
+                            <span class="discipline-tag">Inline Freestyle</span>
+                            <span class="discipline-tag">Skateboard</span>
+                            <span class="discipline-tag">Roller Course</span>
+                            <span class="discipline-tag">Roll Ball</span>
+                            <span class="discipline-tag">Roller FUTINS</span>
                         </div>
                         <div class="club-actions">
                             <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
@@ -247,22 +250,29 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <!--rollball-->
-                <div>
-                    <div class="club-card" data-region="dakar" data-discipline="roller">
+
+                <!-- Club 6: Maestro Roller -->
+                <div class="club-card" data-region="dakar" data-discipline="roller">
                     <div class="club-image">
-                        <img src="../img/roller dakar.jpeg" alt="Sénégal Roller Freestyle">
+                        <img src="../img/clublogo/masro.jpeg" alt="Maestro Roller">
                         <div class="club-badges">
-                            <span class="badge roller">rollball</span>
+                            <span class="badge mixed">Mixte</span>
                         </div>
                     </div>
                     <div class="club-info">
-                        <h3>rollball</h3>
+                        <h3>Maestro Roller</h3>
                         <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i>amitié 2,dakar</p>
-                            <p><i class="fas fa-phone"></i>777639495</p>
-                            <p><i class="fas fa-envelope"></i>rollball@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Zone B, Dakar</p>
+                            <p><i class="fas fa-users"></i> 300 membres</p>
+                            <p><i class="fas fa-phone"></i> +221 77 648 34 35</p>
+                            <p><i class="fas fa-envelope"></i> hawanarfall@gmail.com</p>
+                        </div>
+                        <div class="club-disciplines">
+                            <span class="discipline-tag">Inline Freestyle</span>
+                            <span class="discipline-tag">Skateboard</span>
+                            <span class="discipline-tag">Roller Course</span>
+                            <span class="discipline-tag">Roll Ball</span>
+                            <span class="discipline-tag">Football Skating</span>
                         </div>
                         <div class="club-actions">
                             <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
@@ -270,68 +280,26 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <!--Dak’s’street roller -->
-                <div>
-                    <div class="club-card" data-region="dakar" data-discipline="roller">
+
+                <!-- Club 7: King Roller -->
+                <div class="club-card" data-region="diourbel" data-discipline="roller">
                     <div class="club-image">
-                        <img src="../img/dakstreet.png" alt="Sénégal Roller Freestyle">
+                        <img src="../img/clublogo/king.jpeg" alt="King Roller">
                         <div class="club-badges">
-                            <span class="badge roller">Dak’s’street roller </span>
-                        </div>
-                    </div>
-                    <div class="club-info">
-                        <h3>Dak’s’street roller</h3>
-                        <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i>fass delorme,dakar</p>
-                            <p><i class="fas fa-phone"></i>775516187</p>
-                            <p><i class="fas fa-envelope"></i>yorosadio@gmail.com</p>
-                        </div>
-                        <div class="club-actions">
-                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
-                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <!--Maestro roller-->
-                    <div>
-                        <div class="club-card" data-region="dakar" data-discipline="roller">
-                    <div class="club-image">
-                        <img src="../img/maestro.jpeg" alt="Sénégal Roller Freestyle">
-                        <div class="club-badges">
-                            <span class="badge roller">Maestro roller</span>
-                        </div>
-                    </div>
-                    <div class="club-info">
-                        <h3>Maestro roller</h3>
-                        <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i>zone b,dakar</p>
-                            <p><i class="fas fa-phone"></i>776483435</p>
-                            <p><i class="fas fa-envelope"></i>hawanarfall@gmail.com</p>
-                        </div>
-                        <div class="club-actions">
-                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
-                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <!--King Roller -->
-                <div>
-                    <div class="club-card" data-region="dakar" data-discipline="roller">
-                    <div class="club-image">
-                        <img src="../img/king roller.jpeg" alt="Sénégal Roller Freestyle">
-                        <div class="club-badges">
-                            <span class="badge roller">King Roller</span>
+                            <span class="badge roller">Roller</span>
                         </div>
                     </div>
                     <div class="club-info">
                         <h3>King Roller</h3>
                         <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i>Diourbel,dakar</p>
-                            <p><i class="fas fa-phone"></i>77 686 75 69</p>
-                            <p><i class="fas fa-envelope"></i>Diopbamba139@gmail</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Diourbel</p>
+                            <p><i class="fas fa-users"></i> 15 membres</p>
+                            <p><i class="fas fa-phone"></i> +221 77 686 75 69</p>
+                            <p><i class="fas fa-envelope"></i> Diopbamba139@gmail.com</p>
+                        </div>
+                        <div class="club-disciplines">
+                            <span class="discipline-tag">Inline Freestyle</span>
+                            <span class="discipline-tag">Roller Course</span>
                         </div>
                         <div class="club-actions">
                             <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
@@ -339,22 +307,29 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <!--Oriental Roller-->
-                <div>
-                    <div class="club-card" data-region="dakar" data-discipline="roller">
+
+                <!-- Club 8: Tahiti Roller -->
+                <div class="club-card" data-region="pikine" data-discipline="roller">
                     <div class="club-image">
-                        <img src="../img/oriental .jpeg" alt="Sénégal Roller Freestyle">
+                        <img src="../img/clublogo/tahiti.jpeg" alt="Tahiti Roller">
                         <div class="club-badges">
-                            <span class="badge roller">Oriental Roller</span>
+                            <span class="badge mixed">Mixte</span>
                         </div>
                     </div>
                     <div class="club-info">
-                        <h3>Oriental Roller</h3>
+                        <h3>Tahiti Roller</h3>
                         <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i>Tambacounda,dakar</p>
-                            <p><i class="fas fa-phone"></i>+221 778817575</p>
-                            <p><i class="fas fa-envelope"></i>mouhadanf@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Pikine Ouest</p>
+                            <p><i class="fas fa-users"></i> 50+ membres</p>
+                            <p><i class="fas fa-phone"></i> +221 77 260 44 86</p>
+                            <p><i class="fas fa-envelope"></i> moussasy0@gmail.com</p>
+                        </div>
+                        <div class="club-disciplines">
+                            <span class="discipline-tag">Inline Freestyle</span>
+                            <span class="discipline-tag">Skateboard</span>
+                            <span class="discipline-tag">Roller Course</span>
+                            <span class="discipline-tag">Roll Ball</span>
+                            <span class="discipline-tag">Roller FUTINS</span>
                         </div>
                         <div class="club-actions">
                             <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
@@ -362,22 +337,29 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <!--Sokone Roller-->
-                <div>
-                    <div class="club-card" data-region="dakar" data-discipline="roller">
+
+                <!-- Club 9: PIJ Rollers -->
+                <div class="club-card" data-region="dakar" data-discipline="roller">
                     <div class="club-image">
-                        <img src="../img/roller dakar.jpeg" alt="Sénégal Roller Freestyle">
+                        <img src="../img/clublogo/pj.jpeg" alt="PIJ Rollers">
                         <div class="club-badges">
-                            <span class="badge roller">Sokone Roller</span>
+                            <span class="badge mixed">Mixte</span>
                         </div>
                     </div>
                     <div class="club-info">
-                        <h3>Sokone Roller</h3>
+                        <h3>PIJ Rollers</h3>
                         <div class="club-meta">
-                            <p><i class="fas fa-map-marker-alt"></i>sokone,dakar</p>
-                            <p><i class="fas fa-phone"></i>778701770</p>
-                            <p><i class="fas fa-envelope"></i>[EMAIL_ADDRESS]</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Cité Conachap, Dakar</p>
+                            <p><i class="fas fa-users"></i> 102 membres</p>
+                            <p><i class="fas fa-phone"></i> +221 77 887 66 99</p>
+                            <p><i class="fas fa-envelope"></i> pijrollers@gmail.com</p>
+                        </div>
+                        <div class="club-disciplines">
+                            <span class="discipline-tag">Inline Freestyle</span>
+                            <span class="discipline-tag">Skateboard</span>
+                            <span class="discipline-tag">Roller Course</span>
+                            <span class="discipline-tag">Roll Ball</span>
+                            <span class="discipline-tag">Roller FUTINS</span>
                         </div>
                         <div class="club-actions">
                             <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
@@ -385,6 +367,62 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Club 10: Crash Roller -->
+                <div class="club-card" data-region="mbour" data-discipline="roller">
+                    <div class="club-image">
+                        <img src="../img/roller dakar.jpeg" alt="Crash Roller">
+                        <div class="club-badges">
+                            <span class="badge mixed">Mixte</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>Crash Roller</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i> Mbour</p>
+                            <p><i class="fas fa-users"></i> 50 membres</p>
+                            <p><i class="fas fa-phone"></i> +221 77 429 34 72</p>
+                            <p><i class="fas fa-envelope"></i> thiambabel25@gmail.com</p>
+                        </div>
+                        <div class="club-disciplines">
+                            <span class="discipline-tag">Inline Freestyle</span>
+                            <span class="discipline-tag">Skateboard</span>
+                            <span class="discipline-tag">Roller Course</span>
+                            <span class="discipline-tag">Roll Ball</span>
+                            <span class="discipline-tag">Roller FUTINS</span>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Club 11: Dak'Street Skateboard (ancien) -->
+                <div class="club-card" data-region="dakar" data-discipline="skate">
+                    <div class="club-image">
+                        <img src="../img/dakstreet.png" alt="Dak'Street Skateboard">
+                        <div class="club-badges">
+                            <span class="badge skate">Skateboard</span>
+                        </div>
+                    </div>
+                    <div class="club-info">
+                        <h3>Dak'Street Skateboard</h3>
+                        <div class="club-meta">
+                            <p><i class="fas fa-map-marker-alt"></i> Dakar</p>
+                            <p><i class="fas fa-users"></i> 32 membres</p>
+                            <p><i class="fas fa-phone"></i> +221 77 551 61 87</p>
+                            <p><i class="fas fa-envelope"></i> yorosadio@gmail.com</p>
+                        </div>
+                        <div class="club-disciplines">
+                            <span class="discipline-tag">Skateboard</span>
+                            <span class="discipline-tag">Street</span>
+                        </div>
+                        <div class="club-actions">
+                            <a href="club-detail.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-text">Itinéraire</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
