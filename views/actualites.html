@@ -1,30 +1,47 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FSRS - Compétitions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/actualiter.css">
+    <link rel="icon" type="image/png" href="../img/FSRS.png">
+    <title>Compétitions & Actualités | FSRS - Roller Skateboard Sénégal</title>
+    <meta name="description" content="Suivez les compétitions, événements et actualités de la Fédération Sénégalaise de Roller & Skateboard. Championnats nationaux, formations, partenariats internationaux.">
+    <meta property="og:title" content="Actualités & Compétitions | FSRS Sénégal">
+    <meta property="og:image" content="../img/champna.jpg">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/actualites.css">
+    <link rel="stylesheet" href="../static/css/animations.css">
 </head>
 <body>
 
     <header>
         <div class="nav-container">
             <div class="logo">
-                <img src="../img/Banière FSRS.jpg" alt="Logo FSRS">
+                <img src="../img/logfsrs2.png" alt="Logo FSRS">
             </div>
             <nav>
                 <ul>
-                    <li><a href="../index.html">Accueil</a></li>
+                    <li>
+                        <a href="../index.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </a>
+                    </li>
                     <li><a href="federation.html">Fédération</a></li>
                     <li><a href="disciplines.html">Disciplines</a></li>
-                    <li><a href="actualites.html" class="active">Compétitions</a></li>
+                    <li><a href="competition.html" class="active">Compétitions</a></li>
                     <li><a href="ressources.html">Ressources</a></li>
                     <li><a href="clubs.html">Clubs</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <a href="affiliation.html" class="btn-nav-cta">Nous rejoindre</a>
         </div>
     </header>
 
@@ -36,7 +53,7 @@
                 <a href="#actualites" class="btn-lire" style="display:inline-block; width:auto; padding: 1rem 2rem;">Découvrir</a>
             </div>
             <div class="hero-image">
-                <img src="../img/doudou.jpg" alt="Skateboard action">
+                <img src="../img/dame.jpeg" alt="Athlète FSRS">
             </div>
         </div>
     </section>
@@ -48,57 +65,307 @@
             <div class="actualites-grid">
                 <article class="actualite-card">
                     <div class="actualite-image-container">
-                        <img src="../img/doudou.jpg" alt="Championnat" class="actualite-image">
-                        <span class="category-badge">ÉVÉNEMENT</span>
+                        <img src="../img/skateb.jpg" alt="Championnat National de Skate Cross" class="actualite-image">
+                        <span class="category-badge" data-cat="competition">COMPÉTITION</span>
                     </div>
                     <div class="actualite-content">
-                        <span class="actualite-tag">Compétition • Nationale</span>
+                        <span class="actualite-tag">Skate Cross • Nationale</span>
                         <div class="actualite-meta">
-                            <span>📅 12 Déc 2024</span>
-                            <span>✍️ J. Mbaye</span>
+                            <span>📅 19 Juil 2026</span>
+                            <span>📍 PCU Dakar</span>
                         </div>
-                        <h3>Championnat National de Skateboard 2024</h3>
-                        <p>Le championnat national s'est déroulé avec succès à Dakar, rassemblant les meilleurs riders du pays pour une compétition époustouflante.</p>
-                        <a href="#" class="btn-lire">Lire la suite</a>
+                        <h3>Championnat National de Skate Cross 2026</h3>
+                        <p>Le bitume va chauffer ! Le 19 juillet 2026, la Place des Cultures Urbaines de Dakar deviendra l'épicentre de la vitesse et de l'agilité. Virages serrés, obstacles techniques et sprints explosifs au programme. Inscriptions : 5 000 FCFA par athlète.</p>
+                        <a href="#article-skate-cross" class="btn-lire">Lire l'article</a>
                     </div>
                 </article>
 
                 <article class="actualite-card">
                     <div class="actualite-image-container">
-                        <img src="../img/doudou.jpg" alt="Formation" class="actualite-image">
-                        <span class="category-badge">FORMATION</span>
+                        <img src="../img/champna.jpg" alt="Championnat National de Skateboard" class="actualite-image">
+                        <span class="category-badge" data-cat="competition">COMPÉTITION</span>
                     </div>
                     <div class="actualite-content">
-                        <span class="actualite-tag">Jeunesse • Coaching</span>
+                        <span class="actualite-tag">Skateboard • Street & Park</span>
                         <div class="actualite-meta">
-                            <span>📅 10 Déc 2024</span>
-                            <span>✍️ A. Diop</span>
+                            <span>📅 Été 2026</span>
+                            <span>📍 PCU Dakar</span>
                         </div>
-                        <h3>Programme Jeunes Talents</h3>
-                        <p>La FSRS lance un nouveau programme de détection pour accompagner les futurs champions dès leur plus jeune âge.</p>
-                        <a href="#" class="btn-lire">Lire la suite</a>
+                        <h3>Championnat National de Skateboard 2026</h3>
+                        <p>La scène urbaine en ébullition ! Les meilleurs talents du pays s'affrontent en Street et en Park à la Place des Cultures Urbaines, dans la perspective de Dakar 2026. Inscriptions : 5 000 FCFA par discipline.</p>
+                        <a href="#article-skateboard" class="btn-lire">Lire l'article</a>
                     </div>
                 </article>
 
                 <article class="actualite-card">
                     <div class="actualite-image-container">
-                        <img src="../img/doudou.jpg" alt="Partenariat" class="actualite-image">
-                        <span class="category-badge">PARTENARIAT</span>
+                        <img src="../img/compe.jpg" alt="Championnat National de Skate Ball" class="actualite-image">
+                        <span class="category-badge" data-cat="competition">COMPÉTITION</span>
                     </div>
                     <div class="actualite-content">
-                        <span class="actualite-tag">International • Pro</span>
+                        <span class="actualite-tag">Skate Ball • Roll Ball & Football Skating</span>
                         <div class="actualite-meta">
-                            <span>📅 08 Déc 2024</span>
-                            <span>✍️ F. Sall</span>
+                            <span>📅 18 Juil 2026</span>
+                            <span>📍 Stade LSS, Dakar</span>
                         </div>
-                        <h3>Alliance Internationale</h3>
-                        <p>Nouveau partenariat stratégique avec les fédérations mondiales pour l'organisation d'étapes mondiales au Sénégal.</p>
-                        <a href="#" class="btn-lire">Lire la suite</a>
+                        <h3>Championnat National de Skate Ball 2026</h3>
+                        <p>Passion, performance et esprit d'équipe au mythique Stade Léopold Sédar Senghor. Deux disciplines spectaculaires : Roll Ball et Football Skating. Inscriptions : 10 000 FCFA par équipe.</p>
+                        <a href="#article-skate-ball" class="btn-lire">Lire l'article</a>
                     </div>
+                </article>
+
+                <article class="actualite-card">
+                    <div class="actualite-image-container">
+                        <img src="../img/rolsk.png" alt="Championnat National de Roller Course" class="actualite-image">
+                        <span class="category-badge" data-cat="competition">COMPÉTITION</span>
+                    </div>
+                    <div class="actualite-content">
+                        <span class="actualite-tag">Roller • Course & Marathon</span>
+                        <div class="actualite-meta">
+                            <span>📅 Été 2026</span>
+                            <span>📍 Stade LSS & Corniche Ouest</span>
+                        </div>
+                        <h3>Championnat National de Roller Course 2026</h3>
+                        <p>Vitesse sur la piste de 200 m au Stade Léopold Sédar Senghor, puis marathon de 42 km sur la Corniche Ouest. Une plateforme de détection majeure vers Dakar 2026. Inscriptions : 5 000 FCFA par discipline.</p>
+                        <a href="#article-roller-course" class="btn-lire">Lire l'article</a>
+                    </div>
+                </article>
+
+                <article class="actualite-card">
+                    <div class="actualite-image-container">
+                        <img src="../img/roolfree.png" alt="Championnat de Roller Inline Freestyle" class="actualite-image">
+                        <span class="category-badge" data-cat="competition">COMPÉTITION</span>
+                    </div>
+                    <div class="actualite-content">
+                        <span class="actualite-tag">Roller Freestyle • Inline</span>
+                        <div class="actualite-meta">
+                            <span>📅 20-21 Juin 2026</span>
+                            <span>📍 PCU Dakar</span>
+                        </div>
+                        <h3>Championnat de Roller Inline Freestyle 2026</h3>
+                        <p>Les 20 et 21 juin, la PCU accueille l'élite du roller national. Free Jump, Speed Slalom et Battle Slalom : trois épreuves phares qui mettront en avant la polyvalence des athlètes. Inscriptions : 5 000 FCFA par discipline.</p>
+                        <a href="#article-roller-freestyle" class="btn-lire">Lire l'article</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Articles complets -->
+            <div class="articles-full">
+                <article class="article-full" id="article-skate-cross">
+                    <span class="article-badge" data-cat="competition">COMPÉTITION</span>
+                    <h2>Championnat National de Skate Cross 2026 : Le rendez-vous de l'adrénaline à Dakar</h2>
+                    <div class="article-meta">
+                        <span>📅 Dimanche 19 juillet 2026</span>
+                        <span>📍 Place des Cultures Urbaines, Dakar</span>
+                        <span>💰 5 000 FCFA / athlète</span>
+                    </div>
+                    <p>Le bitume va chauffer ! Le <strong>19 juillet 2026</strong>, la <strong>Place des Cultures Urbaines de Dakar</strong> deviendra l'épicentre de la vitesse et de l'agilité à l'occasion du Championnat National du Sénégal de Skate Cross.</p>
+                    <p>Organisé sous l'égide des instances nationales et en partenariat avec la Ville de Dakar, cet événement promet un spectacle inédit où les meilleurs riders du pays s'affronteront pour le titre suprême.</p>
+                    <h3>Pourquoi participer ?</h3>
+                    <p>Le Skate Cross est l'épreuve ultime pour tester votre technique. Entre virages serrés, obstacles techniques et sprints explosifs, chaque seconde compte. C'est l'occasion idéale de :</p>
+                    <ul>
+                        <li>Se mesurer aux meilleurs athlètes nationaux</li>
+                        <li>Repousser ses limites dans un cadre professionnel et sécurisé</li>
+                        <li>Participer à la montée en puissance des sports de glisse au Sénégal</li>
+                    </ul>
+                    <h3>Infos pratiques & inscriptions</h3>
+                    <p>Le championnat est ouvert aux riders déterminés à montrer de quoi ils sont capables.</p>
+                    <a href="#actualites" class="btn-lire">↑ Retour aux actualités</a>
+                </article>
+
+                <article class="article-full" id="article-skateboard">
+                    <span class="article-badge" data-cat="competition">COMPÉTITION</span>
+                    <h2>Championnat National du Sénégal de Skateboard 2026 : la scène urbaine en ébullition</h2>
+                    <div class="article-meta">
+                        <span>📅 Été 2026</span>
+                        <span>📍 Place des Cultures Urbaines, Dakar</span>
+                        <span>💰 5 000 FCFA / discipline</span>
+                    </div>
+                    <p>Le skateboard sénégalais s'apprête à vivre l'un de ses moments les plus intenses de l'année avec la tenue du <strong>Championnat National du Sénégal de Skateboard 2026</strong>. Cet événement majeur réunira les meilleurs talents du pays dans une ambiance à la fois compétitive, festive et résolument tournée vers la culture urbaine.</p>
+                    <p>Les compétitions se dérouleront à la Place des Cultures Urbaines (PCU), véritable épicentre des sports urbains à Dakar, offrant un cadre moderne et adapté aux exigences du skateboard de haut niveau.</p>
+                    <h3>Des disciplines spectaculaires</h3>
+                    <p>Les athlètes auront l'opportunité de s'affronter dans deux grandes disciplines phares :</p>
+                    <ul>
+                        <li><strong>Street :</strong> créativité, technicité et maîtrise des modules urbains (rails, marches, ledges…)</li>
+                        <li><strong>Park :</strong> vitesse, amplitude et fluidité dans les bowls et courbes</li>
+                    </ul>
+                    <p>Ces épreuves mettront en lumière le talent, l'engagement et la progression des riders sénégalais, dans la perspective des grandes échéances internationales, notamment Dakar 2026.</p>
+                    <h3>Un rendez-vous à ne pas manquer</h3>
+                    <p>Au-delà de la compétition, ce championnat est une véritable vitrine du skateboard au Sénégal. Il vise à promouvoir la discipline auprès de la jeunesse, détecter de nouveaux talents, renforcer la dynamique des sports urbains et préparer les athlètes aux compétitions internationales.</p>
+                    <p>Public, amateurs de sensations fortes, passionnés de culture urbaine : venez nombreux vibrer au rythme des figures spectaculaires et soutenir vos riders favoris !</p>
+                    <a href="#actualites" class="btn-lire">↑ Retour aux actualités</a>
+                </article>
+
+                <article class="article-full" id="article-skate-ball">
+                    <span class="article-badge" data-cat="competition">COMPÉTITION</span>
+                    <h2>Championnat National de Skate Ball 2026 : le Sénégal roule vers l'excellence</h2>
+                    <div class="article-meta">
+                        <span>📅 Samedi 18 juillet 2026</span>
+                        <span>📍 Stade Léopold Sédar Senghor</span>
+                        <span>💰 10 000 FCFA / équipe</span>
+                    </div>
+                    <p>Le <strong>Championnat National de Skate Ball du Sénégal</strong> s'annonce comme l'un des événements sportifs majeurs de l'année, réunissant passion, performance et esprit d'équipe autour des disciplines urbaines en pleine expansion.</p>
+                    <p>Prévu le <strong>18 juillet 2026</strong>, cet événement d'envergure nationale se tiendra au mythique <strong>Stade Léopold Sédar Senghor</strong>, un cadre emblématique qui accueillera les meilleures équipes venues de tout le pays.</p>
+                    <h3>Une compétition par équipe ouverte et accessible</h3>
+                    <p>Les inscriptions sont officiellement ouvertes au tarif de 10 000 FCFA par équipe, offrant ainsi une opportunité à tous les clubs et associations de participer à cette grande fête du sport.</p>
+                    <h3>Deux disciplines phares au programme</h3>
+                    <ul>
+                        <li><strong>Le Roll Ball :</strong> un sport rapide et stratégique combinant roller et maniement de balle</li>
+                        <li><strong>Le Football Skating :</strong> une discipline innovante mêlant techniques de football et maîtrise du roller</li>
+                    </ul>
+                    <p>Ces compétitions promettent intensité, créativité et engagement physique, dans une ambiance survoltée portée par les supporters.</p>
+                    <h3>Un rendez-vous sportif et culturel incontournable</h3>
+                    <p>Au-delà de la compétition, ce championnat se veut un véritable espace de rencontre, d'échange et de valorisation des talents locaux. Il contribuera également à la préparation des athlètes sénégalais en vue des grandes échéances internationales, notamment dans la perspective des Jeux Olympiques de la Jeunesse Dakar 2026.</p>
+                    <a href="#actualites" class="btn-lire">↑ Retour aux actualités</a>
+                </article>
+
+                <article class="article-full" id="article-roller-course">
+                    <span class="article-badge" data-cat="competition">COMPÉTITION</span>
+                    <h2>Championnat National de Roller Course 2026 : entre vitesse, endurance et passion</h2>
+                    <div class="article-meta">
+                        <span>📅 Été 2026 (2 jours)</span>
+                        <span>📍 Stade LSS & Corniche Ouest</span>
+                        <span>💰 5 000 FCFA / discipline</span>
+                    </div>
+                    <p>Le roller sénégalais s'apprête à vivre l'un de ses rendez-vous majeurs de l'année avec le <strong>Championnat National de Roller Course 2026</strong>, un événement d'envergure qui réunira les meilleurs athlètes du pays dans une ambiance de compétition intense et de fête sportive.</p>
+                    <h3>Jour 1 — Course sur piste de 200 m</h3>
+                    <p>Dès le premier jour, les regards seront tournés vers le mythique <strong>Stade Léopold Sédar Senghor</strong>, où se dérouleront les épreuves de course sur piste de 200 mètres. Cette discipline, exigeante et spectaculaire, mettra en avant la vitesse, la technique et la stratégie des patineurs.</p>
+                    <h3>Jour 2 — Marathon de 42 km sur la Corniche Ouest</h3>
+                    <p>La compétition se poursuivra le deuxième jour avec une épreuve reine : le <strong>marathon de roller (42 km)</strong>, qui se déroulera sur la célèbre Corniche Ouest. Ce parcours emblématique, longeant l'océan, promet un spectacle unique mêlant performance sportive et cadre exceptionnel.</p>
+                    <p>Organisé au cœur de Dakar, cet événement se veut non seulement une compétition, mais aussi une plateforme de détection et de promotion des talents en vue des grandes échéances internationales, notamment les Jeux Olympiques de la Jeunesse Dakar 2026.</p>
+                    <p>Athlètes, clubs et amateurs de roller sont invités à prendre part à cette grande célébration du sport et à faire vibrer la nation au rythme des roues.</p>
+                    <a href="#actualites" class="btn-lire">↑ Retour aux actualités</a>
+                </article>
+
+                <article class="article-full" id="article-roller-freestyle">
+                    <span class="article-badge" data-cat="competition">COMPÉTITION</span>
+                    <h2>Le Sénégal en roues libres : le Championnat National de Roller Freestyle débarque à la PCU !</h2>
+                    <div class="article-meta">
+                        <span>📅 Samedi 20 & dimanche 21 juin 2026</span>
+                        <span>📍 Place des Cultures Urbaines, Dakar</span>
+                        <span>💰 5 000 FCFA / athlète / discipline</span>
+                    </div>
+                    <p>Dakar s'apprête à vibrer au rythme des platines et des figures acrobatiques. Les <strong>20 et 21 juin 2026</strong>, la mythique <strong>Place des Cultures Urbaines (PCU)</strong> accueillera l'élite du roller national pour le Championnat du Sénégal de Roller Inline Freestyle.</p>
+                    <p>Sous le regard protecteur du Monument de la Renaissance Africaine, les meilleurs riders du pays s'affronteront dans une compétition où l'agilité, la vitesse et le style seront les seuls maîtres.</p>
+                    <h3>Trois disciplines, un seul objectif : l'excellence</h3>
+                    <ul>
+                        <li><strong>Free Jump :</strong> qui saura franchir la barre la plus haute ? Une discipline de pure détente sèche et de courage.</li>
+                        <li><strong>Speed Slalom :</strong> un duel contre la montre. Les patineurs devront slalomer entre les plots à une vitesse fulgurante avec une précision chirurgicale.</li>
+                        <li><strong>Battle Slalom :</strong> place à la créativité et à la technique. Les riders s'affrontent en musique pour enchaîner les figures les plus complexes sous l'œil attentif des juges.</li>
+                    </ul>
+                    <h3>Un événement pour tous</h3>
+                    <p>Au-delà de la compétition, ce championnat est une véritable célébration de la culture urbaine. Entre les performances de haut niveau et l'ambiance électrique de la PCU, c'est le rendez-vous incontournable pour les familles, les passionnés de glisse et les curieux.</p>
+                    <p><strong>Venez soutenir vos champions et découvrir l'énergie débordante du roller freestyle sénégalais !</strong></p>
+                    <a href="#actualites" class="btn-lire">↑ Retour aux actualités</a>
                 </article>
             </div>
         </div>
     </section>
+
+    <!-- Section Champions -->
+    <section class="champions-section">
+        <div class="champions-container">
+            <div class="champions-header">
+                <h2>Nos Champions</h2>
+                <p>La fierté du Sénégal sur la scène internationale</p>
+            </div>
+            <div class="champions-grid">
+                <div class="champion-card featured">
+                    <div class="champion-photo">
+                        <img src="../img/dame.jpeg" alt="Dame Fall - Championne Mondiale">
+                        <div class="champion-badge">⭐ 5× Champion du Monde</div>
+                    </div>
+                    <div class="champion-info">
+                        <h3>Dame Fall</h3>
+                        <p class="champion-discipline">Roller Freestyle · Inline</p>
+                        <p class="champion-desc">Ambassadrice du roller sénégalais, Dame Fall a décroché cinq couronnes mondiales et porté haut les couleurs du Sénégal sur la scène internationale. Un palmarès exceptionnel qui inspire toute une génération.</p>
+                        <div class="champion-medals">
+                            <span class="medal gold">🥇 ×5 Mondial</span>
+                            <span class="medal silver">🥈 Continental</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="champion-card">
+                    <div class="champion-mini">
+                        <div class="champion-icon">🏆</div>
+                        <h4>Championnat National 2024</h4>
+                        <p>Les meilleurs riders du Sénégal réunis à Dakar pour une compétition nationale époustouflante.</p>
+                    </div>
+                </div>
+                <div class="champion-card">
+                    <div class="champion-mini">
+                        <div class="champion-icon">🌍</div>
+                        <h4>7th Roll Ball World Skate</h4>
+                        <p>Le Sénégal représenté à la 7ème édition de la compétition internationale de Roll Ball.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .champions-section {
+            background: linear-gradient(135deg, #0d2b1e 0%, #1a4d2e 100%);
+            padding: 5rem 2rem;
+            color: white;
+        }
+        .champions-container { max-width: 1200px; margin: 0 auto; }
+        .champions-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .champions-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .champions-header p { color: rgba(255,255,255,0.75); font-size: 1.1rem; }
+        .champions-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        .champion-card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .champion-card:hover { transform: translateY(-6px); border-color: #FFD700; }
+        .champion-card.featured { border-color: rgba(255,215,0,0.5); }
+        .champion-photo { position: relative; }
+        .champion-photo img { width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; }
+        .champion-badge {
+            position: absolute;
+            top: 1rem; left: 1rem;
+            background: #FFD700;
+            color: #0d2b1e;
+            font-weight: 800;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+        }
+        .champion-info { padding: 1.5rem; }
+        .champion-info h3 { font-size: 1.6rem; color: #FFD700; margin-bottom: 0.2rem; }
+        .champion-discipline { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 0.8rem; }
+        .champion-desc { color: rgba(255,255,255,0.85); line-height: 1.7; font-size: 0.95rem; margin-bottom: 1rem; }
+        .champion-medals { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .medal { padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700; }
+        .medal.gold { background: rgba(255,215,0,0.2); border: 1px solid #FFD700; color: #FFD700; }
+        .medal.silver { background: rgba(200,200,200,0.2); border: 1px solid #ccc; color: #ddd; }
+        .champion-mini { padding: 2rem 1.5rem; text-align: center; height: 100%; }
+        .champion-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .champion-mini h4 { color: #FFD700; font-size: 1.1rem; margin-bottom: 0.8rem; }
+        .champion-mini p { color: rgba(255,255,255,0.75); font-size: 0.9rem; line-height: 1.6; }
+        @media (max-width: 768px) {
+            .champions-grid { grid-template-columns: 1fr; }
+            .champion-photo img { height: 250px; }
+        }
+    </style>
 
     <footer class="footer">
         <div class="footer-main">
@@ -106,7 +373,7 @@
                 <div class="footer-grid">
                     <!-- Colonne 1: À propos -->
                     <div class="footer-col footer-about">
-                        <img src="../img/Banière FSRS.jpg" alt="Logo FSRS" class="footer-logo">
+                        <img src="../img/logfsrs2.png" alt="Logo FSRS" class="footer-logo">
                         <h3>FSRS</h3>
                         <p class="footer-description">
                             Fédération Sénégalaise de Roller & Skateboard - 
@@ -131,9 +398,10 @@
                             </li>
                             <li><a href="federation.html">Fédération</a></li>
                             <li><a href="disciplines.html">Disciplines</a></li>
-                            <li><a href="actualites.html">Compétitions</a></li>
+                            <li><a href="competition.html">Compétitions</a></li>
                             <li><a href="ressources.html">Ressources</a></li>
                             <li><a href="clubs.html">Clubs</a></li>
+                            <li><a href="galerie.html">Galerie</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
@@ -156,7 +424,7 @@
                         <ul class="footer-contact">
                             <li>
                                 <span class="contact-icon">📍</span>
-                                <span>immeuble dispensaire georges Lahoud zone de Dakar<br>Dakar, Sénégal</span>
+                                <span>Immeuble dispensaire Georges Lahoud, Dakar, Sénégal</span>
                             </li>
                             <li>
                                 <span class="contact-icon">📞</span>
@@ -182,22 +450,22 @@
                             <button type="submit" class="btn-newsletter">S'abonner</button>
                         </form>
                         <div class="social-links">
-                            <a href="#" class="social-icon" aria-label="Facebook">
+                            <a href="#" class="social-icon facebook" aria-label="Facebook">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                                 </svg>
                             </a>
-                            <a href="#" class="social-icon" aria-label="Instagram">
+                            <a href="#" class="social-icon instagram" aria-label="Instagram">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                 </svg>
                             </a>
-                            <a href="#" class="social-icon" aria-label="YouTube">
+                            <a href="#" class="social-icon youtube" aria-label="YouTube">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                                 </svg>
                             </a>
-                            <a href="#" class="social-icon" aria-label="Twitter">
+                            <a href="#" class="social-icon twitter" aria-label="Twitter">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                                 </svg>
@@ -213,7 +481,7 @@
             <div class="container">
                 <div class="footer-bottom-content">
                     <p class="copyright">
-                        &copy; 2025 Fédération Sénégalaise de Roller & Skateboard. Tous droits réservés.
+                        &copy; 2026 Fédération Sénégalaise de Roller & Skateboard. Tous droits réservés.
                     </p>
                     <div class="legal-links">
                         <a href="#">Mentions légales</a>

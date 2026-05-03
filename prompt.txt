@@ -1,0 +1,18 @@
+claude --agent general-purpose "Refonte complète du design du site FSRS :
+OBJECTIFS :
+- Moderniser toutes les pages avec un design professionnel et distinctif
+- Créer une cohérence visuelle sur l'ensemble du site
+- Améliorer l'expérience utilisateur avec des transitions fluides
+- Augmenter l'engagement avec des animations intentionnelles
+POUR CHAQUE PAGE :
+1. Redesigner la mise en page avec asymétrie créative et espacements généreux
+2. Appliquer une typographie distinctive (éviter Arial/Inter/Roboto)
+3. Définir une palette de couleurs cohérente et impactante (en respectant les couleur du senegal)
+4. Ajouter des textures, gradients et détails visuels
+5. Implémenter des hover states et animations au scroll
+6. Optimiser pour mobile sans compromettre le design
+7. Générer du code HTML/CSS/JavaScript production-ready
+CONTRAINTES :
+- Garder la structure et les contenus existants
+- Respecter l'identité FSRS
+- Assurer une performance optimale"

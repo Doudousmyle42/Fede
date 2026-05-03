@@ -1,0 +1,990 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/FSRS.png">
+    <title>Devenir Membre | FSRS - Fédération Sénégalaise de Roller & Skateboard</title>
+    <meta name="description" content="Rejoignez la Fédération Sénégalaise de Roller & Skateboard. Affiliez votre club, prenez une licence sportive et participez aux compétitions nationales et internationales.">
+    <meta property="og:title" content="Devenir Membre | FSRS Sénégal">
+    <meta property="og:description" content="Rejoignez la FSRS — Affiliez votre club, obtenez votre licence, participez aux compétitions.">
+    <meta property="og:image" content="../img/logfsrs2.png">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/animations.css">
+    <style>
+        /* ===== HERO ===== */
+        .hero-affiliation {
+            background: linear-gradient(135deg, #0d2b1e 0%, #1a4d2e 50%, #2E8B57 100%);
+            padding: 6rem 2rem 5rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-affiliation::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 60%);
+        }
+        .hero-affiliation .hero-badge {
+            display: inline-block;
+            background: rgba(255,215,0,0.15);
+            border: 1px solid rgba(255,215,0,0.4);
+            color: #FFD700;
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .hero-affiliation h1 {
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        .hero-affiliation p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: rgba(255,255,255,0.85);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+        .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary-hero {
+            background: #FFD700; color: #1a3a2f;
+            padding: 1rem 2.5rem; border-radius: 8px;
+            text-decoration: none; font-weight: 800;
+            font-size: 1rem; transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+        }
+        .btn-primary-hero:hover { background: white; transform: translateY(-3px); }
+        .btn-outline-hero {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.5);
+            color: white;
+            padding: 1rem 2.5rem; border-radius: 8px;
+            text-decoration: none; font-weight: 700;
+            font-size: 1rem; transition: all 0.3s ease;
+        }
+        .btn-outline-hero:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+        /* ===== AVANTAGES ===== */
+        .benefits-section {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+        .section-container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: #1a3a2f;
+            margin-bottom: 0.8rem;
+        }
+        .section-header h2 span { color: #2E8B57; }
+        .section-header p { color: #666; font-size: 1.05rem; }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+        }
+        .benefit-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            border-top: 4px solid transparent;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-top-color: #2E8B57;
+        }
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .benefit-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1a3a2f;
+            margin-bottom: 0.8rem;
+        }
+        .benefit-card p { color: #666; font-size: 0.95rem; line-height: 1.7; }
+
+        /* ===== TYPES D'ADHÉSION ===== */
+        .membership-types {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #1a3a2f 0%, #2E8B57 100%);
+            color: white;
+        }
+        .membership-types .section-header h2 { color: #FFD700; }
+        .membership-types .section-header p { color: rgba(255,255,255,0.75); }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .type-card {
+            background: rgba(255,255,255,0.08);
+            border: 2px solid rgba(255,215,0,0.2);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .type-card:hover { border-color: #FFD700; transform: translateY(-6px); }
+        .type-card.featured {
+            border-color: #FFD700;
+            background: rgba(255,215,0,0.08);
+        }
+        .type-badge {
+            position: absolute;
+            top: -14px; left: 50%;
+            transform: translateX(-50%);
+            background: #FFD700;
+            color: #1a3a2f;
+            padding: 0.3rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .type-card h3 {
+            font-size: 1.4rem;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+        .type-card .type-subtitle {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .type-features {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        .type-features li {
+            padding: 0.5rem 0;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.92rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .type-features li:last-child { border-bottom: none; }
+        .type-features li::before {
+            content: '✓';
+            color: #FFD700;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        .btn-type {
+            display: inline-block;
+            background: #FFD700;
+            color: #1a3a2f;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+        .btn-type:hover { background: white; }
+        .btn-type.outline {
+            background: transparent;
+            border: 2px solid rgba(255,215,0,0.5);
+            color: #FFD700;
+        }
+        .btn-type.outline:hover { background: #FFD700; color: #1a3a2f; }
+
+        /* ===== ÉTAPES ===== */
+        .steps-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0;
+            position: relative;
+            margin-top: 3rem;
+        }
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(to right, #2E8B57, #FFD700);
+            z-index: 0;
+        }
+        @media (max-width: 768px) { .steps-grid::before { display: none; } }
+
+        .step-item {
+            text-align: center;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .step-number {
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, #2E8B57, #1a4d2e);
+            color: #FFD700;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 25px rgba(46,139,87,0.3);
+            border: 4px solid white;
+        }
+        .step-item h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1a3a2f;
+            margin-bottom: 0.7rem;
+        }
+        .step-item p { color: #666; font-size: 0.9rem; line-height: 1.6; }
+
+        /* ===== FORMULAIRE ===== */
+        .form-section {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .form-header h2 { font-size: 1.8rem; color: #1a3a2f; margin-bottom: 0.5rem; }
+        .form-header p { color: #666; }
+        .form-header-line {
+            width: 60px; height: 4px;
+            background: linear-gradient(to right, #2E8B57, #FFD700);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full { grid-column: 1 / -1; }
+
+        .form-group label {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .form-group label span { color: #e53935; }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.85rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: #333;
+            transition: border-color 0.3s ease;
+            background: #fafafa;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2E8B57;
+            background: white;
+        }
+        .form-group textarea { resize: vertical; min-height: 130px; }
+
+        .disciplines-check {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.7rem;
+            margin-top: 0.5rem;
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .check-item:hover { border-color: #2E8B57; background: #f0faf5; }
+        .check-item input[type="checkbox"] { accent-color: #2E8B57; width: 16px; height: 16px; }
+        .check-item label { cursor: pointer; font-size: 0.88rem; font-weight: 600; color: #444; margin: 0; }
+
+        .form-separator {
+            grid-column: 1 / -1;
+            height: 1px;
+            background: #e9ecef;
+            margin: 0.5rem 0;
+        }
+        .form-section-title {
+            grid-column: 1 / -1;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2E8B57;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .documents-note {
+            background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+            border-left: 4px solid #2E8B57;
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            margin: 0;
+        }
+        .documents-note h4 { color: #1a3a2f; font-size: 0.95rem; margin-bottom: 0.7rem; }
+        .documents-note ul { padding-left: 1.2rem; }
+        .documents-note li { font-size: 0.9rem; color: #444; line-height: 1.8; }
+
+        .submit-btn-wrap { text-align: center; margin-top: 2rem; }
+        .submit-btn {
+            background: linear-gradient(135deg, #2E8B57, #1a4d2e);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(46,139,87,0.3);
+        }
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(46,139,87,0.4); }
+
+        /* ===== FAQ ===== */
+        .faq-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        @media (max-width: 768px) { .faq-grid { grid-template-columns: 1fr; } }
+
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+        }
+        .faq-question {
+            padding: 1.2rem 1.5rem;
+            font-weight: 700;
+            color: #1a3a2f;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .faq-question:hover { background: #e9f5ee; }
+        .faq-question.open { background: #e9f5ee; color: #2E8B57; }
+        .faq-toggle { font-size: 1.3rem; transition: transform 0.3s; }
+        .faq-question.open .faq-toggle { transform: rotate(45deg); }
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .faq-answer.open { max-height: 200px; padding: 0 1.5rem 1.2rem; }
+
+        /* ===== CTA FINAL ===== */
+        .final-cta {
+            background: linear-gradient(135deg, #1a3a2f 0%, #2E8B57 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        .final-cta h2 { font-size: 2.2rem; color: #FFD700; margin-bottom: 1rem; }
+        .final-cta p { font-size: 1.1rem; color: rgba(255,255,255,0.8); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .final-cta a {
+            display: inline-block;
+            background: #FFD700; color: #1a3a2f;
+            padding: 1rem 2.5rem; border-radius: 8px;
+            text-decoration: none; font-weight: 800; font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .final-cta a:hover { background: white; transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../img/logfsrs2.png" alt="Logo FSRS">
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li><a href="federation.html">Fédération</a></li>
+                    <li><a href="disciplines.html">Disciplines</a></li>
+                    <li><a href="competition.html">Compétitions</a></li>
+                    <li><a href="ressources.html">Ressources</a></li>
+                    <li><a href="clubs.html">Clubs</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="affiliation.html" class="btn-nav-cta" style="outline:2px solid #FFD700;outline-offset:2px;">Nous rejoindre</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-affiliation">
+        <span class="hero-badge">Adhésion Officielle</span>
+        <h1>Rejoignez la FSRS</h1>
+        <p>Intégrez la famille du roller et du skateboard sénégalais. Participez aux compétitions nationales et internationales, bénéficiez de formations certifiées et représentez le Sénégal.</p>
+        <div class="hero-btns">
+            <a href="#formulaire" class="btn-primary-hero">Soumettre ma demande</a>
+            <a href="contact.html" class="btn-outline-hero">Nous contacter</a>
+        </div>
+    </section>
+
+    <!-- Avantages -->
+    <section class="benefits-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Pourquoi rejoindre la <span>FSRS</span> ?</h2>
+                <p>Des avantages concrets pour les athlètes, les clubs et les entraîneurs</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">🏆</span>
+                    <h3>Accès aux Compétitions</h3>
+                    <p>Participez aux championnats nationaux, africains et mondiaux sous l'égide de la FSRS et de World Skate.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">📜</span>
+                    <h3>Licence Officielle</h3>
+                    <p>Obtenez votre licence sportive reconnue par le Ministère des Sports du Sénégal et les fédérations internationales.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🎓</span>
+                    <h3>Formations Certifiées</h3>
+                    <p>Accédez aux formations d'entraîneurs, d'arbitres et de juges délivrées par des experts certifiés World Skate.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🛡️</span>
+                    <h3>Assurance Sportive</h3>
+                    <p>Bénéficiez d'une couverture d'assurance pour tous vos entraînements et compétitions officiels.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🌍</span>
+                    <h3>Réseau International</h3>
+                    <p>Intégrez le réseau World Skate, FFRS, FIFS et Francophonie Skate pour des opportunités sportives mondiales.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">💪</span>
+                    <h3>Soutien Institutionnel</h3>
+                    <p>Bénéficiez du soutien du CNO Sénégal et de la reconnaissance officielle du gouvernement sénégalais.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">📅</span>
+                    <h3>Calendrier d'Événements</h3>
+                    <p>Accédez au calendrier complet des compétitions, stages et événements organisés tout au long de l'année.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🤝</span>
+                    <h3>Communauté Nationale</h3>
+                    <p>Rejoignez une communauté de 800+ athlètes licenciés répartis dans 11 clubs à travers tout le Sénégal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Types d'adhésion -->
+    <section class="membership-types">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Choisissez votre adhésion</h2>
+                <p>Des formules adaptées à chaque profil — athlète, club ou entraîneur</p>
+            </div>
+            <div class="types-grid">
+                <!-- Licence Athlète -->
+                <div class="type-card">
+                    <h3>Licence Athlète</h3>
+                    <p class="type-subtitle">Pour les pratiquants individuels</p>
+                    <ul class="type-features">
+                        <li>Participation aux compétitions nationales</li>
+                        <li>Assurance sportive incluse</li>
+                        <li>Accès aux stages et formations</li>
+                        <li>Carte de licence officielle FSRS</li>
+                        <li>Accès à l'espace membre en ligne</li>
+                    </ul>
+                    <a href="#formulaire" class="btn-type outline">Demander une licence</a>
+                </div>
+
+                <!-- Affiliation Club -->
+                <div class="type-card featured">
+                    <div class="type-badge">⭐ Plus populaire</div>
+                    <h3>Affiliation Club</h3>
+                    <p class="type-subtitle">Pour les clubs et associations</p>
+                    <ul class="type-features">
+                        <li>Affiliation officielle à la FSRS</li>
+                        <li>Accès aux compétitions nationales pour tous les membres</li>
+                        <li>Soutien technique et administratif de la fédération</li>
+                        <li>Formation gratuite d'un encadrant par an</li>
+                        <li>Logo et certification FSRS pour le club</li>
+                        <li>Participation aux assemblées générales</li>
+                    </ul>
+                    <a href="#formulaire" class="btn-type">Affilier mon club</a>
+                </div>
+
+                <!-- Licence Entraîneur -->
+                <div class="type-card">
+                    <h3>Licence Entraîneur</h3>
+                    <p class="type-subtitle">Pour les coaches et arbitres</p>
+                    <ul class="type-features">
+                        <li>Qualification officielle FSRS / World Skate</li>
+                        <li>Accréditation pour diriger des compétitions</li>
+                        <li>Accès aux formations avancées</li>
+                        <li>Réseau professionnel national et international</li>
+                        <li>Carte officielle d'entraîneur certifié</li>
+                    </ul>
+                    <a href="#formulaire" class="btn-type outline">Devenir entraîneur</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Étapes -->
+    <section class="steps-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Comment adhérer ?</h2>
+                <p>Un processus simple en 4 étapes pour rejoindre la fédération</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Remplir le formulaire</h3>
+                    <p>Complétez le formulaire de demande ci-dessous avec vos informations et le type d'adhésion souhaité.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Préparer les documents</h3>
+                    <p>Rassemblez les pièces requises : pièce d'identité, certificat médical, statuts du club (pour affiliation).</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Validation par la FSRS</h3>
+                    <p>Notre bureau examine votre dossier sous 5 à 10 jours ouvrables et vous contacte pour finalisation.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3>Réception de la licence</h3>
+                    <p>Recevez votre carte de licence officielle et accédez immédiatement à tous vos avantages FSRS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire -->
+    <section class="form-section" id="formulaire">
+        <div class="section-container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Formulaire de demande d'adhésion</h2>
+                    <p>Remplissez ce formulaire et notre équipe vous contactera sous 48h</p>
+                    <div class="form-header-line"></div>
+                </div>
+
+                <form id="affiliation-form" novalidate>
+                    <div class="form-grid">
+
+                        <!-- Type d'adhésion -->
+                        <p class="form-section-title">Type d'adhésion</p>
+
+                        <div class="form-group full">
+                            <label for="type-adhesion">Type d'adhésion souhaité <span>*</span></label>
+                            <select id="type-adhesion" name="type_adhesion" required>
+                                <option value="">-- Sélectionnez votre type d'adhésion --</option>
+                                <option value="athlete">Licence Athlète (pratiquant individuel)</option>
+                                <option value="club">Affiliation Club / Association</option>
+                                <option value="entraineur">Licence Entraîneur / Arbitre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-separator"></div>
+
+                        <!-- Informations personnelles -->
+                        <p class="form-section-title">Informations personnelles</p>
+
+                        <div class="form-group">
+                            <label for="prenom">Prénom <span>*</span></label>
+                            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nom">Nom <span>*</span></label>
+                            <input type="text" id="nom" name="nom" placeholder="Votre nom de famille" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Adresse e-mail <span>*</span></label>
+                            <input type="email" id="email" name="email" placeholder="exemple@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Téléphone <span>*</span></label>
+                            <input type="tel" id="telephone" name="telephone" placeholder="+221 77 000 00 00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ville">Ville / Région <span>*</span></label>
+                            <select id="ville" name="ville" required>
+                                <option value="">-- Sélectionnez votre région --</option>
+                                <option value="dakar">Dakar</option>
+                                <option value="thies">Thiès</option>
+                                <option value="mbour">Mbour</option>
+                                <option value="pikine">Pikine</option>
+                                <option value="ziguinchor">Ziguinchor</option>
+                                <option value="diourbel">Diourbel</option>
+                                <option value="saint-louis">Saint-Louis</option>
+                                <option value="kaolack">Kaolack</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="club">Club actuel (si applicable)</label>
+                            <select id="club" name="club">
+                                <option value="">-- Sélectionnez votre club --</option>
+                                <option value="maestro">Maestro Roller (Dakar)</option>
+                                <option value="pij">PIJ Rollers (Dakar)</option>
+                                <option value="afro">Afro Dance Roller (Dakar)</option>
+                                <option value="generation">Génération Skate (Dakar)</option>
+                                <option value="newstyle">Newstyle Roller (Thiès)</option>
+                                <option value="hard-riders">Hard Riders (Mbour)</option>
+                                <option value="crash">Crash Roller (Mbour)</option>
+                                <option value="tahiti">Tahiti Roller (Pikine)</option>
+                                <option value="casa">Casa Roller (Ziguinchor)</option>
+                                <option value="king">King Roller (Diourbel)</option>
+                                <option value="dakstreet">Dak'Street Skateboard (Dakar)</option>
+                                <option value="aucun">Aucun / Nouveau club</option>
+                            </select>
+                        </div>
+
+                        <div class="form-separator"></div>
+
+                        <!-- Disciplines -->
+                        <p class="form-section-title">Disciplines pratiquées</p>
+
+                        <div class="form-group full">
+                            <label>Sélectionnez vos disciplines <span>*</span></label>
+                            <div class="disciplines-check">
+                                <div class="check-item">
+                                    <input type="checkbox" id="disc-freestyle" name="disciplines" value="inline_freestyle">
+                                    <label for="disc-freestyle">Inline Freestyle</label>
+                                </div>
+                                <div class="check-item">
+                                    <input type="checkbox" id="disc-skate" name="disciplines" value="skateboard">
+                                    <label for="disc-skate">Skateboard</label>
+                                </div>
+                                <div class="check-item">
+                                    <input type="checkbox" id="disc-rollball" name="disciplines" value="roll_ball">
+                                    <label for="disc-rollball">Roll Ball</label>
+                                </div>
+                                <div class="check-item">
+                                    <input type="checkbox" id="disc-football" name="disciplines" value="football_skating">
+                                    <label for="disc-football">Football Skating</label>
+                                </div>
+                                <div class="check-item">
+                                    <input type="checkbox" id="disc-course" name="disciplines" value="roller_course">
+                                    <label for="disc-course">Roller Course</label>
+                                </div>
+                                <div class="check-item">
+                                    <input type="checkbox" id="disc-futins" name="disciplines" value="roller_futins">
+                                    <label for="disc-futins">Roller FUTINS</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-separator"></div>
+
+                        <!-- Message -->
+                        <div class="form-group full">
+                            <label for="message">Votre message / Informations complémentaires</label>
+                            <textarea id="message" name="message" placeholder="Présentez-vous, précisez votre niveau d'expérience, vos objectifs sportifs, ou toute information utile pour votre demande..."></textarea>
+                        </div>
+
+                        <!-- Documents requis -->
+                        <div class="form-group full">
+                            <div class="documents-note">
+                                <h4>📎 Documents à joindre lors de votre visite au siège</h4>
+                                <ul>
+                                    <li>Copie de la pièce d'identité nationale (CNI ou passeport)</li>
+                                    <li>Certificat médical d'aptitude sportive (moins de 3 mois)</li>
+                                    <li>2 photos d'identité récentes</li>
+                                    <li><strong>Pour les clubs :</strong> Copie des statuts de l'association + récépissé de déclaration</li>
+                                    <li><strong>Pour les entraîneurs :</strong> Diplômes ou attestations sportives</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Consentement -->
+                        <div class="form-group full">
+                            <div class="check-item" style="border-color: #2E8B57;">
+                                <input type="checkbox" id="consentement" name="consentement" required>
+                                <label for="consentement" style="font-size:0.85rem; color:#333;">
+                                    J'accepte les <a href="#" style="color:#2E8B57;">statuts de la FSRS</a> et la <a href="#" style="color:#2E8B57;">charte éthique</a>, et je certifie l'exactitude des informations fournies. <span style="color:#e53935;">*</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="submit-btn-wrap">
+                        <button type="submit" class="submit-btn">Envoyer ma demande d'adhésion</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Questions fréquentes</h2>
+                <p>Tout ce que vous devez savoir sur l'adhésion à la FSRS</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Qui peut adhérer à la FSRS ?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">Toute personne pratiquant le roller ou le skateboard au Sénégal peut adhérer. Il n'y a pas de limite d'âge. Les clubs, associations et entraîneurs peuvent également s'affilier.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Combien coûte une licence FSRS ?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">Les tarifs d'adhésion sont fixés lors de l'Assemblée Générale annuelle. Contactez le secrétariat au +221 33 812 64 24 pour connaître les tarifs en vigueur pour la saison en cours.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Combien de temps faut-il pour valider une demande ?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">Le délai de traitement est de 5 à 10 jours ouvrables après réception du dossier complet. Vous serez contacté par email ou téléphone pour confirmer la validation.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Puis-je m'affilier sans être dans un club ?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">Oui, il est possible de prendre une licence individuelle sans appartenir à un club affilié. Cependant, pour participer à certaines compétitions par équipes, vous devrez être rattaché à un club.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Ma licence est-elle reconnue à l'international ?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">Oui. La FSRS est membre affiliée de World Skate, l'organisation internationale reconnue par le CIO. Votre licence FSRS vous permet de participer aux compétitions internationales reconnues.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Comment créer un nouveau club affilié ?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">Pour affilier un nouveau club, vous devez disposer d'au moins 10 membres, d'un statut d'association légalement déclarée, et remplir le formulaire d'affiliation. Notre équipe vous accompagne dans toutes les démarches.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="final-cta">
+        <h2>Prêt à rejoindre la FSRS ?</h2>
+        <p>Des questions ? Notre équipe est disponible du lundi au vendredi, de 9h à 17h.</p>
+        <a href="contact.html">Contacter le secrétariat</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <img src="../img/logfsrs2.png" alt="Logo FSRS" class="footer-logo">
+                        <h3>FSRS</h3>
+                        <p class="footer-description">Fédération Sénégalaise de Roller & Skateboard — Promouvant l'excellence sportive et les valeurs du sport depuis 2010.</p>
+                        <div class="footer-certifications">
+                            <span class="cert-badge">Membre CNO</span>
+                            <span class="cert-badge">Agréée MJSAC</span>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Navigation</h3>
+                        <ul class="footer-links">
+                            <li><a href="../index.html">Accueil</a></li>
+                            <li><a href="federation.html">Fédération</a></li>
+                            <li><a href="disciplines.html">Disciplines</a></li>
+                            <li><a href="competition.html">Compétitions</a></li>
+                            <li><a href="galerie.html">Galerie</a></li>
+                            <li><a href="ressources.html">Ressources</a></li>
+                            <li><a href="clubs.html">Clubs</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Adhésion</h3>
+                        <ul class="footer-links">
+                            <li><a href="affiliation.html">Licence Athlète</a></li>
+                            <li><a href="affiliation.html">Affiliation Club</a></li>
+                            <li><a href="affiliation.html">Licence Entraîneur</a></li>
+                            <li><a href="ressources.html">Documents officiels</a></li>
+                            <li><a href="contact.html">Nous contacter</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Contact</h3>
+                        <ul class="footer-contact">
+                            <li><span class="contact-icon">📍</span><span>Immeuble dispensaire Georges Lahoud, Dakar, Sénégal</span></li>
+                            <li><span class="contact-icon">📞</span><span>+221 33 812 64 24</span></li>
+                            <li><span class="contact-icon">✉️</span><span>secrétariat@fsrs.com</span></li>
+                            <li><span class="contact-icon">🕒</span><span>Lun-Ven : 9h–17h</span></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col footer-newsletter">
+                        <h3>Newsletter</h3>
+                        <p>Restez informé de nos actualités et événements</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Votre adresse email" required>
+                            <button type="submit" class="btn-newsletter">S'abonner</button>
+                        </form>
+                        <div class="social-links">
+                            <a href="#" class="social-icon facebook" aria-label="Facebook">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            <a href="#" class="social-icon instagram" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </a>
+                            <a href="#" class="social-icon youtube" aria-label="YouTube">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">&copy; 2026 Fédération Sénégalaise de Roller & Skateboard. Tous droits réservés.</p>
+                    <div class="legal-links">
+                        <a href="#">Mentions légales</a>
+                        <span class="separator">|</span>
+                        <a href="#">Politique de confidentialité</a>
+                        <span class="separator">|</span>
+                        <a href="#">Plan du site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/js/animations.js"></script>
+    <script>
+        // FAQ Accordéon
+        function toggleFaq(el) {
+            const answer = el.nextElementSibling;
+            const isOpen = el.classList.contains('open');
+            // Fermer tous
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.classList.remove('open');
+                q.nextElementSibling.classList.remove('open');
+            });
+            // Ouvrir si pas déjà ouvert
+            if (!isOpen) {
+                el.classList.add('open');
+                answer.classList.add('open');
+            }
+        }
+
+        // Formulaire
+        document.getElementById('affiliation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('.submit-btn');
+            btn.textContent = 'Envoi en cours...';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            setTimeout(() => {
+                btn.textContent = '✓ Demande envoyée avec succès !';
+                btn.style.background = 'linear-gradient(135deg, #1a7a40, #145c30)';
+                btn.style.opacity = '1';
+                setTimeout(() => {
+                    btn.textContent = 'Envoyer ma demande d\'adhésion';
+                    btn.disabled = false;
+                    btn.style.background = '';
+                    this.reset();
+                }, 4000);
+            }, 1800);
+        });
+    </script>
+</body>
+</html>

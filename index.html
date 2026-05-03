@@ -1,24 +1,327 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FSRS - Fédération Sénégalaise de Roller Skateboard</title>
+    <link rel="icon" type="image/png" href="img/FSRS.png">
+    <title>FSRS - Fédération Sénégalaise de Roller & Skateboard | Sénégal</title>
+    <meta name="description" content="La Fédération Sénégalaise de Roller & Skateboard (FSRS) - Organisation officielle des sports de glisse au Sénégal. 11 clubs, 800+ athlètes, 5 disciplines.">
+    <meta name="keywords" content="FSRS, roller, skateboard, Sénégal, fédération, sport, Dakar, roller freestyle, roll ball, football skating">
+    <meta property="og:title" content="FSRS - Fédération Sénégalaise de Roller & Skateboard">
+    <meta property="og:description" content="Organisation officielle du roller et skateboard au Sénégal. 11 clubs affiliés, 800+ athlètes licenciés.">
+    <meta property="og:image" content="img/logfsrs2.png">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/animations.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Section Stats */
+        .stats-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1a3a2f 0%, #2E8B57 100%);
+            color: white;
+        }
+        .stats-section .container { max-width: 1200px; margin: 0 auto; }
+        .stats-section h2 {
+            text-align: center;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            color: #FFD700;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,215,0,0.3);
+            border-radius: 12px;
+            padding: 2rem 1rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .stat-card:hover { transform: translateY(-8px); border-color: #FFD700; }
+        .stat-number {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: #FFD700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 576px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
+
+        /* ══════════════ CARROUSEL ACTUALITÉS (HERO) ══════════════ */
+        .news-carousel-section {
+            background: linear-gradient(180deg, #0d2b1e 0%, #1a3a2f 55%, #f0f4f2 55%, #f0f4f2 100%);
+            padding: 2.5rem 1.5rem 4.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .news-carousel-section .nc-head-left .nc-eyebrow { color: #FFD700; }
+        .news-carousel-section .nc-head-left h2 { color: #ffffff; }
+        .news-carousel-section .nc-link { color: #FFD700; }
+        .news-carousel-section .nc-link:hover { color: #ffffff; }
+        .news-carousel-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .news-carousel-section::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(46,139,87,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .nc-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .nc-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .nc-head-left .nc-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2E8B57;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.4rem;
+        }
+        .nc-eyebrow::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #FFD700;
+        }
+        .nc-head-left h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            color: #1a3a2f;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            line-height: 1.1;
+            margin: 0;
+        }
+        .nc-link {
+            color: #2E8B57;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s, gap 0.2s;
+        }
+        .nc-link:hover { color: #1a3a2f; gap: 0.6rem; }
+        .nc-link svg { width: 14px; height: 14px; }
+
+        /* Viewport & track */
+        .nc-viewport {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(13,43,30,0.18);
+        }
+        .nc-track {
+            display: flex;
+            transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+            will-change: transform;
+        }
+        .nc-slide {
+            flex: 0 0 100%;
+            min-width: 100%;
+            position: relative;
+            background: #0d2b1e;
+            min-height: 540px;
+        }
+        .nc-slide-media {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+        .nc-slide-media .nc-slide-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .nc-slide-media::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(13,43,30,0.0) 55%, rgba(13,43,30,0.65) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .nc-slide-badge {
+            position: absolute;
+            top: 1.4rem;
+            left: 1.4rem;
+            background: #FFD700;
+            color: #1a3a2f;
+            padding: 0.45rem 1rem;
+            border-radius: 30px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 3;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+        }
+        .nc-slide-cta {
+            position: absolute;
+            left: 2rem;
+            bottom: 2rem;
+            z-index: 3;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #1a3a2f;
+            color: #FFD700;
+            padding: 0.85rem 1.6rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.25s;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+        }
+        .nc-slide-cta:hover { background: #2E8B57; transform: translateX(4px); }
+        .nc-slide-cta svg { width: 14px; height: 14px; transition: transform 0.25s; }
+        .nc-slide-cta:hover svg { transform: translateX(3px); }
+
+        /* Arrows */
+        .nc-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.95);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+            color: #1a3a2f;
+            transition: all 0.2s;
+        }
+        .nc-arrow:hover { background: #FFD700; color: #1a3a2f; transform: translateY(-50%) scale(1.08); }
+        .nc-arrow svg { width: 20px; height: 20px; }
+        .nc-arrow.prev { left: 1.2rem; }
+        .nc-arrow.next { right: 1.2rem; }
+
+        /* Dots & progress */
+        .nc-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.6rem;
+        }
+        .nc-dots { display: flex; gap: 0.5rem; }
+        .nc-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.25s;
+        }
+        .nc-dot:hover { background: #94a3b8; }
+        .nc-dot.active {
+            width: 30px;
+            border-radius: 10px;
+            background: #2E8B57;
+        }
+
+        .nc-counter {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            color: #6B7280;
+            letter-spacing: 1px;
+        }
+        .nc-counter .nc-current { color: #1a3a2f; font-weight: 700; }
+
+        .nc-empty {
+            background: white;
+            border-radius: 14px;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+        }
+
+        /* Responsive carrousel */
+        @media (max-width: 900px) {
+            .news-carousel-section { background: linear-gradient(180deg, #0d2b1e 0%, #1a3a2f 40%, #f0f4f2 40%, #f0f4f2 100%); }
+            .nc-slide { min-height: 380px; }
+            .nc-arrow { width: 40px; height: 40px; }
+            .nc-arrow.prev { left: 0.6rem; }
+            .nc-arrow.next { right: 0.6rem; }
+        }
+        @media (max-width: 500px) {
+            .news-carousel-section { padding: 3rem 1rem 3.5rem; }
+            .nc-slide { min-height: 320px; }
+            .nc-slide-cta { left: 1rem; bottom: 1rem; padding: 0.7rem 1.2rem; font-size: 0.75rem; }
+        }
+    </style>
 </head>
 <body>
     <!-- En-tête -->
     <header>
         <div class="container">
             <div class="logo">
-                <img src="img/Banière FSRS.jpg" alt="Logo FSRS">
+                <img src="img/logfsrs2.png" alt="Logo FSRS">
             </div>
             <nav>
                 <ul>
                     <li>
-                        <a href="../index.html">
+                        <a href="index.html" class="active">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                                 <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                             </svg>
@@ -26,45 +329,32 @@
                     </li>
                     <li><a href="views/federation.html">Fédération</a></li>
                     <li><a href="views/disciplines.html">Disciplines</a></li>
-                    <li><a href="views/actualites.html">Compétitions</a></li>
+                    <li><a href="views/competition.html">Compétitions</a></li>
                     <li><a href="views/ressources.html">Ressources</a></li>
                     <li><a href="views/clubs.html">Clubs</a></li>
+                    <li><a href="views/galerie.html">Galerie</a></li>
                     <li><a href="views/contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <a href="views/affiliation.html" class="btn-nav-cta">Nous rejoindre</a>
         </div>
     </header>
 
-    <!-- Bannière d'accueil -->
-    <section class="hero">
-        <img src="img/banner-acceuil.jpg" alt="Bannière FSRS - Roller Skateboard : L'Élan du Sénégal">
-        <div class="hero-content">
-            <h1>Roller Skateboard : L'Élan du Sénégal</h1>
-            <p>Découvrez les disciplines, les athlètes et les événements de la FSRS.</p>
-        </div>
-    </section>
-
-    <!-- Actualités récentes -->
-    <section class="actualites">
-        <div class="container">
-            <h2>Actualités Récentes</h2>
-            <div class="actualites-grid">
-                <article>
-                    <img src="img/compe.jpg" alt="Actualité 1">
-                    <h3>7th Roll Ball World Skate</h3>
-                    <p>Découvrez la 7th compétition international de Roll Ball.</p>
-                </article>
-                <article>
-                    <img src="img/dame.jpeg" alt="Actualité 2">
-                    <h3>Réussite</h3>
-                    <p>Dame FALL une cinquième couronne mondiale</p>
-                </article>
-                <article>
-                    <img src="img/forma.jpg" alt="Actualité 3">
-                    <h3>Formation des Entraîneurs</h3>
-                    <p>Une session de formation pour les entraîneurs aura lieu en décembre.</p>
-                </article>
+    <!-- Carrousel Actualités (en tête d'accueil) -->
+    <section class="news-carousel-section">
+        <div class="nc-container">
+            <div class="nc-head">
+                <div class="nc-head-left">
+                    <span class="nc-eyebrow">Actualités</span>
+                    <h2>À la Une des Compétitions</h2>
+                </div>
+                <a href="views/competition.html#actualites" class="nc-link">
+                    Voir toutes les actualités
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
             </div>
+
+            <div id="nc-root"></div>
         </div>
     </section>
 
@@ -72,10 +362,38 @@
     <section class="presentation">
         <div class="container">
             <h2>Qui sommes-nous ?</h2>
-            <p>La FSRS est la fédération officielle du roller skateboard au Sénégal. Nous œuvrons pour le développement des disciplines, la formation des athlètes et la promotion des valeurs du sport.</p>
-            <a href="/views/federation.html" class="btn">En savoir plus</a>
+            <p>La <strong>Fédération Sénégalaise de Roller & Skateboard (FSRS)</strong> est l'organisme officiel des sports à roulettes au Sénégal. Fondée en 2010, membre du CNO Sénégal et affiliée à World Skate, elle œuvre pour le développement des disciplines, la formation des athlètes et le rayonnement du Sénégal sur la scène internationale.</p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
+                <a href="views/federation.html" class="btn">Découvrir la fédération</a>
+                <a href="views/clubs.html" class="btn" style="background:#1a3a2f;">Trouver un club</a>
+            </div>
         </div>
     </section>
+
+    <!-- Section Chiffres Clés 
+    <section class="stats-section">
+        <div class="container">
+            <h2>La FSRS en Chiffres</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="11">0</div>
+                    <div class="stat-label">Clubs Affiliés</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="800">0</div>
+                    <div class="stat-label">Athlètes Licenciés</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="5">0</div>
+                    <div class="stat-label">Disciplines Reconnues</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="14">0</div>
+                    <div class="stat-label">Années d'Excellence</div>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
     <!-- Liens vers les disciplines -->
     <section class="disciplines">
@@ -83,17 +401,28 @@
             <h2>Nos Disciplines</h2>
             <div class="disciplines-grid">
                 <div class="discipline">
-                    <img src="img/roolfree.png" alt="Roller Freestyle">
-                    <h3>Roller Freestyle</h3>
+                    <img src="img/roolfree.png" alt="Inline Freestyle">
+                    <h3>Inline Freestyle</h3>
                 </div>
                 <div class="discipline">
                     <img src="img/skateb.jpg" alt="Skateboard Street">
                     <h3>Skateboard Street</h3>
                 </div>
                 <div class="discipline">
-                    <img src="img/foot.png" alt="Roller Derby">
-                    <h3>FootBall Skating</h3>
+                    <img src="img/foot.png" alt="Football Skating">
+                    <h3>Football Skating</h3>
                 </div>
+                <div class="discipline">
+                    <img src="img/LOGO ROLL BALL 2.png" alt="Roll Ball">
+                    <h3>Roll Ball</h3>
+                </div>
+                <div class="discipline">
+                    <img src="img/rolsk.png" alt="Skate Cross">
+                    <h3>Skate Cross</h3>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:2rem;">
+                <a href="views/disciplines.html" class="btn">Voir toutes les disciplines</a>
             </div>
         </div>
     </section>
@@ -135,7 +464,12 @@
                             <img src="img/dakar.png" alt="Ville de Dakar">
                         </div>
                     </a>
-                    
+                    <a href="#" target="_blank">
+                        <div class="slide">
+                            <img src="img/Prt.jpeg" alt="Partenaire FSRS">
+                        </div>
+                    </a>
+
                     <!-- Duplication pour animation continue -->
                     <div class="slide"><img src="img/WS_Logo_OnDark_RGB.png" alt="World Skate"></div>
                     <div class="slide"><img src="img/FFRS.png" alt="FFRS"></div>
@@ -143,6 +477,7 @@
                     <div class="slide"><img src="img/logo FRANCOPHONIE SKATE.png" alt="Francophonie Skate"></div>
                     <div class="slide"><img src="img/cons.jpg" alt="CNO Sénégal"></div>
                     <div class="slide"><img src="img/dakar.png" alt="Ville de Dakar"></div>
+                    <div class="slide"><img src="img/Prt.jpeg" alt="Partenaire FSRS"></div>
                 </div>
             </div>
         </div>
@@ -155,7 +490,7 @@
                 <div class="footer-grid">
                     <!-- Colonne 1: À propos -->
                     <div class="footer-col footer-about">
-                        <img src="img/Banière FSRS.jpg" alt="Logo FSRS" class="footer-logo">
+                        <img src="img/logfsrs2.png" alt="Logo FSRS" class="footer-logo">
                         <h3>FSRS</h3>
                         <p class="footer-description">
                             Fédération Sénégalaise de Roller & Skateboard - 
@@ -171,18 +506,13 @@
                     <div class="footer-col">
                         <h3>Navigation</h3>
                         <ul class="footer-links">
-                            <li>
-                                <a href="../index.html">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                                    </svg>
-                                </a>
-                            </li>
+                            <li><a href="index.html">Accueil</a></li>
                             <li><a href="views/federation.html">Fédération</a></li>
                             <li><a href="views/disciplines.html">Disciplines</a></li>
-                            <li><a href="views/actualites.html">Compétitions</a></li>
+                            <li><a href="views/competition.html">Compétitions</a></li>
                             <li><a href="views/ressources.html">Ressources</a></li>
                             <li><a href="views/clubs.html">Clubs</a></li>
+                            <li><a href="views/galerie.html">Galerie</a></li>
                             <li><a href="views/contact.html">Contact</a></li>
                         </ul>
                     </div>  
@@ -205,7 +535,7 @@
                         <ul class="footer-contact">
                             <li>
                                 <span class="contact-icon">📍</span>
-                                <span>immeuble dispensaire georges Lahoud zone de Dakar<br>Dakar, Sénégal</span>
+                                <span>Immeuble dispensaire Georges Lahoud, Dakar, Sénégal</span>
                             </li>
                             <li>
                                 <span class="contact-icon">📞</span>
@@ -231,22 +561,22 @@
                             <button type="submit" class="btn-newsletter">S'abonner</button>
                         </form>
                         <div class="social-links">
-                            <a href="#" class="social-icon" aria-label="Facebook">
+                            <a href="#" class="social-icon facebook" aria-label="Facebook">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                                 </svg>
                             </a>
-                            <a href="#" class="social-icon" aria-label="Instagram">
+                            <a href="#" class="social-icon instagram" aria-label="Instagram">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                 </svg>
                             </a>
-                            <a href="#" class="social-icon" aria-label="YouTube">
+                            <a href="#" class="social-icon youtube" aria-label="YouTube">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                                 </svg>
                             </a>
-                            <a href="#" class="social-icon" aria-label="Twitter">
+                            <a href="#" class="social-icon twitter" aria-label="Twitter">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                                 </svg>
@@ -262,7 +592,7 @@
             <div class="container">
                 <div class="footer-bottom-content">
                     <p class="copyright">
-                        &copy; 2025 Fédération Sénégalaise de Roller & Skateboard. Tous droits réservés.
+                        &copy; 2026 Fédération Sénégalaise de Roller & Skateboard. Tous droits réservés.
                     </p>
                     <div class="legal-links">
                         <a href="#">Mentions légales</a>
@@ -279,5 +609,130 @@
     </footer>
 
     <script src="static/js/animations.js"></script>
+    <script src="static/js/actualites.js"></script>
+    <script>
+        // ════════════════════════════════════════════════════════
+        // CARROUSEL ACTUALITÉS
+        // Source : static/js/actualites.js (partagée avec competition.html)
+        // Auto-filtre : articles >24h après dateEvent sont exclus.
+        // ════════════════════════════════════════════════════════
+        (function() {
+            const items = window.FSRS_getActiveActualites('img/compte3/');
+            const root = document.getElementById('nc-root');
+            if (!root) return;
+
+            if (!items.length) {
+                root.innerHTML = '<div class="nc-empty">Aucune actualité à afficher pour le moment. Revenez bientôt !</div>';
+                return;
+            }
+
+            const total = items.length;
+            let idx = 0;
+            let timer = null;
+
+            root.innerHTML = `
+                <div class="nc-viewport" id="nc-viewport">
+                    <button class="nc-arrow prev" id="nc-prev" aria-label="Actualité précédente">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <div class="nc-track" id="nc-track">
+                        ${items.map(n => {
+                            const articleHref = n.slug ? `views/actualite-${n.slug}.html` : 'views/competition.html#actualites';
+                            return `
+                            <article class="nc-slide">
+                                <div class="nc-slide-media">
+                                    <img class="nc-slide-img" src="${encodeURI(n.img)}" alt="${n.titre}" loading="lazy">
+                                    ${n.featured ? '<span class="nc-slide-badge">À la une</span>' : ''}
+                                </div>
+                                <a href="${articleHref}" class="nc-slide-cta">
+                                    Lire l'article
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                                </a>
+                            </article>
+                        `;
+                        }).join('')}
+                    </div>
+                    <button class="nc-arrow next" id="nc-next" aria-label="Actualité suivante">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+                <div class="nc-controls">
+                    <span class="nc-counter"><span class="nc-current" id="nc-current">1</span> / ${total}</span>
+                    <div class="nc-dots" id="nc-dots">
+                        ${items.map((_, i) => `<button class="nc-dot ${i===0?'active':''}" data-idx="${i}" aria-label="Aller à la diapositive ${i+1}"></button>`).join('')}
+                    </div>
+                </div>
+            `;
+
+            const track = document.getElementById('nc-track');
+            const dots = document.querySelectorAll('#nc-dots .nc-dot');
+            const current = document.getElementById('nc-current');
+
+            function goTo(n) {
+                idx = (n + total) % total;
+                track.style.transform = `translateX(-${idx * 100}%)`;
+                dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+                current.textContent = idx + 1;
+            }
+
+            function next() { goTo(idx + 1); }
+            function prev() { goTo(idx - 1); }
+
+            function startAuto() {
+                stopAuto();
+                if (total > 1) timer = setInterval(next, 6000);
+            }
+            function stopAuto() {
+                if (timer) { clearInterval(timer); timer = null; }
+            }
+
+            document.getElementById('nc-next').addEventListener('click', () => { next(); startAuto(); });
+            document.getElementById('nc-prev').addEventListener('click', () => { prev(); startAuto(); });
+            dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.idx); startAuto(); }));
+
+            const viewport = document.getElementById('nc-viewport');
+            viewport.addEventListener('mouseenter', stopAuto);
+            viewport.addEventListener('mouseleave', startAuto);
+
+            // Swipe tactile
+            let touchStartX = 0;
+            viewport.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+            viewport.addEventListener('touchend', e => {
+                const dx = e.changedTouches[0].clientX - touchStartX;
+                if (Math.abs(dx) > 50) (dx < 0 ? next : prev)();
+                startAuto();
+            }, { passive: true });
+
+            startAuto();
+        })();
+
+        // Animation des compteurs
+        function animateCounter(el) {
+            const target = parseInt(el.getAttribute('data-target'));
+            const suffix = target >= 100 ? '+' : '';
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    el.textContent = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    el.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.stat-number').forEach(animateCounter);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) statsObserver.observe(statsSection);
+    </script>
 </body>
 </html>

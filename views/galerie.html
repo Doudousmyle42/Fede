@@ -1,0 +1,709 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/FSRS.png">
+    <title>Galerie Photos | FSRS - Fédération Sénégalaise de Roller & Skateboard</title>
+    <meta name="description" content="Galerie officielle de la FSRS : compétitions, champions, formations, clubs affiliés. Découvrez les moments forts du roller et skateboard au Sénégal.">
+    <meta property="og:title" content="Galerie Photos | FSRS Sénégal">
+    <meta property="og:image" content="../img/champna.jpg">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/animations.css">
+    <style>
+        /* ===== HERO GALERIE ===== */
+        .hero-galerie {
+            background: linear-gradient(135deg, #0d2b1e 0%, #1a4d2e 60%, #2E8B57 100%);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+        .hero-galerie h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        .hero-galerie p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== FILTRES ===== */
+        .gallery-filters {
+            padding: 2.5rem 2rem 1.5rem;
+            background: #f8f9fa;
+            text-align: center;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .filters-wrap {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: white;
+            color: #333;
+            border: 2px solid #dee2e6;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .filter-btn:hover { border-color: #2E8B57; color: #2E8B57; }
+        .filter-btn.active {
+            background: #2E8B57;
+            color: white;
+            border-color: #2E8B57;
+        }
+
+        /* ===== GRILLE GALERIE ===== */
+        .gallery-section {
+            padding: 3rem 2rem 5rem;
+            background: #f8f9fa;
+        }
+        .gallery-container { max-width: 1300px; margin: 0 auto; }
+        .gallery-count {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .gallery-count span { color: #2E8B57; font-weight: 700; }
+
+        .gallery-grid {
+            columns: 4;
+            column-gap: 1rem;
+        }
+        @media (max-width: 1100px) { .gallery-grid { columns: 3; } }
+        @media (max-width: 768px) { .gallery-grid { columns: 2; } }
+        @media (max-width: 480px) { .gallery-grid { columns: 1; } }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.2rem;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        .gallery-overlay-title {
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+        .gallery-overlay-cat {
+            display: inline-block;
+            background: #FFD700;
+            color: #1a3a2f;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.7rem;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+        .gallery-zoom-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: rgba(255,255,255,0.9);
+            color: #2E8B57;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover .gallery-zoom-icon { transform: translate(-50%, -50%) scale(1); }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.93);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox.open { display: flex; }
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            text-align: center;
+        }
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+        .lightbox-caption {
+            color: white;
+            margin-top: 1rem;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .lightbox-cat-badge {
+            display: inline-block;
+            background: #FFD700;
+            color: #1a3a2f;
+            padding: 0.2rem 0.9rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 0.4rem;
+        }
+        .lightbox-close {
+            position: fixed;
+            top: 1.5rem; right: 1.5rem;
+            background: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .lightbox-close:hover { background: #FFD700; color: #1a3a2f; border-color: #FFD700; }
+        .lightbox-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .lightbox-nav:hover { background: #FFD700; color: #1a3a2f; border-color: #FFD700; }
+        .lightbox-prev { left: 1.5rem; }
+        .lightbox-next { right: 1.5rem; }
+
+        /* ===== SECTION CTA ===== */
+        .gallery-cta {
+            background: #2E8B57;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        .gallery-cta h2 { font-size: 2rem; color: #FFD700; margin-bottom: 1rem; }
+        .gallery-cta p { font-size: 1.05rem; color: rgba(255,255,255,0.85); margin-bottom: 2rem; }
+        .gallery-cta .btn-cta {
+            display: inline-block;
+            background: #FFD700;
+            color: #1a3a2f;
+            padding: 0.9rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .gallery-cta .btn-cta:hover { background: white; transform: translateY(-3px); }
+
+        /* hidden class for filter */
+        .gallery-item.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../img/logfsrs2.png" alt="Logo FSRS">
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li><a href="federation.html">Fédération</a></li>
+                    <li><a href="disciplines.html">Disciplines</a></li>
+                    <li><a href="competition.html">Compétitions</a></li>
+                    <li><a href="ressources.html">Ressources</a></li>
+                    <li><a href="clubs.html">Clubs</a></li>
+                    <li><a href="galerie.html" class="active">Galerie</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="affiliation.html" class="btn-nav-cta">Nous rejoindre</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-galerie">
+        <h1>Galerie Photos</h1>
+        <p>Revivez les moments forts du roller et du skateboard sénégalais — compétitions, formations, clubs et champions.</p>
+    </section>
+
+    <!-- Filtres -->
+    <div class="gallery-filters">
+        <div class="filters-wrap">
+            <button class="filter-btn active" data-filter="all">Tout voir</button>
+            <button class="filter-btn" data-filter="competitions">Compétitions</button>
+            <button class="filter-btn" data-filter="champions">Champions</button>
+            <button class="filter-btn" data-filter="formation">Formation</button>
+            <button class="filter-btn" data-filter="clubs">Clubs</button>
+            <button class="filter-btn" data-filter="disciplines">Disciplines</button>
+        </div>
+    </div>
+
+    <!-- Galerie -->
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <p class="gallery-count">Affichage de <span id="photo-count">18</span> photos</p>
+            <div class="gallery-grid" id="gallery-grid">
+
+                <!-- Photo 1 -->
+                <div class="gallery-item" data-cat="competitions" data-title="Championnat National 2024"
+                     onclick="openLightbox(0)">
+                    <img src="../img/champna.jpg" alt="Championnat National 2024">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Championnat National 2024</p>
+                        <span class="gallery-overlay-cat">Compétitions</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="gallery-item" data-cat="champions" data-title="Dame Fall - 5× Championne du Monde"
+                     onclick="openLightbox(1)">
+                    <img src="../img/dame.jpeg" alt="Dame Fall Championne Mondiale">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Dame Fall — 5× Championne du Monde</p>
+                        <span class="gallery-overlay-cat">Champions</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="gallery-item" data-cat="competitions" data-title="7th Roll Ball World Skate"
+                     onclick="openLightbox(2)">
+                    <img src="../img/compe.jpg" alt="Compétition internationale Roll Ball">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">7th Roll Ball World Skate</p>
+                        <span class="gallery-overlay-cat">Compétitions</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="gallery-item" data-cat="formation" data-title="Session de formation des entraîneurs"
+                     onclick="openLightbox(3)">
+                    <img src="../img/forma.jpg" alt="Formation entraîneurs FSRS">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Formation des Entraîneurs</p>
+                        <span class="gallery-overlay-cat">Formation</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="gallery-item" data-cat="disciplines" data-title="Roller Freestyle — Sénégal"
+                     onclick="openLightbox(4)">
+                    <img src="../img/roolfree.png" alt="Roller Freestyle Sénégal">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Roller Freestyle — Sénégal</p>
+                        <span class="gallery-overlay-cat">Disciplines</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 6 -->
+                <div class="gallery-item" data-cat="disciplines" data-title="Skateboard — Discipline Urbaine"
+                     onclick="openLightbox(5)">
+                    <img src="../img/skateb.jpg" alt="Skateboard Sénégal">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Skateboard — Discipline Urbaine</p>
+                        <span class="gallery-overlay-cat">Disciplines</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 7 -->
+                <div class="gallery-item" data-cat="disciplines" data-title="Football Skating — FIFS"
+                     onclick="openLightbox(6)">
+                    <img src="../img/foot.png" alt="Football Skating">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Football Skating — FIFS</p>
+                        <span class="gallery-overlay-cat">Disciplines</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 8 -->
+                <div class="gallery-item" data-cat="disciplines" data-title="Roller Course — Vitesse"
+                     onclick="openLightbox(7)">
+                    <img src="../img/rolsk.png" alt="Roller Course">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Roller Course — Vitesse</p>
+                        <span class="gallery-overlay-cat">Disciplines</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 9 -->
+                <div class="gallery-item" data-cat="disciplines" data-title="Nos Disciplines Sportives"
+                     onclick="openLightbox(8)">
+                    <img src="../img/disci.jpg" alt="Disciplines FSRS">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Nos Disciplines Sportives</p>
+                        <span class="gallery-overlay-cat">Disciplines</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 10 -->
+                <div class="gallery-item" data-cat="clubs" data-title="Maestro Roller — Dakar"
+                     onclick="openLightbox(9)">
+                    <img src="../img/maestroskab.jpeg" alt="Maestro Roller Club">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Maestro Roller — Dakar</p>
+                        <span class="gallery-overlay-cat">Clubs</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 11 -->
+                <div class="gallery-item" data-cat="clubs" data-title="Afro Dance Roller — Dakar"
+                     onclick="openLightbox(10)">
+                    <img src="../img/clublogo/afro.jpeg" alt="Afro Dance Roller">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Afro Dance Roller — Dakar</p>
+                        <span class="gallery-overlay-cat">Clubs</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 12 -->
+                <div class="gallery-item" data-cat="clubs" data-title="Hard Riders — Mbour"
+                     onclick="openLightbox(11)">
+                    <img src="../img/clublogo/hardraiders.jpeg" alt="Hard Riders Mbour">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Hard Riders — Mbour</p>
+                        <span class="gallery-overlay-cat">Clubs</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 13 -->
+                <div class="gallery-item" data-cat="clubs" data-title="Casa Roller — Ziguinchor"
+                     onclick="openLightbox(12)">
+                    <img src="../img/clublogo/casa.jpeg" alt="Casa Roller Ziguinchor">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Casa Roller — Ziguinchor</p>
+                        <span class="gallery-overlay-cat">Clubs</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 14 -->
+                <div class="gallery-item" data-cat="clubs" data-title="Génération Skate — Dakar"
+                     onclick="openLightbox(13)">
+                    <img src="../img/clublogo/generation.jpeg" alt="Génération Skate">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Génération Skate — Dakar</p>
+                        <span class="gallery-overlay-cat">Clubs</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 15 -->
+                <div class="gallery-item" data-cat="clubs" data-title="PIJ Rollers — Dakar"
+                     onclick="openLightbox(14)">
+                    <img src="../img/clublogo/pj.jpeg" alt="PIJ Rollers">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">PIJ Rollers — Dakar</p>
+                        <span class="gallery-overlay-cat">Clubs</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 16 -->
+                <div class="gallery-item" data-cat="clubs" data-title="Newstyle Roller — Thiès"
+                     onclick="openLightbox(15)">
+                    <img src="../img/clublogo/newstyle.jpeg" alt="Newstyle Roller Thiès">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Newstyle Roller — Thiès</p>
+                        <span class="gallery-overlay-cat">Clubs</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 17 -->
+                <div class="gallery-item" data-cat="competitions" data-title="Bannière officielle FSRS"
+                     onclick="openLightbox(16)">
+                    <img src="../img/banner-acceuil.jpg" alt="Événement FSRS">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Événement Officiel FSRS</p>
+                        <span class="gallery-overlay-cat">Compétitions</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+                <!-- Photo 18 -->
+                <div class="gallery-item" data-cat="clubs" data-title="Tahiti Roller — Pikine"
+                     onclick="openLightbox(17)">
+                    <img src="../img/clublogo/tahiti.jpeg" alt="Tahiti Roller Pikine">
+                    <div class="gallery-overlay">
+                        <p class="gallery-overlay-title">Tahiti Roller — Pikine</p>
+                        <span class="gallery-overlay-cat">Clubs</span>
+                    </div>
+                    <div class="gallery-zoom-icon">⊕</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fermer la galerie">✕</button>
+        <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)" aria-label="Photo précédente">&#8249;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+            <span class="lightbox-cat-badge" id="lightbox-cat"></span>
+        </div>
+        <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)" aria-label="Photo suivante">&#8250;</button>
+    </div>
+
+    <!-- CTA -->
+    <section class="gallery-cta">
+        <h2>Rejoignez l'aventure FSRS</h2>
+        <p>Participez à nos compétitions, rejoignez un club affilié et contribuez au développement du roller et skateboard au Sénégal.</p>
+        <a href="affiliation.html" class="btn-cta">Devenir membre</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <img src="../img/logfsrs2.png" alt="Logo FSRS" class="footer-logo">
+                        <h3>FSRS</h3>
+                        <p class="footer-description">Fédération Sénégalaise de Roller & Skateboard — Promouvant l'excellence sportive et les valeurs du sport depuis 2010.</p>
+                        <div class="footer-certifications">
+                            <span class="cert-badge">Membre CNO</span>
+                            <span class="cert-badge">Agréée MJSAC</span>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Navigation</h3>
+                        <ul class="footer-links">
+                            <li><a href="../index.html">Accueil</a></li>
+                            <li><a href="federation.html">Fédération</a></li>
+                            <li><a href="disciplines.html">Disciplines</a></li>
+                            <li><a href="competition.html">Compétitions</a></li>
+                            <li><a href="galerie.html">Galerie</a></li>
+                            <li><a href="ressources.html">Ressources</a></li>
+                            <li><a href="clubs.html">Clubs</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Services</h3>
+                        <ul class="footer-links">
+                            <li><a href="affiliation.html">Devenir Membre</a></li>
+                            <li><a href="#">Licences & Adhésions</a></li>
+                            <li><a href="#">Calendrier des Événements</a></li>
+                            <li><a href="#">Formation & Certification</a></li>
+                            <li><a href="#">Espace Club</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Contact</h3>
+                        <ul class="footer-contact">
+                            <li><span class="contact-icon">📍</span><span>Immeuble dispensaire Georges Lahoud, Dakar, Sénégal</span></li>
+                            <li><span class="contact-icon">📞</span><span>+221 33 812 64 24</span></li>
+                            <li><span class="contact-icon">✉️</span><span>secrétariat@fsrs.com</span></li>
+                            <li><span class="contact-icon">🕒</span><span>Lun-Ven : 9h–17h</span></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col footer-newsletter">
+                        <h3>Newsletter</h3>
+                        <p>Restez informé de nos actualités et événements</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Votre adresse email" required>
+                            <button type="submit" class="btn-newsletter">S'abonner</button>
+                        </form>
+                        <div class="social-links">
+                            <a href="#" class="social-icon facebook" aria-label="Facebook">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            <a href="#" class="social-icon instagram" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </a>
+                            <a href="#" class="social-icon youtube" aria-label="YouTube">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">&copy; 2026 Fédération Sénégalaise de Roller & Skateboard. Tous droits réservés.</p>
+                    <div class="legal-links">
+                        <a href="#">Mentions légales</a>
+                        <span class="separator">|</span>
+                        <a href="#">Politique de confidentialité</a>
+                        <span class="separator">|</span>
+                        <a href="#">Plan du site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/js/animations.js"></script>
+    <script>
+        // ===== DONNÉES PHOTOS =====
+        const photos = [
+            { src: '../img/champna.jpg',         title: 'Championnat National 2024',          cat: 'Compétitions' },
+            { src: '../img/dame.jpeg',            title: 'Dame Fall — 5× Championne du Monde', cat: 'Champions'    },
+            { src: '../img/compe.jpg',            title: '7th Roll Ball World Skate',          cat: 'Compétitions' },
+            { src: '../img/forma.jpg',            title: 'Formation des Entraîneurs',          cat: 'Formation'    },
+            { src: '../img/roolfree.png',         title: 'Roller Freestyle — Sénégal',         cat: 'Disciplines'  },
+            { src: '../img/skateb.jpg',           title: 'Skateboard — Discipline Urbaine',    cat: 'Disciplines'  },
+            { src: '../img/foot.png',             title: 'Football Skating — FIFS',            cat: 'Disciplines'  },
+            { src: '../img/rolsk.png',            title: 'Roller Course — Vitesse',            cat: 'Disciplines'  },
+            { src: '../img/disci.jpg',            title: 'Nos Disciplines Sportives',          cat: 'Disciplines'  },
+            { src: '../img/maestroskab.jpeg',     title: 'Maestro Roller — Dakar',             cat: 'Clubs'        },
+            { src: '../img/clublogo/afro.jpeg',   title: 'Afro Dance Roller — Dakar',          cat: 'Clubs'        },
+            { src: '../img/clublogo/hardraiders.jpeg', title: 'Hard Riders — Mbour',           cat: 'Clubs'        },
+            { src: '../img/clublogo/casa.jpeg',   title: 'Casa Roller — Ziguinchor',           cat: 'Clubs'        },
+            { src: '../img/clublogo/generation.jpeg', title: 'Génération Skate — Dakar',       cat: 'Clubs'        },
+            { src: '../img/clublogo/pj.jpeg',     title: 'PIJ Rollers — Dakar',                cat: 'Clubs'        },
+            { src: '../img/clublogo/newstyle.jpeg', title: 'Newstyle Roller — Thiès',          cat: 'Clubs'        },
+            { src: '../img/banner-acceuil.jpg',   title: 'Événement Officiel FSRS',            cat: 'Compétitions' },
+            { src: '../img/clublogo/tahiti.jpeg', title: 'Tahiti Roller — Pikine',             cat: 'Clubs'        },
+        ];
+
+        let currentIndex = 0;
+        let visiblePhotos = photos.map((_, i) => i);
+
+        // ===== FILTRES =====
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.getAttribute('data-filter');
+                const items = document.querySelectorAll('.gallery-item');
+                visiblePhotos = [];
+
+                items.forEach((item, i) => {
+                    const cat = item.getAttribute('data-cat');
+                    if (filter === 'all' || cat === filter) {
+                        item.classList.remove('hidden');
+                        visiblePhotos.push(i);
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+
+                document.getElementById('photo-count').textContent = visiblePhotos.length;
+            });
+        });
+
+        // ===== LIGHTBOX =====
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLightbox() {
+            const photo = photos[currentIndex];
+            document.getElementById('lightbox-img').src = photo.src;
+            document.getElementById('lightbox-img').alt = photo.title;
+            document.getElementById('lightbox-caption').textContent = photo.title;
+            document.getElementById('lightbox-cat').textContent = photo.cat;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function closeLightboxOutside(e) {
+            if (e.target === document.getElementById('lightbox')) closeLightbox();
+        }
+
+        function navigateLightbox(direction) {
+            const pos = visiblePhotos.indexOf(currentIndex);
+            const newPos = (pos + direction + visiblePhotos.length) % visiblePhotos.length;
+            currentIndex = visiblePhotos[newPos];
+            updateLightbox();
+        }
+
+        // Touche Échap et flèches
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+    </script>
+</body>
+</html>
