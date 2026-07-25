@@ -1,0 +1,17 @@
+{
+  "name": "fsrs-email-verification",
+  "version": "1.0.0",
+  "description": "Service de verification d'e-mail pour les demandes de licence FSRS",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemailer": "^6.9.16"
+  }
+}

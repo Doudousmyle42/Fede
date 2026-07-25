@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(grep:*)",
-      "WebFetch(domain:whoranked.com)"
+      "WebFetch(domain:whoranked.com)",
+      "Bash(curl *)",
+      "Bash(node *)",
+      "Bash(python -m http.server 8765)",
+      "Bash(npm install *)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(taskkill /F /IM node.exe)",
+      "PowerShell(Get-Process *)",
+      "Bash(python -c \"from docx import Document; d=Document\\('img/resultat/RESULTATS FEDERATION SENEGALAISE.docx'\\); [print\\(p.text\\) for p in d.paragraphs]; [print\\('---TABLE---'\\) or [print\\(' | '.join\\(c.text for c in row.cells\\)\\) for row in t.rows] for t in d.tables]\")"
     ]
   }
 }

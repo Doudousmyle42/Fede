@@ -766,8 +766,8 @@
         .results-list { display: flex; flex-direction: column; gap: 1.2rem; }
         .result-card {
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             overflow: hidden;
         }
         .result-header {
@@ -777,15 +777,90 @@
         }
         .result-header h3 { color: white; font-size: 0.95rem; font-weight: 700; }
         .result-date { background: rgba(255,215,0,0.2); color: #FFD700; padding: 0.25rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
-        .result-podium {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 1px; background: #f0f4f2;
+
+        /* Résultats — lieu + catégories multiples */
+        .result-lieu {
+            padding: 0.55rem 1.3rem;
+            background: #fffdf5;
+            border-bottom: 1px solid #f0e9c8;
+            color: #856404;
+            font-size: 0.78rem;
+            font-weight: 600;
         }
-        .podium-place { background: white; padding: 1.1rem 0.8rem; text-align: center; }
-        .podium-medal { font-size: 1.5rem; margin-bottom: 0.2rem; }
-        .podium-pos   { font-size: 0.65rem; font-weight: 700; color: #6B7280; text-transform: uppercase; margin-bottom: 0.25rem; }
-        .podium-name  { font-weight: 700; color: #1a3a2f; font-size: 0.85rem; }
-        .podium-club  { font-size: 0.7rem; color: #6B7280; }
+        .result-categories { display: flex; flex-direction: column; }
+        .result-cat { border-top: 1px solid #f0f4f2; }
+        .result-cat:first-child { border-top: none; }
+        .result-cat-header {
+            background: #f8fdf9;
+            padding: 0.7rem 1.3rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.92rem;
+            color: #1a3a2f;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #f0f4f2;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .result-cat-header::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: #FFD700;
+            border-radius: 2px;
+        }
+
+        /* Podium en mode tableau (style classement) */
+        .podium-table { width: 100%; border-collapse: collapse; background: white; }
+        .podium-table tbody tr {
+            border-bottom: 1px solid #f0f4f2;
+            transition: background 0.15s;
+        }
+        .podium-table tbody tr:last-child { border-bottom: none; }
+        .podium-table tbody tr:hover { background: #f8fdf9; }
+        .podium-table tbody tr.podium-empty { background: #fafbfa; }
+        .podium-table tbody tr.podium-empty .athlete-name { color: #b6bcb8; font-style: italic; }
+        .podium-table tbody tr.podium-empty .athlete-photo { opacity: 0.4; }
+
+        .podium-table td {
+            padding: 0.7rem 1rem;
+            color: #374151;
+            font-size: 0.88rem;
+            vertical-align: middle;
+        }
+        .podium-table td.col-rank { text-align: center; width: 70px; }
+        .podium-table td.col-club { color: #6B7280; font-size: 0.82rem; }
+
+        .rank-medal {
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        /* Photo athlète (résultats) */
+        .athlete-photo {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #1a3a2f, #2E8B57);
+            display: flex; align-items: center; justify-content: center;
+            color: #FFD700;
+            font-weight: 800;
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            border: 2px solid #f0f4f2;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .athlete-photo img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .athlete-photo.ring-1 { border-color: #FFD700; }
+        .athlete-photo.ring-2 { border-color: #C0C0C0; }
+        .athlete-photo.ring-3 { border-color: #CD7F32; }
 
         /* Responsive */
         @media (max-width: 900px) {
@@ -797,7 +872,9 @@
             .ranking-table thead th:nth-child(4),
             .ranking-table td:nth-child(4) { display: none; }
             .calendar-grid { grid-template-columns: 1fr; }
-            .result-podium { grid-template-columns: 1fr; }
+            .podium-table td.col-club { display: none; }
+            .podium-table td { padding: 0.6rem 0.7rem; }
+            .athlete-photo { width: 42px; height: 42px; }
         }
     </style>
 </head>
@@ -1156,21 +1233,60 @@
     ];
 
     const resultats = [
-        { titre:"Championnat National 2024", date:"Déc 2024", podiums:[
-            { pos:"1er",  medaille:"🥇", nom:"Dame Fall",       club:"DKRS",          discipline:"Inline Freestyle" },
-            { pos:"2ème", medaille:"🥈", nom:"Aïssatou Ndiaye", club:"Roll Thiès",    discipline:"Inline Freestyle" },
-            { pos:"3ème", medaille:"🥉", nom:"Rokhaya Seck",    club:"DKRS",          discipline:"Inline Freestyle" },
-        ]},
-        { titre:"7th Roll Ball World Skate", date:"Nov 2024", podiums:[
-            { pos:"1er",  medaille:"🥇", nom:"Cheikh Touré",    club:"Roll Thiès",    discipline:"Roll Ball" },
-            { pos:"2ème", medaille:"🥈", nom:"Omar Badji",      club:"Ziguinchor SK", discipline:"Roll Ball" },
-            { pos:"3ème", medaille:"🥉", nom:"Fatou Dieng",     club:"ASCVS",         discipline:"Roll Ball" },
-        ]},
-        { titre:"Coupe Régionale Skateboard Street", date:"Oct 2024", podiums:[
-            { pos:"1er",  medaille:"🥇", nom:"Moussa Diallo",   club:"SKB Dakar",     discipline:"Skateboard Street" },
-            { pos:"2ème", medaille:"🥈", nom:"Ibrahima Sow",    club:"SKB Dakar",     discipline:"Skateboard Street" },
-            { pos:"3ème", medaille:"🥉", nom:"Boubacar Ly",     club:"Ziguinchor SK", discipline:"Skateboard Street" },
-        ]},
+        {
+            titre:"Championnat National du Sénégal de Skateboard 2026",
+            date:"Mai 2026",
+            lieu:"Place des Cultures Urbaines, Dakar",
+            categories:[
+                {
+                    nom:"Street — Garçons",
+                    podiums:[
+                        { pos:"1er",  medaille:"🥇", nom:"Thierno Souleyman Diallo", club:"Maestro Roller",   photo:"../img/resultat/Thierno Souleymane Diallo.jpeg" },
+                        { pos:"2ème", medaille:"🥈", nom:"Pape Diop Sabaly",         club:"Massif",           photo:"../img/resultat/Pape Diop Sabaly.jpeg" },
+                        { pos:"3ème", medaille:"🥉", nom:"Mouhamed Mbengue",         club:"Skate Park PCU",   photo:null },
+                    ]
+                },
+                {
+                    nom:"Street — Filles",
+                    podiums:[
+                        { pos:"1ère", medaille:"🥇", nom:"Khady Kouta Ndiaye", club:"PIJ Rollers",            photo:"../img/resultat/Khady Kouta Ndiaye.jpeg" },
+                        { pos:"2ème", medaille:"🥈", nom:"Awa Ngom",           club:"Crazy Raiders de Thiès", photo:null },
+                        { pos:"3ème", medaille:"🥉", nom:"Sira Sabaly",        club:"Massif",                 photo:"../img/resultat/Sira Sabaly.jpeg" },
+                    ]
+                },
+                {
+                    nom:"Park — Garçons",
+                    podiums:[
+                        { pos:"1er",  medaille:"🥇", nom:"Souleyman Diallo",   club:"Maestro Roller", photo:"../img/resultat/Thierno Souleymane Diallo.jpeg" },
+                        { pos:"2ème", medaille:"🥈", nom:"Pape Diop Sabaly",   club:"Massif",         photo:"../img/resultat/Pape Diop Sabaly.jpeg" },
+                        { pos:"3ème", medaille:"🥉", nom:"Latyr Diouf",        club:"PCU",            photo:"../img/resultat/latyr.jpeg" },
+                    ]
+                },
+                {
+                    nom:"Park — Filles",
+                    podiums:[
+                        { pos:"1ère", medaille:"🥇", nom:"Khady Kouta Ndiaye", club:"PIJ Rollers", photo:"../img/resultat/Khady Kouta Ndiaye.jpeg" },
+                        { pos:"2ème", medaille:"🥈", nom:"Sira Sabaly",        club:"Massif",      photo:"../img/resultat/Sira Sabaly.jpeg" },
+                    ]
+                },
+                {
+                    nom:"Street — Garçons (5 à 10 ans)",
+                    podiums:[
+                        { pos:"1er",  medaille:"🥇", nom:"Mouhamed Travoré",        club:"Maestro Roller",        photo:"../img/resultat/MOUHAMED Traoré.jpeg" },
+                        { pos:"2ème", medaille:"🥈", nom:"Mouhamedou Yoro Borelli", club:"Dak'Street Skateboard", photo:"../img/resultat/yoroborelli.jpeg" },
+                        { pos:"3ème", medaille:"🥉", nom:"Mamadou Woury Diallo",    club:"PCU",                   photo:null },
+                    ]
+                },
+                {
+                    nom:"Street — Filles (5 à 10 ans)",
+                    podiums:[
+                        { pos:"1ère", medaille:"🥇", nom:"Denysia Traoré", club:"Sébikhotane", photo:null },
+                        { pos:"2ème", medaille:"🥈", nom:"LaLa Traoré",    club:"PCU",         photo:null },
+                        { pos:"3ème", medaille:"🥉", nom:"Fatou Samb",     club:"PCU",         photo:null },
+                    ]
+                },
+            ]
+        },
     ];
 
     // ════════════════════════════════════════
@@ -1499,24 +1615,79 @@
     // RENDER RÉSULTATS
     // ════════════════════════════════════════
     function renderResults() {
-        document.getElementById('results-list').innerHTML = resultats.map(r => `
-            <div class="result-card">
-                <div class="result-header">
-                    <h3>${r.titre}</h3>
-                    <span class="result-date">📅 ${r.date}</span>
-                </div>
-                <div class="result-podium">
-                    ${r.podiums.map(p=>`
-                        <div class="podium-place">
-                            <div class="podium-medal">${p.medaille}</div>
-                            <div class="podium-pos">${p.pos}</div>
-                            <div class="podium-name">${p.nom}</div>
-                            <div class="podium-club">${p.club}</div>
-                        </div>
-                    `).join('')}
-                </div>
+        const photoCell = (p, rank) => {
+            const ring = `ring-${rank}`;
+            if (p.photo) {
+                return `<div class="athlete-photo ${ring}"><img src="${encodeURI(p.photo)}" alt="${p.nom}" loading="lazy" onerror="this.parentElement.innerHTML='${initials(p.nom)}'"></div>`;
+            }
+            return `<div class="athlete-photo ${ring}">${initials(p.nom)}</div>`;
+        };
+
+        const renderPodiumRows = (podiums) => {
+            const filled = [...podiums];
+            while (filled.length < 3) filled.push(null);
+            return filled.map((p, i) => {
+                const rank = i + 1;
+                if (!p) {
+                    return `
+                        <tr class="podium-empty">
+                            <td class="col-rank"><span class="rank-medal">—</span></td>
+                            <td>
+                                <div class="athlete-cell">
+                                    <div class="athlete-photo">—</div>
+                                    <div class="athlete-info">
+                                        <div class="athlete-name">Non attribué</div>
+                                        <div class="athlete-sub">${rank === 1 ? '1ʳᵉ place' : rank === 2 ? '2ᵉ place' : '3ᵉ place'}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="col-club">—</td>
+                        </tr>
+                    `;
+                }
+                return `
+                    <tr>
+                        <td class="col-rank"><span class="rank-medal">${p.medaille}</span></td>
+                        <td>
+                            <div class="athlete-cell">
+                                ${photoCell(p, rank)}
+                                <div class="athlete-info">
+                                    <div class="athlete-name">${p.nom}</div>
+                                    <div class="athlete-sub">${p.pos}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-club">${p.club}</td>
+                    </tr>
+                `;
+            }).join('');
+        };
+
+        const renderCategorie = (c) => `
+            <div class="result-cat">
+                <div class="result-cat-header">${c.nom}</div>
+                <table class="podium-table">
+                    <tbody>${renderPodiumRows(c.podiums)}</tbody>
+                </table>
             </div>
-        `).join('');
+        `;
+
+        document.getElementById('results-list').innerHTML = resultats.map(r => {
+            const lieuLine = r.lieu ? `<div class="result-lieu">📍 ${r.lieu}</div>` : '';
+            const categories = r.categories || [{ nom: r.titre, podiums: r.podiums || [] }];
+            return `
+                <div class="result-card">
+                    <div class="result-header">
+                        <h3>${r.titre}</h3>
+                        <span class="result-date">📅 ${r.date}</span>
+                    </div>
+                    ${lieuLine}
+                    <div class="result-categories">
+                        ${categories.map(renderCategorie).join('')}
+                    </div>
+                </div>
+            `;
+        }).join('');
     }
 
     // ════════════════════════════════════════

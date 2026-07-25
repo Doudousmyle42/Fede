@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/FSRS.png">
+    <title>Demande de Licence | FSRS - Fédération Sénégalaise de Roller &amp; Skateboard</title>
+    <meta name="description" content="Formulaire officiel de demande de licence FSRS — Comité Directeur, Staff ou Athlète. Saison 2026.">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/inscription.css">
+    <link rel="stylesheet" href="../static/css/animations.css">
+</head>
+<body>
+
+    <!-- ════════════ HEADER ════════════ -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../img/logfsrs2.png" alt="Logo FSRS">
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../index.html" aria-label="Accueil">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li><a href="federation.html">Fédération</a></li>
+                    <li><a href="disciplines.html">Disciplines</a></li>
+                    <li><a href="competition.html">Compétitions</a></li>
+                    <li><a href="ressources.html">Ressources</a></li>
+                    <li><a href="clubs.html">Clubs</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="inscription.html" class="btn-nav-cta active">Nous rejoindre</a>
+        </div>
+    </header>
+
+    <!-- ════════════ HERO ════════════ -->
+    <section class="inscription-hero">
+        <div class="hero-inner">
+            <span class="hero-badge">Saison 2026 — Validité 01/01 au 31/10</span>
+            <h1>Demande de <span class="accent">Licence Fédérale</span></h1>
+            <p>Rejoignez officiellement la Fédération Sénégalaise de Roller &amp; Skateboard. Choisissez votre profil pour démarrer votre inscription.</p>
+        </div>
+        <div class="hero-decor" aria-hidden="true"></div>
+    </section>
+
+    <!-- ════════════ STEPPER ════════════ -->
+    <div class="stepper-wrapper">
+        <ol class="stepper" aria-label="Étapes d'inscription">
+            <li class="step active" data-step="1">
+                <span class="step-num">1</span>
+                <span class="step-label">Profil</span>
+            </li>
+            <li class="step" data-step="2">
+                <span class="step-num">2</span>
+                <span class="step-label">Informations</span>
+            </li>
+            <li class="step" data-step="3">
+                <span class="step-num">3</span>
+                <span class="step-label">Validation</span>
+            </li>
+        </ol>
+    </div>
+
+    <!-- ════════════ FORM SHELL ════════════ -->
+    <main class="inscription-main">
+        <form id="licenceForm"
+              action="https://formsubmit.co/secretariat@fsrollerskate.com"
+              method="POST"
+              enctype="multipart/form-data"
+              novalidate>
+
+            <!-- Configuration FormSubmit (envoi vers le secrétariat FSRS) -->
+            <input type="hidden" name="_subject" value="Nouvelle demande de licence FSRS — Saison 2026">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_autoresponse" value="Bonjour, votre demande de licence FSRS a bien été reçue. Notre secrétariat examinera votre dossier sous 7 jours ouvrés et vous recontactera à cette adresse. Cordialement, Fédération Sénégalaise de Roller & Skateboard.">
+            <input type="hidden" name="_referenceDossier" id="refField" value="">
+
+            <!-- ─────────── ÉTAPE 1 : Sélection profil ─────────── -->
+            <section class="step-panel active" data-panel="1">
+                <header class="panel-header">
+                    <h2>Quel est votre profil ?</h2>
+                    <p>Sélectionnez le type de licence qui correspond à votre situation au sein de la fédération.</p>
+                </header>
+
+                <div class="profile-grid" role="radiogroup" aria-label="Type de licence">
+
+                    <!-- COMITÉ DIRECTEUR -->
+                    <label class="profile-card" data-profile="comite">
+                        <input type="radio" name="profile" value="comite" required>
+                        <div class="card-icon comite-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 21h18"/>
+                                <path d="M5 21V10l7-5 7 5v11"/>
+                                <path d="M9 21v-6h6v6"/>
+                                <circle cx="12" cy="11" r="1.2" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Comité Directeur</h3>
+                        <p class="card-desc">Membres de la gouvernance : Président, Vice-président, Secrétaire général, Trésorier, Conseillers.</p>
+                        <ul class="card-pills">
+                            <li>SN-XX</li>
+                            <li>Gouvernance</li>
+                        </ul>
+                        <span class="card-check" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                    </label>
+
+                    <!-- STAFF -->
+                    <label class="profile-card" data-profile="staff">
+                        <input type="radio" name="profile" value="staff" required>
+                        <div class="card-icon staff-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Staff Technique</h3>
+                        <p class="card-desc">Entraîneurs, juges, arbitres, officiels, médecins et personnel d'encadrement des clubs.</p>
+                        <ul class="card-pills">
+                            <li>S-SNXXX</li>
+                            <li>Encadrement</li>
+                        </ul>
+                        <span class="card-check" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                    </label>
+
+                    <!-- ATHLÈTE -->
+                    <label class="profile-card" data-profile="athlete">
+                        <input type="radio" name="profile" value="athlete" required>
+                        <div class="card-icon athlete-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="4" r="2"/>
+                                <path d="M15 22l-2-7-3-3 2-5"/>
+                                <path d="M9 8l-3 2-1 4"/>
+                                <path d="M14 11l3 1 2 5"/>
+                                <circle cx="6" cy="20" r="1.8"/>
+                                <circle cx="18" cy="20" r="1.8"/>
+                            </svg>
+                        </div>
+                        <h3>Athlète</h3>
+                        <p class="card-desc">Pratiquants licenciés en compétition : roller vitesse, hockey, skateboard, freestyle, artistique.</p>
+                        <ul class="card-pills">
+                            <li>A-SNXXX</li>
+                            <li>Compétition</li>
+                        </ul>
+                        <span class="card-check" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                    </label>
+                </div>
+
+                <div class="panel-actions">
+                    <button type="button" class="btn-primary" id="next-1" disabled>
+                        Continuer
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- ─────────── ÉTAPE 2 : Informations ─────────── -->
+            <section class="step-panel" data-panel="2">
+
+                <!-- Badge du profil sélectionné -->
+                <div class="profile-banner" id="profileBanner">
+                    <span class="banner-dot"></span>
+                    <span class="banner-label">Type de licence</span>
+                    <strong class="banner-value" id="bannerValue">—</strong>
+                    <button type="button" class="banner-edit" id="editProfile">Modifier</button>
+                </div>
+
+                <header class="panel-header">
+                    <h2>Vos informations</h2>
+                    <p>Renseignez les champs ci-dessous. Les éléments marqués d'un <span class="req">*</span> sont obligatoires.</p>
+                </header>
+
+                <!-- ── BLOC COMMUN ── -->
+                <fieldset class="form-block">
+                    <legend>Identité</legend>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="nom">Nom <span class="req">*</span></label>
+                            <input type="text" id="nom" name="nom" placeholder="NDOUR" required>
+                        </div>
+                        <div class="field">
+                            <label for="prenom">Prénom(s) <span class="req">*</span></label>
+                            <input type="text" id="prenom" name="prenom" placeholder="Abdoulaye Junior" required>
+                        </div>
+                        <div class="field">
+                            <label for="dateNaissance">Date de naissance <span class="req">*</span></label>
+                            <input type="date" id="dateNaissance" name="dateNaissance" required>
+                        </div>
+                        <div class="field">
+                            <label for="lieuNaissance">Lieu de naissance <span class="req">*</span></label>
+                            <input type="text" id="lieuNaissance" name="lieuNaissance" placeholder="Dakar" required>
+                        </div>
+                        <div class="field">
+                            <label for="sexe">Sexe <span class="req">*</span></label>
+                            <select id="sexe" name="sexe" required>
+                                <option value="">Sélectionner</option>
+                                <option value="M">Masculin</option>
+                                <option value="F">Féminin</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="nationalite">Nationalité <span class="req">*</span></label>
+                            <input type="text" id="nationalite" name="nationalite" value="Sénégalaise" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-block">
+                    <legend>Coordonnées</legend>
+                    <div class="form-grid">
+                        <div class="field field-full" id="emailField">
+                            <label for="email">Adresse e-mail <span class="req">*</span></label>
+                            <div class="email-row">
+                                <input type="email" id="email" name="email" placeholder="exemple@fsrs.sn" required>
+                                <button type="button" class="btn-verify" id="sendCodeBtn">Vérifier</button>
+                            </div>
+                            <small class="hint email-status" id="emailStatus" hidden></small>
+
+                            <!-- Saisie du code de vérification -->
+                            <div class="code-verify" id="codeVerify" hidden>
+                                <p class="code-verify-intro">
+                                    Un code à 6 chiffres a été envoyé à
+                                    <strong id="codeTargetEmail">—</strong>.
+                                </p>
+                                <div class="code-inputs" id="codeInputs">
+                                    <input type="text" inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="Chiffre 1">
+                                    <input type="text" inputmode="numeric" maxlength="1" aria-label="Chiffre 2">
+                                    <input type="text" inputmode="numeric" maxlength="1" aria-label="Chiffre 3">
+                                    <input type="text" inputmode="numeric" maxlength="1" aria-label="Chiffre 4">
+                                    <input type="text" inputmode="numeric" maxlength="1" aria-label="Chiffre 5">
+                                    <input type="text" inputmode="numeric" maxlength="1" aria-label="Chiffre 6">
+                                </div>
+                                <div class="code-actions">
+                                    <button type="button" class="btn-verify" id="confirmCodeBtn">Confirmer le code</button>
+                                    <button type="button" class="code-resend" id="resendCodeBtn">Renvoyer le code</button>
+                                </div>
+                                <small class="hint code-feedback" id="codeFeedback" hidden></small>
+                            </div>
+
+                            <!-- État : adresse vérifiée -->
+                            <div class="email-verified" id="emailVerified" hidden>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Adresse e-mail vérifiée
+                            </div>
+
+                            <!-- Transmis au secrétariat avec le formulaire -->
+                            <input type="hidden" name="emailVerifie" id="emailVerifie" value="non">
+                        </div>
+                        <div class="field">
+                            <label for="telephone">Téléphone <span class="req">*</span></label>
+                            <input type="tel" id="telephone" name="telephone" placeholder="+221 77 000 00 00" pattern="^[+0-9 ]{8,}$" required>
+                        </div>
+                        <div class="field field-full">
+                            <label for="adresse">Adresse complète <span class="req">*</span></label>
+                            <input type="text" id="adresse" name="adresse" placeholder="Rue, quartier, ville" required>
+                        </div>
+                        <div class="field">
+                            <label for="cin">N° Pièce d'identité (CNI / Passeport) <span class="req">*</span></label>
+                            <input type="text" id="cin" name="cin" placeholder="123 4567 8901 2" required>
+                        </div>
+                        <div class="field">
+                            <label for="photo">Photo d'identité <span class="req">*</span></label>
+                            <input type="file" id="photo" name="photo" accept="image/jpeg,image/png" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- ── BLOC DYNAMIQUE COMITÉ ── -->
+                <fieldset class="form-block role-block" data-role="comite" hidden>
+                    <legend>Fonction au Comité Directeur</legend>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="fonctionComite">Fonction <span class="req">*</span></label>
+                            <select id="fonctionComite" name="fonctionComite">
+                                <option value="">Sélectionner</option>
+                                <option>Président</option>
+                                <option>Vice-Président</option>
+                                <option>Secrétaire Général</option>
+                                <option>Secrétaire Général Adjoint</option>
+                                <option>Trésorier</option>
+                                <option>Trésorier Adjoint</option>
+                                <option>Membre du Comité</option>
+                                <option>Conseiller</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="datePrise">Date de prise de fonction <span class="req">*</span></label>
+                            <input type="date" id="datePrise" name="datePrise">
+                        </div>
+                        <div class="field field-full">
+                            <label for="cv">Curriculum Vitae (PDF)</label>
+                            <input type="file" id="cv" name="cv" accept="application/pdf">
+                        </div>
+                        <div class="field field-full">
+                            <label for="lettreMotivation">Lettre de motivation</label>
+                            <textarea id="lettreMotivation" name="lettreMotivation" rows="4" placeholder="Précisez votre engagement et votre vision pour la fédération…"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- ── BLOC DYNAMIQUE STAFF ── -->
+                <fieldset class="form-block role-block" data-role="staff" hidden>
+                    <legend>Rôle technique</legend>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="roleStaff">Rôle <span class="req">*</span></label>
+                            <select id="roleStaff" name="roleStaff">
+                                <option value="">Sélectionner</option>
+                                <option>Entraîneur</option>
+                                <option>Entraîneur Adjoint</option>
+                                <option>Juge</option>
+                                <option>Arbitre</option>
+                                <option>Officiel de course</option>
+                                <option>Chronométreur</option>
+                                <option>Médecin / Kinésithérapeute</option>
+                                <option>Délégué de club</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="clubStaff">Club d'affectation <span class="req">*</span></label>
+                            <select id="clubStaff" name="clubStaff">
+                                <option value="">Sélectionner un club</option>
+                                <option>Afro Dance Roller (Dakar)</option>
+                                <option>Hard Riders (Mbour)</option>
+                                <option>Casa Roller (Ziguinchor)</option>
+                                <option>Génération Skate (Dakar)</option>
+                                <option>Newstyle Roller (Thiès)</option>
+                                <option>Maestro Roller (Dakar)</option>
+                                <option>King Roller (Diourbel)</option>
+                                <option>Tahiti Roller (Pikine)</option>
+                                <option>PIJ Rollers (Dakar)</option>
+                                <option>Crash Roller (Mbour)</option>
+                                <option>Dak'Street Skateboard (Dakar)</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="disciplineStaff">Discipline encadrée <span class="req">*</span></label>
+                            <select id="disciplineStaff" name="disciplineStaff">
+                                <option value="">Sélectionner</option>
+                                <option>Roller Vitesse</option>
+                                <option>Roller Hockey</option>
+                                <option>Skateboard</option>
+                                <option>Roller Freestyle</option>
+                                <option>Roller Artistique / Dance</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="anneesExp">Années d'expérience</label>
+                            <input type="number" id="anneesExp" name="anneesExp" min="0" max="60" placeholder="Ex : 5">
+                        </div>
+                        <div class="field field-full">
+                            <label for="diplomes">Diplômes / certifications</label>
+                            <textarea id="diplomes" name="diplomes" rows="3" placeholder="BEES, brevet fédéral, certificat de juge…"></textarea>
+                        </div>
+                        <div class="field field-full">
+                            <label for="docStaff">Justificatif (diplôme/attestation PDF)</label>
+                            <input type="file" id="docStaff" name="docStaff" accept="application/pdf,image/*">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- ── BLOC DYNAMIQUE ATHLÈTE ── -->
+                <fieldset class="form-block role-block" data-role="athlete" hidden>
+                    <legend>Informations sportives</legend>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="clubAthlete">Club <span class="req">*</span></label>
+                            <select id="clubAthlete" name="clubAthlete">
+                                <option value="">Sélectionner un club</option>
+                                <option>Afro Dance Roller (Dakar)</option>
+                                <option>Hard Riders (Mbour)</option>
+                                <option>Casa Roller (Ziguinchor)</option>
+                                <option>Génération Skate (Dakar)</option>
+                                <option>Newstyle Roller (Thiès)</option>
+                                <option>Maestro Roller (Dakar)</option>
+                                <option>King Roller (Diourbel)</option>
+                                <option>Tahiti Roller (Pikine)</option>
+                                <option>PIJ Rollers (Dakar)</option>
+                                <option>Crash Roller (Mbour)</option>
+                                <option>Dak'Street Skateboard (Dakar)</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="disciplineAth">Discipline principale <span class="req">*</span></label>
+                            <select id="disciplineAth" name="disciplineAth">
+                                <option value="">Sélectionner</option>
+                                <option>Roller Vitesse</option>
+                                <option>Roller Hockey</option>
+                                <option>Skateboard</option>
+                                <option>Roller Freestyle</option>
+                                <option>Roller Artistique / Dance</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="categorie">Catégorie d'âge <span class="req">*</span></label>
+                            <select id="categorie" name="categorie">
+                                <option value="">Auto-déterminée par la date de naissance</option>
+                                <option>Poussin (5–7 ans)</option>
+                                <option>Benjamin (8–11 ans)</option>
+                                <option>Minime (12–13 ans)</option>
+                                <option>Cadet (14–15 ans)</option>
+                                <option>Junior (16–18 ans)</option>
+                                <option>Sénior (19–39 ans)</option>
+                                <option>Vétéran (40+ ans)</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="niveau">Niveau de pratique <span class="req">*</span></label>
+                            <select id="niveau" name="niveau">
+                                <option value="">Sélectionner</option>
+                                <option>Loisir</option>
+                                <option>Compétition régionale</option>
+                                <option>Compétition nationale</option>
+                                <option>Équipe nationale</option>
+                            </select>
+                        </div>
+                        <div class="field field-full">
+                            <label for="certifMed">Certificat médical de non contre-indication <span class="req">*</span></label>
+                            <input type="file" id="certifMed" name="certifMed" accept="application/pdf,image/*">
+                            <small class="hint">Document obligatoire de moins de 3 mois.</small>
+                        </div>
+
+                        <!-- Tuteur (mineur) -->
+                        <div class="field field-full" id="tuteurBlock" hidden>
+                            <div class="tuteur-card">
+                                <h4>Tuteur légal (athlète mineur)</h4>
+                                <div class="form-grid">
+                                    <div class="field">
+                                        <label for="tuteurNom">Nom &amp; Prénom du tuteur <span class="req">*</span></label>
+                                        <input type="text" id="tuteurNom" name="tuteurNom" placeholder="Nom complet">
+                                    </div>
+                                    <div class="field">
+                                        <label for="tuteurTel">Téléphone du tuteur <span class="req">*</span></label>
+                                        <input type="tel" id="tuteurTel" name="tuteurTel" placeholder="+221 …">
+                                    </div>
+                                    <div class="field field-full">
+                                        <label class="checkbox-line">
+                                            <input type="checkbox" id="tuteurAccord" name="tuteurAccord">
+                                            <span>Le tuteur légal autorise l'inscription du mineur à la FSRS.</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Engagement -->
+                <fieldset class="form-block">
+                    <legend>Engagement</legend>
+                    <label class="checkbox-line">
+                        <input type="checkbox" id="reglement" name="reglement" required>
+                        <span>J'ai pris connaissance et j'accepte le règlement intérieur ainsi que la charte d'éthique de la FSRS. <span class="req">*</span></span>
+                    </label>
+                    <label class="checkbox-line">
+                        <input type="checkbox" id="droitImage" name="droitImage">
+                        <span>J'autorise la FSRS à utiliser mon image dans le cadre de ses publications officielles.</span>
+                    </label>
+                </fieldset>
+
+                <div class="panel-actions">
+                    <button type="button" class="btn-ghost" data-prev="1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                        Retour
+                    </button>
+                    <button type="button" class="btn-primary" id="next-2">
+                        Vérifier ma demande
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- ─────────── ÉTAPE 3 : Récapitulatif ─────────── -->
+            <section class="step-panel" data-panel="3">
+                <header class="panel-header">
+                    <h2>Récapitulatif de votre demande</h2>
+                    <p>Vérifiez vos informations avant de soumettre. Vous recevrez un accusé de réception par e-mail.</p>
+                </header>
+
+                <div class="recap-grid">
+                    <aside class="recap-card-preview">
+                        <div class="preview-frame" id="previewCard">
+                            <div class="preview-header">
+                                <img src="../img/FSRS.png" alt="FSRS" class="preview-logo" onerror="this.style.display='none'">
+                                <div>
+                                    <div class="preview-title">FÉDÉRATION SÉNÉGALAISE</div>
+                                    <div class="preview-sub">DE ROLLER &amp; SKATE</div>
+                                    <div class="preview-tag">LICENCE FÉDÉRALE — SAISON 2026</div>
+                                </div>
+                            </div>
+                            <div class="preview-body">
+                                <div class="preview-photo" id="previewPhoto" aria-hidden="true"></div>
+                                <div class="preview-fields">
+                                    <div><b>Nom :</b> <span data-bind="nom">—</span></div>
+                                    <div><b>Prénom :</b> <span data-bind="prenom">—</span></div>
+                                    <div><b>N° Licence :</b> <span data-bind="numlicence">—</span></div>
+                                    <div><b>Né(e) le :</b> <span data-bind="dateNaissance">—</span></div>
+                                    <div><b><span data-bind="contextLabel">—</span> :</b> <span data-bind="contextValue">—</span></div>
+                                </div>
+                            </div>
+                            <div class="preview-footer">FSRS — Immeuble Georges Lahoud, Zone B · +221 33 812 64 24</div>
+                        </div>
+                        <p class="preview-note">Aperçu indicatif. Le numéro de licence définitif est attribué par le secrétariat après validation.</p>
+                    </aside>
+
+                    <div class="recap-details">
+                        <h3>Informations transmises</h3>
+                        <dl id="recapList"></dl>
+                    </div>
+                </div>
+
+                <div class="panel-actions">
+                    <button type="button" class="btn-ghost" data-prev="2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                        Modifier
+                    </button>
+                    <button type="submit" class="btn-primary btn-submit">
+                        Soumettre ma demande
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- ─────────── CONFIRMATION ─────────── -->
+            <section class="step-panel success-panel" data-panel="success">
+                <div class="success-card">
+                    <div class="success-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <h2>Demande envoyée !</h2>
+                    <p>Votre dossier a été transmis au secrétariat de la FSRS. Vous recevrez sous 7 jours ouvrés un e-mail à l'adresse indiquée avec votre numéro de licence officiel.</p>
+                    <div class="ref-box">
+                        Référence dossier : <strong id="refNumber">—</strong>
+                    </div>
+                    <a href="../index.html" class="btn-primary">Retour à l'accueil</a>
+                </div>
+            </section>
+
+        </form>
+    </main>
+
+    <!-- ════════════ FOOTER MINIMAL ════════════ -->
+    <footer class="mini-footer">
+        <div class="mini-footer-inner">
+            <span>© 2026 Fédération Sénégalaise de Roller &amp; Skateboard</span>
+            <span>Immeuble Georges Lahoud, Zone B — Dakar · +221 33 812 64 24</span>
+        </div>
+    </footer>
+
+    <!-- ════════════ SCRIPT ════════════ -->
+    <script>
+    (function () {
+        const form     = document.getElementById('licenceForm');
+        const panels   = form.querySelectorAll('.step-panel');
+        const steps    = document.querySelectorAll('.stepper .step');
+        const cards    = form.querySelectorAll('.profile-card');
+        const nextBtn1 = document.getElementById('next-1');
+        const nextBtn2 = document.getElementById('next-2');
+        const banner   = document.getElementById('bannerValue');
+        const bannerEl = document.getElementById('profileBanner');
+        const editBtn  = document.getElementById('editProfile');
+        const roleBlocks = form.querySelectorAll('.role-block');
+        const tuteurBlock = document.getElementById('tuteurBlock');
+        const dateNaiss   = document.getElementById('dateNaissance');
+
+        const PROFILE_LABEL = {
+            comite:  'Comité Directeur',
+            staff:   'Staff Technique',
+            athlete: 'Athlète'
+        };
+
+        /* ─── Navigation ─── */
+        function showPanel(target) {
+            panels.forEach(p => p.classList.toggle('active', p.dataset.panel === String(target)));
+            steps.forEach(s => {
+                const n = Number(s.dataset.step);
+                s.classList.remove('active', 'done');
+                if (target === 'success') { s.classList.add('done'); return; }
+                if (n < target) s.classList.add('done');
+                else if (n === Number(target)) s.classList.add('active');
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* ─── Sélection profil (étape 1) ─── */
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const radio = card.querySelector('input[type="radio"]');
+                radio.checked = true;
+                cards.forEach(c => c.classList.toggle('selected', c === card));
+                form.dataset.profile = radio.value;
+                nextBtn1.disabled = false;
+            });
+        });
+
+        nextBtn1.addEventListener('click', () => {
+            const profile = form.dataset.profile;
+            if (!profile) return;
+            // Active le bloc dynamique
+            roleBlocks.forEach(b => {
+                const match = b.dataset.role === profile;
+                b.hidden = !match;
+                // Marquer required dynamiquement (en ignorant les champs dans un parent caché — ex : tuteur)
+                b.querySelectorAll('select, input, textarea').forEach(el => {
+                    const inHidden = el.closest('[hidden]') && el.closest('[hidden]') !== b;
+                    const hasReq   = el.closest('.field')?.querySelector('.req');
+                    el.required = !!(match && !inHidden && hasReq);
+                });
+            });
+            // Bannière + couleur
+            banner.textContent = PROFILE_LABEL[profile];
+            bannerEl.dataset.profile = profile;
+            form.dataset.activeRole = profile;
+            showPanel(2);
+        });
+
+        editBtn.addEventListener('click', () => showPanel(1));
+
+        document.querySelectorAll('[data-prev]').forEach(btn => {
+            btn.addEventListener('click', () => showPanel(btn.dataset.prev));
+        });
+
+        /* ─── Mineur (auto tuteur) ─── */
+        dateNaiss.addEventListener('change', () => {
+            if (form.dataset.activeRole !== 'athlete') return;
+            const today = new Date();
+            const dob   = new Date(dateNaiss.value);
+            if (isNaN(dob)) return;
+            let age = today.getFullYear() - dob.getFullYear();
+            const m = today.getMonth() - dob.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+            tuteurBlock.hidden = age >= 18;
+            tuteurBlock.querySelectorAll('input').forEach(i => {
+                if (i.type !== 'checkbox') i.required = age < 18;
+            });
+        });
+
+        /* ─── Vérification de l'adresse e-mail (code à 6 chiffres) ─── */
+        // Si la page est ouverte directement (file://), on cible le serveur local ;
+        // si elle est servie par le serveur Node, les routes sont relatives.
+        const API_BASE = location.protocol === 'file:' ? 'http://localhost:3000' : '';
+
+        const emailInput        = document.getElementById('email');
+        const sendCodeBtn       = document.getElementById('sendCodeBtn');
+        const emailStatus       = document.getElementById('emailStatus');
+        const codeVerify        = document.getElementById('codeVerify');
+        const codeInputs        = document.getElementById('codeInputs');
+        const codeBoxes         = Array.from(codeInputs.querySelectorAll('input'));
+        const codeTargetEl      = document.getElementById('codeTargetEmail');
+        const confirmCodeBtn    = document.getElementById('confirmCodeBtn');
+        const resendCodeBtn     = document.getElementById('resendCodeBtn');
+        const codeFeedback      = document.getElementById('codeFeedback');
+        const emailVerifiedEl   = document.getElementById('emailVerified');
+        const emailVerifiedFld  = document.getElementById('emailVerifie');
+
+        const EMAIL_RE   = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        const emailState = { verified: false, value: '' };
+        let resendTimer  = null;
+
+        function setStatus(el, msg, kind) {
+            el.textContent = msg || '';
+            el.hidden = !msg;
+            el.classList.remove('status-error', 'status-ok', 'status-info');
+            if (msg && kind) el.classList.add('status-' + kind);
+        }
+
+        function startCooldown(seconds) {
+            clearInterval(resendTimer);
+            let left = seconds;
+            const tick = () => {
+                if (left <= 0) {
+                    clearInterval(resendTimer);
+                    sendCodeBtn.disabled   = false;
+                    resendCodeBtn.disabled = false;
+                    resendCodeBtn.textContent = 'Renvoyer le code';
+                    return;
+                }
+                sendCodeBtn.disabled   = true;
+                resendCodeBtn.disabled = true;
+                resendCodeBtn.textContent = `Renvoyer le code (${left}s)`;
+                left--;
+            };
+            tick();
+            resendTimer = setInterval(tick, 1000);
+        }
+
+        function markVerified() {
+            emailState.verified = true;
+            emailState.value    = emailInput.value.trim().toLowerCase();
+            emailVerifiedFld.value = 'oui';
+            emailInput.classList.remove('invalid');
+            emailInput.readOnly = true;
+            sendCodeBtn.hidden  = true;
+            codeVerify.hidden   = true;
+            emailStatus.hidden  = true;
+            emailVerifiedEl.hidden = false;
+            clearInterval(resendTimer);
+        }
+
+        function resetVerification() {
+            emailState.verified = false;
+            emailState.value    = '';
+            emailVerifiedFld.value = 'non';
+            emailInput.readOnly = false;
+            sendCodeBtn.hidden  = false;
+            sendCodeBtn.disabled = false;
+            sendCodeBtn.textContent = 'Vérifier';
+            emailVerifiedEl.hidden = true;
+            codeVerify.hidden   = true;
+            codeBoxes.forEach(b => b.value = '');
+            setStatus(codeFeedback, '', null);
+            clearInterval(resendTimer);
+        }
+
+        async function requestCode() {
+            const email = emailInput.value.trim();
+            if (!EMAIL_RE.test(email)) {
+                setStatus(emailStatus, "Saisissez d'abord une adresse e-mail valide.", 'error');
+                emailInput.classList.add('invalid');
+                emailInput.focus();
+                return;
+            }
+            emailInput.classList.remove('invalid');
+            sendCodeBtn.disabled = true;
+            setStatus(emailStatus, 'Envoi du code…', 'info');
+            try {
+                const res = await fetch(API_BASE + '/api/email/send-code', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok || !data.ok) {
+                    if (data.retryAfter) startCooldown(data.retryAfter);
+                    else sendCodeBtn.disabled = false;
+                    setStatus(emailStatus, data.error || "Échec de l'envoi du code.", 'error');
+                    return;
+                }
+                codeTargetEl.textContent = email;
+                codeVerify.hidden = false;
+                codeBoxes.forEach(b => b.value = '');
+                codeBoxes[0].focus();
+                setStatus(codeFeedback, '', null);
+                setStatus(emailStatus,
+                    data.devMode
+                        ? 'Mode démo : le code est affiché dans la console du serveur.'
+                        : 'Code envoyé. Vérifiez votre boîte de réception (et les spams).',
+                    data.devMode ? 'info' : 'ok');
+                startCooldown(60);
+            } catch (err) {
+                sendCodeBtn.disabled = false;
+                setStatus(emailStatus,
+                    'Service de vérification injoignable. Démarrez le serveur (dossier /server).',
+                    'error');
+            }
+        }
+
+        async function confirmCode() {
+            const code = codeBoxes.map(b => b.value).join('');
+            if (code.length !== 6) {
+                setStatus(codeFeedback, 'Saisissez les 6 chiffres du code.', 'error');
+                return;
+            }
+            confirmCodeBtn.disabled = true;
+            setStatus(codeFeedback, 'Vérification…', 'info');
+            try {
+                const res = await fetch(API_BASE + '/api/email/verify-code', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: emailInput.value.trim(), code })
+                });
+                const data = await res.json().catch(() => ({}));
+                confirmCodeBtn.disabled = false;
+                if (!res.ok || !data.ok) {
+                    setStatus(codeFeedback, data.error || 'Code incorrect.', 'error');
+                    codeInputs.classList.add('shake');
+                    setTimeout(() => codeInputs.classList.remove('shake'), 400);
+                    return;
+                }
+                markVerified();
+            } catch (err) {
+                confirmCodeBtn.disabled = false;
+                setStatus(codeFeedback, 'Service de vérification injoignable.', 'error');
+            }
+        }
+
+        sendCodeBtn.addEventListener('click', requestCode);
+        resendCodeBtn.addEventListener('click', requestCode);
+        confirmCodeBtn.addEventListener('click', confirmCode);
+
+        // Modifier l'e-mail après vérification annule la vérification
+        emailInput.addEventListener('input', () => {
+            if (emailState.verified && emailInput.value.trim().toLowerCase() !== emailState.value) {
+                resetVerification();
+            }
+        });
+
+        // Saisie du code : auto-avance, retour arrière, collage
+        codeBoxes.forEach((box, i) => {
+            box.addEventListener('input', () => {
+                box.value = box.value.replace(/\D/g, '');
+                if (box.value && i < codeBoxes.length - 1) codeBoxes[i + 1].focus();
+                if (codeBoxes.every(b => b.value)) confirmCode();
+            });
+            box.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !box.value && i > 0) codeBoxes[i - 1].focus();
+            });
+            box.addEventListener('paste', (e) => {
+                e.preventDefault();
+                const digits = (e.clipboardData.getData('text') || '').replace(/\D/g, '').slice(0, 6);
+                if (!digits) return;
+                digits.split('').forEach((d, k) => { if (codeBoxes[k]) codeBoxes[k].value = d; });
+                codeBoxes[Math.min(digits.length, codeBoxes.length) - 1].focus();
+                if (digits.length === 6) confirmCode();
+            });
+        });
+
+        /* ─── Validation étape 2 ─── */
+        nextBtn2.addEventListener('click', () => {
+            // Reporter la validation HTML5 sur les champs visibles
+            const required = form.querySelectorAll('.step-panel.active [required]');
+            let firstInvalid = null;
+            required.forEach(el => {
+                el.classList.remove('invalid');
+                if (!el.checkValidity()) {
+                    el.classList.add('invalid');
+                    if (!firstInvalid) firstInvalid = el;
+                }
+            });
+            if (firstInvalid) {
+                firstInvalid.focus();
+                firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            // L'adresse e-mail doit avoir été vérifiée par code
+            if (!emailState.verified) {
+                emailInput.classList.add('invalid');
+                setStatus(emailStatus, 'Vérifiez votre adresse e-mail avant de continuer.', 'error');
+                document.getElementById('emailField').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                (codeVerify.hidden ? emailInput : codeBoxes[0]).focus();
+                return;
+            }
+            buildRecap();
+            showPanel(3);
+        });
+
+        /* ─── Récap ─── */
+        function buildRecap() {
+            const profile = form.dataset.activeRole;
+            const data = new FormData(form);
+
+            // Champs textes basiques
+            const setBind = (key, value) => {
+                document.querySelectorAll(`[data-bind="${key}"]`).forEach(n => n.textContent = value || '—');
+            };
+            setBind('nom',           (data.get('nom')    || '').toUpperCase());
+            setBind('prenom',        (data.get('prenom') || ''));
+            setBind('dateNaissance', formatDate(data.get('dateNaissance')));
+
+            // Numéro indicatif
+            const prefix = profile === 'athlete' ? 'A-SN' : profile === 'staff' ? 'S-SN' : 'SN-';
+            const rand   = String(Math.floor(100 + Math.random() * 900));
+            setBind('numlicence', prefix + rand + ' (provisoire)');
+
+            // Contexte variable
+            let label = '', value = '';
+            if (profile === 'athlete') { label = 'Club';     value = data.get('clubAthlete'); }
+            if (profile === 'staff')   { label = 'Rôle';     value = data.get('roleStaff'); }
+            if (profile === 'comite')  { label = 'Fonction'; value = data.get('fonctionComite'); }
+            setBind('contextLabel', label);
+            setBind('contextValue', value || '—');
+
+            // Aperçu photo
+            const photoInput = document.getElementById('photo');
+            const previewPhoto = document.getElementById('previewPhoto');
+            if (photoInput.files && photoInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => { previewPhoto.style.backgroundImage = `url('${e.target.result}')`; };
+                reader.readAsDataURL(photoInput.files[0]);
+            }
+
+            // Liste détaillée
+            const dl = document.getElementById('recapList');
+            dl.innerHTML = '';
+            const groups = [
+                ['Type de licence',     PROFILE_LABEL[profile]],
+                ['Nom',                  data.get('nom')],
+                ['Prénom(s)',            data.get('prenom')],
+                ['Date de naissance',    formatDate(data.get('dateNaissance'))],
+                ['Lieu de naissance',    data.get('lieuNaissance')],
+                ['Sexe',                 data.get('sexe') === 'M' ? 'Masculin' : data.get('sexe') === 'F' ? 'Féminin' : ''],
+                ['Nationalité',          data.get('nationalite')],
+                ['E-mail',               data.get('email')],
+                ['Téléphone',            data.get('telephone')],
+                ['Adresse',              data.get('adresse')],
+                ['N° Pièce d\'identité', data.get('cin')]
+            ];
+            if (profile === 'comite') {
+                groups.push(['Fonction', data.get('fonctionComite')]);
+                groups.push(['Prise de fonction', formatDate(data.get('datePrise'))]);
+            }
+            if (profile === 'staff') {
+                groups.push(['Rôle technique', data.get('roleStaff')]);
+                groups.push(['Club',           data.get('clubStaff')]);
+                groups.push(['Discipline',     data.get('disciplineStaff')]);
+                groups.push(['Expérience',     data.get('anneesExp') ? data.get('anneesExp') + ' ans' : '']);
+            }
+            if (profile === 'athlete') {
+                groups.push(['Club',        data.get('clubAthlete')]);
+                groups.push(['Discipline',  data.get('disciplineAth')]);
+                groups.push(['Catégorie',   data.get('categorie')]);
+                groups.push(['Niveau',      data.get('niveau')]);
+                if (!tuteurBlock.hidden) {
+                    groups.push(['Tuteur légal', data.get('tuteurNom')]);
+                    groups.push(['Tél. tuteur',  data.get('tuteurTel')]);
+                }
+            }
+            groups.forEach(([k, v]) => {
+                if (!v) return;
+                const dt = document.createElement('dt'); dt.textContent = k;
+                const dd = document.createElement('dd'); dd.textContent = v;
+                dl.appendChild(dt); dl.appendChild(dd);
+            });
+        }
+
+        function formatDate(iso) {
+            if (!iso) return '';
+            const d = new Date(iso);
+            if (isNaN(d)) return iso;
+            return d.toLocaleDateString('fr-FR');
+        }
+
+        /* ─── Soumission (envoi vers le secrétariat FSRS via FormSubmit) ─── */
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Génère une référence dossier et l'injecte dans le mail
+            const ref = 'FSRS-' + new Date().getFullYear() + '-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+            document.getElementById('refField').value = ref;
+            document.getElementById('refNumber').textContent = ref;
+
+            const submitBtn = form.querySelector('.btn-submit');
+            const originalLabel = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Envoi en cours…';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                showPanel('success');
+            } catch (err) {
+                console.error('Erreur envoi formulaire :', err);
+                alert("Une erreur est survenue lors de l'envoi. Merci de réessayer ou de contacter directement secretariat@fsrollerskate.com.");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalLabel;
+            }
+        });
+
+        /* ─── Nettoyage erreurs au focus ─── */
+        form.addEventListener('input', (e) => {
+            if (e.target.classList.contains('invalid') && e.target.checkValidity()) {
+                e.target.classList.remove('invalid');
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

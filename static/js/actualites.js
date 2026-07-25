@@ -12,14 +12,24 @@
 
 window.FSRS_ACTUALITES = [
     {
+        slug: 'roller-course-2026',
+        imgFile: 'course.jpeg',
+        categorie: 'Compétition',
+        date: '27-28 Juillet 2026',
+        dateEvent: '2026-07-28',
+        auteur: 'FSRS',
+        titre: 'Championnat National de Roller Course 2026 à Dakar',
+        excerpt: "Les 27 et 28 juillet 2026, Dakar vibrera au rythme de la vitesse à l'occasion du Championnat National du Sénégal de Roller et Skate 2026 — Discipline Roller Course / Speed.",
+        featured: true
+    },
+    {
         slug: 'championnat-national-dakar',
         imgFile: 'WhatsApp Image 2026-05-03 at 16.49.24.jpeg',
         categorie: 'Compétition',
         date: '24 Avril 2026',
         auteur: 'FSRS',
         titre: 'Grande affluence au Championnat National de Dakar',
-        excerpt: "La FSRS a organisé avec succès son championnat national annuel devant un public record. Athlètes, clubs et officiels ont fait vivre une édition mémorable marquée par un niveau sportif en nette progression.",
-        featured: true
+        excerpt: "La FSRS a organisé avec succès son championnat national annuel devant un public record. Athlètes, clubs et officiels ont fait vivre une édition mémorable marquée par un niveau sportif en nette progression."
     },
     {
         slug: 'podium-national-roller',

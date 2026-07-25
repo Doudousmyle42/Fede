@@ -1,0 +1,16 @@
+# Dépendances Node
+server/node_modules/
+node_modules/
+
+# Variables d'environnement (secrets SMTP)
+server/.env
+.env
+.claude
+
+# Logs
+*.log
+npm-debug.log*
+
+# Système
+.DS_Store
+Thumbs.db
