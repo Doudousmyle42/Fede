@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/FSRS.png">
+    <title>Championnat du Sénégal de Roller Course 2026 — Résultats complets | FSRS</title>
+    <meta name="description" content="Résultats complets du Championnat du Sénégal de Roller Course 2026 à Dakar (25-26 juillet) : Speed 200M, 100M Road, 500M et Marathon 42KM, avec la galerie photo officielle.">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/article-page.css">
+    <link rel="stylesheet" href="../static/css/animations.css">
+    <style>
+        /* ── Résultats par sous-épreuve ── */
+        .rc-results {
+            max-width: 760px;
+            margin: 2.4rem auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            padding: 0 1rem;
+        }
+        .rc-card {
+            background: #fff;
+            border-radius: var(--radius-lg, 14px);
+            box-shadow: var(--shadow-md, 0 4px 18px rgba(0,0,0,0.06));
+            overflow: hidden;
+        }
+        .rc-card-header {
+            background: linear-gradient(135deg, #1a3a2f, #2E8B57);
+            padding: 1rem 1.3rem;
+            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem;
+        }
+        .rc-card-header h3 { color: #fff; font-family: 'Oswald', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.04em; }
+        .rc-card-date { background: rgba(255,215,0,0.2); color: #FFD700; padding: 0.25rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; white-space: nowrap; }
+        .rc-cat { border-top: 1px solid #f0f4f2; }
+        .rc-cat:first-child { border-top: none; }
+        .rc-cat-header {
+            background: #f8fdf9;
+            padding: 0.7rem 1.3rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.88rem;
+            color: #1a3a2f;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .rc-cat-header::before { content: ''; width: 4px; height: 14px; background: #FFD700; border-radius: 2px; }
+        .rc-table { width: 100%; border-collapse: collapse; }
+        .rc-table tr { border-bottom: 1px solid #f0f4f2; }
+        .rc-table tr:last-child { border-bottom: none; }
+        .rc-table td { padding: 0.6rem 1.3rem; font-size: 0.88rem; color: #374151; vertical-align: middle; }
+        .rc-table td.rc-medal { width: 40px; font-size: 1.25rem; text-align: center; }
+        .rc-table td.rc-club { color: #6B7280; font-size: 0.8rem; text-align: right; }
+        .rc-time {
+            display: inline-block;
+            margin-left: 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #2E8B57;
+            background: #f0f7f3;
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+        }
+
+        /* ── Galerie ── */
+        .rc-gallery {
+            max-width: 1100px;
+            margin: 2.6rem auto 0;
+            padding: 0 1rem;
+        }
+        .rc-gallery h2 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--primary-dark, #1a3a2f);
+            font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+        .rc-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+        .rc-gallery-item {
+            display: block;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        }
+        .rc-gallery-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+        .rc-gallery-item:hover img { transform: scale(1.06); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../img/logfsrs2.png" alt="Logo FSRS">
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li><a href="federation.html">Fédération</a></li>
+                    <li><a href="disciplines.html">Disciplines</a></li>
+                    <li><a href="competition.html" class="active">Compétitions</a></li>
+                    <li><a href="ressources.html">Ressources</a></li>
+                    <li><a href="clubs.html">Clubs</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="inscription.html" class="btn-nav-cta">Nous rejoindre</a>
+        </div>
+    </header>
+
+    <article class="article-page">
+        <div class="article-page-hero">
+            <img src="../img/resultat2/resultat_compet_2026/WhatsApp Image 2026-08-24 at 14.26.41.jpeg" alt="Championnat du Sénégal de Roller Course 2026">
+            <div class="article-page-hero-overlay">
+                <span class="article-page-cat">Résultats</span>
+                <h1>Championnat du Sénégal de Roller Course 2026 — Résultats complets</h1>
+                <div class="article-page-meta">
+                    <span>📅 25-26 Juillet 2026</span>
+                    <span>✍️ FSRS</span>
+                    <span>📍 Dakar</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-page-body">
+            <p>Les <strong>25 et 26 juillet 2026</strong>, Dakar a accueilli le <strong>Championnat du Sénégal de Roller Course 2026</strong>, organisé par la Fédération Sénégalaise de Roller &amp; Skateboard (FSRS). Deux jours de compétition intense répartis sur quatre épreuves : le <strong>Speed 200M</strong>, le <strong>100M Road</strong>, le <strong>500M</strong> et le <strong>Marathon 42KM</strong>.</p>
+            <p>Retrouvez ci-dessous les podiums complets de chaque épreuve, toutes catégories confondues, ainsi que la galerie photo officielle de l'événement.</p>
+        </div>
+
+        <div class="rc-results" id="rc-results"></div>
+
+        <div class="rc-gallery">
+            <h2>Galerie photo</h2>
+            <div class="rc-gallery-grid" id="rc-gallery-grid"></div>
+        </div>
+
+        <div class="article-page-actions">
+            <a href="competition.html#resultats" class="article-page-back">← Retour aux résultats</a>
+            <span class="article-page-share">Partager : Facebook · Instagram · WhatsApp</span>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <img src="../img/logfsrs2.png" alt="Logo FSRS" class="footer-logo">
+                        <h3>FSRS</h3>
+                        <p class="footer-description">Fédération Sénégalaise de Roller &amp; Skateboard — Promouvant l'excellence sportive et les valeurs du sport depuis 2010.</p>
+                        <div class="footer-certifications">
+                            <span class="cert-badge">Membre CNO</span>
+                            <span class="cert-badge">Agréée MJSAC</span>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Navigation</h3>
+                        <ul class="footer-links">
+                            <li><a href="../index.html">Accueil</a></li>
+                            <li><a href="federation.html">Fédération</a></li>
+                            <li><a href="disciplines.html">Disciplines</a></li>
+                            <li><a href="competition.html">Compétitions</a></li>
+                            <li><a href="ressources.html">Ressources</a></li>
+                            <li><a href="clubs.html">Clubs</a></li>
+                            <li><a href="galerie.html">Galerie</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Contact</h3>
+                        <ul class="footer-contact">
+                            <li><span class="contact-icon">📍</span><span>Immeuble dispensaire Georges Lahoud, Dakar, Sénégal</span></li>
+                            <li><span class="contact-icon">📞</span><span>+221 33 812 64 24</span></li>
+                            <li><span class="contact-icon">✉️</span><span>secrétariat@fsrs.com</span></li>
+                            <li><span class="contact-icon">🕒</span><span>Lun-Ven: 9h-17h</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">&copy; 2026 Fédération Sénégalaise de Roller &amp; Skateboard. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/js/animations.js"></script>
+    <script src="../static/js/resultats.js"></script>
+    <script>
+    (function () {
+        const EVENT_KEY = 'roller-course-2026';
+        const GALLERY_DIR = '../img/resultat2/resultat_compet_2026/';
+        const GALLERY_FILES = [
+            'WhatsApp Image 2026-08-24 at 14.26.41.jpeg',
+            'WhatsApp Image 2026-08-24 at 14.26.41 (1).jpeg',
+            'WhatsApp Image 2026-08-24 at 14.26.42.jpeg',
+            'WhatsApp Image 2026-08-24 at 14.26.42 (1).jpeg',
+            'WhatsApp Image 2026-08-24 at 14.26.42 (2).jpeg'
+        ];
+
+        const renderRow = (p) => `
+            <tr>
+                <td class="rc-medal">${p.medaille}</td>
+                <td>
+                    <div>${p.nom}</div>
+                    <div style="font-size:0.72rem;color:#9CA3AF;">${p.pos}</div>
+                </td>
+                <td class="rc-club">${p.club}${p.temps ? `<span class="rc-time">${p.temps}</span>` : ''}</td>
+            </tr>
+        `;
+
+        const renderCategorie = (c) => `
+            <div class="rc-cat">
+                <div class="rc-cat-header">${c.nom}</div>
+                <table class="rc-table"><tbody>${c.podiums.map(renderRow).join('')}</tbody></table>
+            </div>
+        `;
+
+        const groups = (window.FSRS_RESULTATS || []).filter(r => r.eventKey === EVENT_KEY);
+        document.getElementById('rc-results').innerHTML = groups.map(r => `
+            <div class="rc-card">
+                <div class="rc-card-header">
+                    <h3>${r.titre.replace('Championnat du Sénégal de Roller Course 2026 — ', '')}</h3>
+                    <span class="rc-card-date">📅 ${r.date}</span>
+                </div>
+                ${r.categories.map(renderCategorie).join('')}
+            </div>
+        `).join('');
+
+        document.getElementById('rc-gallery-grid').innerHTML = GALLERY_FILES.map(file => `
+            <a class="rc-gallery-item" href="${encodeURI(GALLERY_DIR + file)}" target="_blank" rel="noopener">
+                <img src="${encodeURI(GALLERY_DIR + file)}" alt="Championnat du Sénégal de Roller Course 2026" loading="lazy">
+            </a>
+        `).join('');
+    })();
+    </script>
+</body>
+</html>

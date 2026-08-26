@@ -637,7 +637,7 @@
                     </button>
                     <div class="nc-track" id="nc-track">
                         ${items.map(n => {
-                            const articleHref = n.slug ? `views/actualite-${n.slug}.html` : 'views/competition.html#actualites';
+                            const articleHref = n.url ? `views/${n.url}` : (n.slug ? `views/actualite-${n.slug}.html` : 'views/competition.html#actualites');
                             return `
                             <article class="nc-slide">
                                 <div class="nc-slide-media">

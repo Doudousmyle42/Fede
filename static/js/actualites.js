@@ -13,68 +13,44 @@
 window.FSRS_ACTUALITES = [
     {
         slug: 'roller-course-2026',
-        imgFile: 'course.jpeg',
+        imgPath: 'img/resultat2/resultat_compet_2026/WhatsApp Image 2026-08-24 at 14.26.41.jpeg',
         categorie: 'Compétition',
-        date: '27-28 Juillet 2026',
-        dateEvent: '2026-07-28',
+        date: '25-26 Juillet 2026',
         auteur: 'FSRS',
-        titre: 'Championnat National de Roller Course 2026 à Dakar',
-        excerpt: "Les 27 et 28 juillet 2026, Dakar vibrera au rythme de la vitesse à l'occasion du Championnat National du Sénégal de Roller et Skate 2026 — Discipline Roller Course / Speed.",
+        titre: 'Championnat du Sénégal de Roller Course 2026 : Dakar a vibré au rythme de la vitesse',
+        excerpt: "Les 25 et 26 juillet 2026, Dakar a accueilli le Championnat National du Sénégal de Roller Course 2026 — Speed 200M, 100M Road, 500M et Marathon 42KM. Retour sur une édition spectaculaire.",
+        url: 'evenement-roller-course-2026.html',
         featured: true
     },
     {
-        slug: 'championnat-national-dakar',
-        imgFile: 'WhatsApp Image 2026-05-03 at 16.49.24.jpeg',
-        categorie: 'Compétition',
-        date: '24 Avril 2026',
-        auteur: 'FSRS',
-        titre: 'Grande affluence au Championnat National de Dakar',
-        excerpt: "La FSRS a organisé avec succès son championnat national annuel devant un public record. Athlètes, clubs et officiels ont fait vivre une édition mémorable marquée par un niveau sportif en nette progression."
-    },
-    {
-        slug: 'podium-national-roller',
-        imgFile: 'WhatsApp Image 2026-05-03 at 16.49.25.jpeg',
+        slug: 'resultats-speed-roller-course-2026',
+        imgPath: 'img/resultat2/resultat_compet_2026/WhatsApp Image 2026-08-24 at 14.26.42.jpeg',
         categorie: 'Résultats',
-        date: '23 Avril 2026',
+        date: '25 Juillet 2026',
         auteur: 'FSRS',
-        titre: 'Podium national : les nouveaux visages du roller sénégalais',
-        excerpt: "Retour sur les temps forts et les performances marquantes des athlètes qui ont dominé la dernière étape du circuit FSRS."
+        titre: 'Roller Course 2026 : les champions du Speed 200M, du 100M Road et du 500M',
+        excerpt: "Mouhamadou Yoro Borelli, Ibrahima Ba, Bakary Kébé, Samba Fall… retour sur les podiums du Speed 200M, du 100M Road et du 500M lors du Championnat du Sénégal de Roller Course 2026.",
+        url: 'evenement-roller-course-2026.html'
     },
     {
-        slug: 'ouverture-saison-2026',
-        imgFile: 'WhatsApp Image 2026-05-03 at 16.49.26.jpeg',
-        categorie: 'Compétition',
-        date: '15 Mai 2026',
-        dateEvent: '2026-05-15',
+        slug: 'marathon-42km-roller-course-2026',
+        imgPath: 'img/resultat2/resultat_compet_2026/WhatsApp Image 2026-08-24 at 14.26.42 (1).jpeg',
+        categorie: 'Résultats',
+        date: '26 Juillet 2026',
         auteur: 'FSRS',
-        titre: 'Ouverture officielle de la saison compétitive 2026',
-        excerpt: "Le coup d'envoi de la saison 2026 sera donné en présence des représentants du ministère des Sports et des clubs affiliés."
-    },
-    {
-        slug: 'selection-nationale-africaine',
-        imgFile: 'WhatsApp Image 2026-05-03 at 16.49.27.jpeg',
-        categorie: 'International',
-        date: '10 Juin 2026',
-        dateEvent: '2026-06-10',
-        auteur: 'FSRS',
-        titre: 'La sélection nationale en préparation pour la compétition africaine',
-        excerpt: "Nos athlètes intensifient leur préparation en vue du prochain rendez-vous continental. Un stage de perfectionnement est prévu à Dakar."
-    },
-    {
-        slug: 'stage-encadrement-entraineurs',
-        imgFile: 'WhatsApp Image 2026-05-03 at 16.49.28.jpeg',
-        categorie: 'Formation',
-        date: '25 Mai 2026',
-        dateEvent: '2026-05-25',
-        auteur: 'FSRS',
-        titre: "Stage d'encadrement technique pour les entraîneurs",
-        excerpt: "La fédération organise un séminaire de formation destiné aux entraîneurs de clubs afin d'harmoniser les méthodes d'encadrement."
+        titre: 'Marathon 42KM : Amadou Sané et Ibrahima Ba sacrés au Roller Course 2026',
+        excerpt: "Amadou Sané (Maestro Roller) s'impose en Senior avec un chrono de 1:27:17, tandis qu'Ibrahima Ba domine la catégorie Junior en 1:40:17 lors du Marathon 42KM du Championnat du Sénégal de Roller Course 2026.",
+        url: 'evenement-roller-course-2026.html'
     }
 ];
 
 // Retourne les actualités encore valides (dateEvent + 24h >= maintenant).
-// basePath : chemin relatif vers img/compet2/ depuis la page appelante.
-window.FSRS_getActiveActualites = function(basePath) {
+// basePath : chemin relatif vers img/compte3/ depuis la page appelante.
+// rootBase : chemin relatif vers la racine du site depuis la page appelante
+//            ('' pour index.html, '../' pour les pages de views/) — utilisé
+//            pour les entrées qui fournissent `imgPath` (chemin complet
+//            depuis la racine) plutôt que `imgFile`.
+window.FSRS_getActiveActualites = function(basePath, rootBase) {
     const now = Date.now();
     const grace = 24 * 60 * 60 * 1000;
     return window.FSRS_ACTUALITES
@@ -84,6 +60,6 @@ window.FSRS_getActiveActualites = function(basePath) {
             return (evt + grace) >= now;
         })
         .map(n => Object.assign({}, n, {
-            img: (basePath || '') + n.imgFile
+            img: n.imgPath ? (rootBase || '') + n.imgPath : (basePath || '') + n.imgFile
         }));
 };

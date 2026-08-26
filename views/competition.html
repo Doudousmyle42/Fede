@@ -777,6 +777,16 @@
         }
         .result-header h3 { color: white; font-size: 0.95rem; font-weight: 700; }
         .result-date { background: rgba(255,215,0,0.2); color: #FFD700; padding: 0.25rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
+        .result-event-link {
+            display: inline-block;
+            margin: 0 1.3rem 1.2rem;
+            color: #2E8B57;
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .result-event-link:hover { color: #1a3a2f; text-decoration: underline; }
 
         /* Résultats — lieu + catégories multiples */
         .result-lieu {
@@ -831,6 +841,16 @@
         }
         .podium-table td.col-rank { text-align: center; width: 70px; }
         .podium-table td.col-club { color: #6B7280; font-size: 0.82rem; }
+        .podium-time {
+            display: inline-block;
+            margin-left: 0.4rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #2E8B57;
+            background: #f0f7f3;
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+        }
 
         .rank-medal {
             display: inline-flex; align-items: center; justify-content: center;
@@ -1204,6 +1224,7 @@
 
     <script src="../static/js/animations.js"></script>
     <script src="../static/js/actualites.js"></script>
+    <script src="../static/js/resultats.js"></script>
     <script>
     // ════════════════════════════════════════
     // DONNÉES
@@ -1232,68 +1253,14 @@
         { jour:"18", mois:"Oct", annee:"2025", titre:"Grand Prix Sénégal — Football Skating",  lieu:"Terrain Synthétique, Ziguinchor",       disciplines:["Football Skating"],                     statut:"upcoming" },
     ];
 
-    const resultats = [
-        {
-            titre:"Championnat National du Sénégal de Skateboard 2026",
-            date:"Mai 2026",
-            lieu:"Place des Cultures Urbaines, Dakar",
-            categories:[
-                {
-                    nom:"Street — Garçons",
-                    podiums:[
-                        { pos:"1er",  medaille:"🥇", nom:"Thierno Souleyman Diallo", club:"Maestro Roller",   photo:"../img/resultat/Thierno Souleymane Diallo.jpeg" },
-                        { pos:"2ème", medaille:"🥈", nom:"Pape Diop Sabaly",         club:"Massif",           photo:"../img/resultat/Pape Diop Sabaly.jpeg" },
-                        { pos:"3ème", medaille:"🥉", nom:"Mouhamed Mbengue",         club:"Skate Park PCU",   photo:null },
-                    ]
-                },
-                {
-                    nom:"Street — Filles",
-                    podiums:[
-                        { pos:"1ère", medaille:"🥇", nom:"Khady Kouta Ndiaye", club:"PIJ Rollers",            photo:"../img/resultat/Khady Kouta Ndiaye.jpeg" },
-                        { pos:"2ème", medaille:"🥈", nom:"Awa Ngom",           club:"Crazy Raiders de Thiès", photo:null },
-                        { pos:"3ème", medaille:"🥉", nom:"Sira Sabaly",        club:"Massif",                 photo:"../img/resultat/Sira Sabaly.jpeg" },
-                    ]
-                },
-                {
-                    nom:"Park — Garçons",
-                    podiums:[
-                        { pos:"1er",  medaille:"🥇", nom:"Souleyman Diallo",   club:"Maestro Roller", photo:"../img/resultat/Thierno Souleymane Diallo.jpeg" },
-                        { pos:"2ème", medaille:"🥈", nom:"Pape Diop Sabaly",   club:"Massif",         photo:"../img/resultat/Pape Diop Sabaly.jpeg" },
-                        { pos:"3ème", medaille:"🥉", nom:"Latyr Diouf",        club:"PCU",            photo:"../img/resultat/latyr.jpeg" },
-                    ]
-                },
-                {
-                    nom:"Park — Filles",
-                    podiums:[
-                        { pos:"1ère", medaille:"🥇", nom:"Khady Kouta Ndiaye", club:"PIJ Rollers", photo:"../img/resultat/Khady Kouta Ndiaye.jpeg" },
-                        { pos:"2ème", medaille:"🥈", nom:"Sira Sabaly",        club:"Massif",      photo:"../img/resultat/Sira Sabaly.jpeg" },
-                    ]
-                },
-                {
-                    nom:"Street — Garçons (5 à 10 ans)",
-                    podiums:[
-                        { pos:"1er",  medaille:"🥇", nom:"Mouhamed Travoré",        club:"Maestro Roller",        photo:"../img/resultat/MOUHAMED Traoré.jpeg" },
-                        { pos:"2ème", medaille:"🥈", nom:"Mouhamedou Yoro Borelli", club:"Dak'Street Skateboard", photo:"../img/resultat/yoroborelli.jpeg" },
-                        { pos:"3ème", medaille:"🥉", nom:"Mamadou Woury Diallo",    club:"PCU",                   photo:null },
-                    ]
-                },
-                {
-                    nom:"Street — Filles (5 à 10 ans)",
-                    podiums:[
-                        { pos:"1ère", medaille:"🥇", nom:"Denysia Traoré", club:"Sébikhotane", photo:null },
-                        { pos:"2ème", medaille:"🥈", nom:"LaLa Traoré",    club:"PCU",         photo:null },
-                        { pos:"3ème", medaille:"🥉", nom:"Fatou Samb",     club:"PCU",         photo:null },
-                    ]
-                },
-            ]
-        },
-    ];
+    // Source partagée : static/js/resultats.js (utilisé aussi par les pages événement)
+    const resultats = window.FSRS_RESULTATS;
 
     // ════════════════════════════════════════
     // ACTUALITÉS (source partagée : static/js/actualites.js)
     // Les articles sont automatiquement retirés 24h après leur dateEvent.
     // ════════════════════════════════════════
-    const actualites = window.FSRS_getActiveActualites('../img/compte3/');
+    const actualites = window.FSRS_getActiveActualites('../img/compte3/', '../');
 
     const newsState = { cat: '' };
 
@@ -1306,7 +1273,7 @@
 
         const featContainer = document.getElementById('news-featured-container');
         if (featured) {
-            const featuredHref = featured.slug ? `actualite-${featured.slug}.html` : '#';
+            const featuredHref = featured.url ? featured.url : (featured.slug ? `actualite-${featured.slug}.html` : '#');
             featContainer.innerHTML = `
                 <article class="news-featured">
                     <a class="news-featured-img" href="${featuredHref}">
@@ -1340,7 +1307,7 @@
 
         // Grid
         document.getElementById('news-grid').innerHTML = rest.map(n => {
-            const href = n.slug ? `actualite-${n.slug}.html` : '#';
+            const href = n.url ? n.url : (n.slug ? `actualite-${n.slug}.html` : '#');
             return `
             <article class="news-card">
                 <a class="news-card-img" href="${href}">
@@ -1657,7 +1624,7 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="col-club">${p.club}</td>
+                        <td class="col-club">${p.club}${p.temps ? ` <span class="podium-time">${p.temps}</span>` : ''}</td>
                     </tr>
                 `;
             }).join('');
@@ -1675,6 +1642,9 @@
         document.getElementById('results-list').innerHTML = resultats.map(r => {
             const lieuLine = r.lieu ? `<div class="result-lieu">📍 ${r.lieu}</div>` : '';
             const categories = r.categories || [{ nom: r.titre, podiums: r.podiums || [] }];
+            const eventLink = r.eventPage
+                ? `<a class="result-event-link" href="${r.eventPage}">Voir la page de l'événement →</a>`
+                : '';
             return `
                 <div class="result-card">
                     <div class="result-header">
@@ -1685,6 +1655,7 @@
                     <div class="result-categories">
                         ${categories.map(renderCategorie).join('')}
                     </div>
+                    ${eventLink}
                 </div>
             `;
         }).join('');

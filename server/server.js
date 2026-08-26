@@ -9,6 +9,7 @@ require('dotenv').config();
 const express    = require('express');
 const cors       = require('cors');
 const path       = require('path');
+const fs         = require('fs');
 const crypto     = require('crypto');
 const nodemailer = require('nodemailer');
 
@@ -27,17 +28,62 @@ app.use(express.static(path.join(__dirname, '..')));
    En production multi-instances, remplacer par Redis.            */
 const codeStore = new Map();
 
+/* ───────────── Jetons d'e-mail verifie (en memoire) ─────────────
+   Map: token -> { email, expiresAt }
+   Delivre a la verification du code, consomme par /api/licence/next
+   pour garantir qu'un numero de licence n'est attribue qu'apres
+   verification reelle de l'adresse.                                */
+const verifiedTokens = new Map();
+
 const CODE_TTL_MS        = 10 * 60 * 1000; // validite du code : 10 min
 const RESEND_COOLDOWN_MS = 60 * 1000;      // delai mini entre 2 envois
 const MAX_ATTEMPTS       = 5;              // essais avant blocage du code
+const TOKEN_TTL_MS       = 30 * 60 * 1000; // validite du jeton "e-mail verifie" : 30 min
 
-// Purge periodique des codes expires
+// Purge periodique des codes et jetons expires
 setInterval(() => {
     const now = Date.now();
     for (const [email, entry] of codeStore) {
         if (entry.expiresAt < now) codeStore.delete(email);
     }
+    for (const [token, entry] of verifiedTokens) {
+        if (entry.expiresAt < now) verifiedTokens.delete(token);
+    }
 }, 5 * 60 * 1000).unref();
+
+/* ───────────── Compteurs de licence (persistes sur disque) ─────────────
+   Numerotation sequentielle, continue (jamais reinitialisee), par
+   profil, attribuee dans l'ordre reel d'arrivee des demandes.        */
+const DATA_DIR      = path.join(__dirname, 'data');
+const COUNTERS_FILE = path.join(DATA_DIR, 'licence-counters.json');
+const PROFILES      = ['comite', 'staff', 'athlete'];
+
+function loadCounters() {
+    if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+    if (!fs.existsSync(COUNTERS_FILE)) {
+        const initial = { comite: 0, staff: 0, athlete: 0 };
+        fs.writeFileSync(COUNTERS_FILE, JSON.stringify(initial, null, 2));
+        return initial;
+    }
+    try {
+        const raw = JSON.parse(fs.readFileSync(COUNTERS_FILE, 'utf8'));
+        return { comite: raw.comite || 0, staff: raw.staff || 0, athlete: raw.athlete || 0 };
+    } catch {
+        return { comite: 0, staff: 0, athlete: 0 };
+    }
+}
+
+const counters = loadCounters();
+
+function persistCounters() {
+    fs.writeFileSync(COUNTERS_FILE, JSON.stringify(counters, null, 2));
+}
+
+function formatNumero(profile, n) {
+    if (profile === 'comite')  return 'SN-' + String(n).padStart(2, '0');
+    if (profile === 'staff')   return 'S-SN' + String(n).padStart(3, '0');
+    return 'A-SN' + String(n).padStart(3, '0'); // athlete
+}
 
 /* ───────────── Transport e-mail (nodemailer) ───────────── */
 let transporter = null;
@@ -190,7 +236,41 @@ app.post('/api/email/verify-code', (req, res) => {
 
     // Succes : le code est consomme
     codeStore.delete(email);
-    res.json({ ok: true, message: 'Adresse e-mail vérifiée.' });
+
+    // Delivre un jeton a usage unique attestant que cette adresse est
+    // verifiee ; requis ensuite pour obtenir un numero de licence.
+    const token = crypto.randomBytes(24).toString('hex');
+    verifiedTokens.set(token, { email, expiresAt: Date.now() + TOKEN_TTL_MS });
+
+    res.json({ ok: true, message: 'Adresse e-mail vérifiée.', token });
+});
+
+// Attribution du numero de licence suivant (ordre d'arrivee, par profil).
+// N'accepte que les demandes accompagnees d'un jeton d'e-mail verifie valide.
+app.post('/api/licence/next', (req, res) => {
+    const profile = String(req.body.profile || '');
+    const email   = normalizeEmail(req.body.email);
+    const token   = String(req.body.token || '');
+
+    if (!PROFILES.includes(profile)) {
+        return res.status(400).json({ ok: false, error: 'Profil de licence invalide.' });
+    }
+
+    const entry = verifiedTokens.get(token);
+    if (!entry || entry.email !== email || entry.expiresAt < Date.now()) {
+        return res.status(403).json({
+            ok: false,
+            error: "Adresse e-mail non vérifiée ou session de vérification expirée."
+        });
+    }
+
+    // Jeton a usage unique : consomme immediatement.
+    verifiedTokens.delete(token);
+
+    counters[profile]++;
+    persistCounters();
+
+    res.json({ ok: true, numero: formatNumero(profile, counters[profile]) });
 });
 
 // Verification de l'etat du serveur

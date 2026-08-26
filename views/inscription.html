@@ -86,6 +86,7 @@
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_autoresponse" value="Bonjour, votre demande de licence FSRS a bien été reçue. Notre secrétariat examinera votre dossier sous 7 jours ouvrés et vous recontactera à cette adresse. Cordialement, Fédération Sénégalaise de Roller & Skateboard.">
             <input type="hidden" name="_referenceDossier" id="refField" value="">
+            <input type="hidden" name="numeroLicence" id="numeroLicenceField" value="">
 
             <!-- ─────────── ÉTAPE 1 : Sélection profil ─────────── -->
             <section class="step-panel active" data-panel="1">
@@ -552,6 +553,9 @@
                     <h2>Demande envoyée !</h2>
                     <p>Votre dossier a été transmis au secrétariat de la FSRS. Vous recevrez sous 7 jours ouvrés un e-mail à l'adresse indiquée avec votre numéro de licence officiel.</p>
                     <div class="ref-box">
+                        Numéro de licence attribué : <strong id="licenceNumberDisplay">—</strong>
+                    </div>
+                    <div class="ref-box">
                         Référence dossier : <strong id="refNumber">—</strong>
                     </div>
                     <a href="../index.html" class="btn-primary">Retour à l'accueil</a>
@@ -678,6 +682,7 @@
         const EMAIL_RE   = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
         const emailState = { verified: false, value: '' };
         let resendTimer  = null;
+        let verifiedToken = null; // jeton "e-mail vérifié" — requis pour obtenir un numéro de licence
 
         function setStatus(el, msg, kind) {
             el.textContent = msg || '';
@@ -722,6 +727,7 @@
         function resetVerification() {
             emailState.verified = false;
             emailState.value    = '';
+            verifiedToken       = null;
             emailVerifiedFld.value = 'non';
             emailInput.readOnly = false;
             sendCodeBtn.hidden  = false;
@@ -799,6 +805,7 @@
                     setTimeout(() => codeInputs.classList.remove('shake'), 400);
                     return;
                 }
+                verifiedToken = data.token || null;
                 markVerified();
             } catch (err) {
                 confirmCodeBtn.disabled = false;
@@ -879,10 +886,9 @@
             setBind('prenom',        (data.get('prenom') || ''));
             setBind('dateNaissance', formatDate(data.get('dateNaissance')));
 
-            // Numéro indicatif
-            const prefix = profile === 'athlete' ? 'A-SN' : profile === 'staff' ? 'S-SN' : 'SN-';
-            const rand   = String(Math.floor(100 + Math.random() * 900));
-            setBind('numlicence', prefix + rand + ' (provisoire)');
+            // Le numéro définitif est attribué par le serveur à la soumission,
+            // dans l'ordre réel d'arrivée des demandes.
+            setBind('numlicence', 'Attribué à la soumission');
 
             // Contexte variable
             let label = '', value = '';
@@ -966,6 +972,35 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = 'Envoi en cours…';
 
+            // Attribution du numéro de licence définitif (ordre d'arrivée),
+            // uniquement possible avec une adresse e-mail vérifiée.
+            let numero;
+            try {
+                const licRes = await fetch(API_BASE + '/api/licence/next', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        profile: form.dataset.activeRole,
+                        email:   emailState.value,
+                        token:   verifiedToken
+                    })
+                });
+                const licData = await licRes.json().catch(() => ({}));
+                if (!licRes.ok || !licData.ok) throw new Error(licData.error || "Numéro de licence indisponible.");
+                numero = licData.numero;
+            } catch (err) {
+                console.error('Erreur attribution du numéro de licence :', err);
+                alert(err.message && err.message !== 'Failed to fetch'
+                    ? err.message
+                    : "Le service d'attribution des licences est injoignable. Démarrez le serveur (dossier /server) ou réessayez plus tard.");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalLabel;
+                return;
+            }
+
+            document.getElementById('numeroLicenceField').value = numero;
+            document.querySelectorAll('[data-bind="numlicence"]').forEach(n => n.textContent = numero);
+
             try {
                 const response = await fetch(form.action, {
                     method: 'POST',
@@ -973,6 +1008,7 @@
                     headers: { 'Accept': 'application/json' }
                 });
                 if (!response.ok) throw new Error('HTTP ' + response.status);
+                document.getElementById('licenceNumberDisplay').textContent = numero;
                 showPanel('success');
             } catch (err) {
                 console.error('Erreur envoi formulaire :', err);
